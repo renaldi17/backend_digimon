@@ -42,3 +42,7 @@ Route::post('login', [LoginController::class, 'login']);
 // Route for logout (optional)
 Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
+// Route buat detail wisata
+Route::get('/detail-wisata', function () {
+    return view('detail-wisata');
+});
