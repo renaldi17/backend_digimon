@@ -19,8 +19,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('dashboard', ['title' => 'Dashboard']);
 });
+
 Route::resource('galeri', GaleriController::class);
 Route::resource('informasi', InformasiController::class);
 Route::resource('produk-hukum', ProdukHukumController::class);
