@@ -30,7 +30,7 @@ DOKUMENTASI UNTUK MEMBUAT GRAFIK:
 <body>
     <main class="font-poppins flex flex-col items-center gap-48 my-36">
         {{-- Tulisan Judul --}}
-        <div id="title" class="flex flex-col items-center w-full text-4xl">
+        <div id="title" class="flex flex-col items-center w-full text-4xl text-center">
             <h1 class="font-bold text-green-900">
                 Infografis <b class="text-black">Tegalmanggung</b>
                 <div class="w-[10%] h-[2px] shrink-0 bg-green-900 ml-[35%]"></div>
@@ -45,7 +45,7 @@ DOKUMENTASI UNTUK MEMBUAT GRAFIK:
                     <div class="w-[140px] h-[140px] shrink-0">
                         <img src="assets/civilian.svg" alt="Penduduk">
                     </div>
-                    <h3 class="text-2xl"><strong>Demografi Penduduk</strong></h3>
+                    <h3 class="text-2xl text-center"><strong>Demografi Penduduk</strong></h3>
                     {{-- Untuk bagian total bisa diisi dengan database secara dinamis --}}
                     <p>Total: 100</p>
                 </div>
@@ -84,7 +84,7 @@ DOKUMENTASI UNTUK MEMBUAT GRAFIK:
                     <div class="w-[140px] h-[140px] shrink-0">
                         <img src="assets/education.svg" alt="Penduduk">
                     </div>
-                    <h3 class="text-2xl"><strong>Lulusan Pendidikan</strong></h3>
+                    <h3 class="text-2xl text-center"><strong>Lulusan Pendidikan</strong></h3>
                     {{-- Untuk bagian total bisa diisi dengan database secara dinamis --}}
                     <p>Total: 100</p>
                 </div>
@@ -193,7 +193,7 @@ DOKUMENTASI UNTUK MEMBUAT GRAFIK:
                     <div class="w-[140px] h-[140px] shrink-0">
                         <img src="assets/work.svg" alt="Pekerjaan">
                     </div>
-                    <h3 class="text-2xl"><strong>Pekerjaan</strong></h3>
+                    <h3 class="text-2xl text-center"><strong>Pekerjaan</strong></h3>
                     {{-- Untuk bagian total bisa diisi dengan database secara dinamis --}}
                     <p>Total: 100</p>
                 </div>
