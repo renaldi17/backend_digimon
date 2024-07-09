@@ -107,3 +107,8 @@ Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/detail-wisata', function () {
     return view('detail-wisata');
 });
+
+// Route untuk infografis (sementara)
+Route::get('/infografis', function () {
+    return view('infografis');
+});

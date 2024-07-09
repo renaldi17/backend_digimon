@@ -77,6 +77,7 @@ export default {
             },
             fontFamily: {
                 sans: ["Inter var", ...defaultTheme.fontFamily.sans],
+                poppins: ['"Poppins"', "sans-serif"],
             },
             keyframes: {
                 "accordion-down": {
