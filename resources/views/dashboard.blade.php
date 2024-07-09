@@ -366,11 +366,11 @@
                     <x-ui.carousel.root id="news-carousel" class="h-full">
                         <x-ui.carousel.content
                             id="news-carousel-content"
-                            class="-ml-12 h-full"
+                            class="-ml-6 h-full lg:-ml-12"
                         >
                             @foreach ($news as $newsItem)
                                 <x-ui.carousel.item
-                                    class="pl-12 sm:basis-1/2 md:basis-1/3"
+                                    class="pl-6 sm:basis-1/2 lg:basis-1/3 lg:pl-12"
                                 >
                                     <x-ui.card.root>
                                         <img
@@ -419,10 +419,262 @@
                         </x-ui.carousel.content>
                     </x-ui.carousel.root>
                 </div>
+
+                <div class="mt-6 flex justify-center">
+                    <x-ui.button
+                        href="#"
+                        class="w-full max-w-80 bg-green-pea-600 hover:bg-green-pea-500"
+                    >
+                        Lihat Lebih Banyak
+                    </x-ui.button>
+                </div>
+            </section>
+
+            <section class="container mt-6 pt-12">
+                <h2
+                    class="scroll-m-20 pb-2 text-center text-3xl font-semibold tracking-tight text-green-pea-600 first:mt-0"
+                >
+                    Berita Penghargaan
+                </h2>
+                <p class="text-center text-xl text-muted-foreground">
+                    Berita yang disediakan seputar kegiatan dan juga agenda
+                    kelurahan Jayawaras
+                </p>
+
+                <div class="mt-6">
+                    <x-ui.carousel.root id="news-award-carousel" class="h-full">
+                        <x-ui.carousel.content
+                            id="news-award-carousel-content"
+                            class="-ml-6 h-full lg:-ml-12"
+                        >
+                            @foreach ($news as $newsItem)
+                                <x-ui.carousel.item
+                                    class="pl-6 sm:basis-1/2 lg:basis-1/3 lg:pl-12"
+                                >
+                                    <x-ui.card.root>
+                                        <img
+                                            class="h-48 w-full object-cover object-top"
+                                            src="{{ $newsItem["image"] }}"
+                                            alt="{{ $newsItem["title"] . " Image" }}"
+                                        />
+
+                                        <x-ui.card.header>
+                                            <div
+                                                class="flex items-center justify-between"
+                                            >
+                                                <x-ui.card.title
+                                                    class="max-w-[65%] truncate"
+                                                >
+                                                    {{ $newsItem["title"] }}
+                                                </x-ui.card.title>
+
+                                                <span
+                                                    class="text-xs text-muted-foreground"
+                                                >
+                                                    {{ $newsItem["publishedAt"]->format("Y-m-d") }}
+                                                    <i
+                                                        class="fa-regular fa-calendar ml-1"
+                                                    ></i>
+                                                </span>
+                                            </div>
+                                            <x-ui.card.description
+                                                class="line-clamp-3"
+                                            >
+                                                {{ $newsItem["description"] }}
+                                            </x-ui.card.description>
+                                        </x-ui.card.header>
+
+                                        <x-ui.card.footer class="justify-end">
+                                            <x-ui.button
+                                                variant="ghost"
+                                                href="/news/{{  $newsItem['slug'] }}"
+                                            >
+                                                Baca Selengkapnya
+                                            </x-ui.button>
+                                        </x-ui.card.footer>
+                                    </x-ui.card.root>
+                                </x-ui.carousel.item>
+                            @endforeach
+                        </x-ui.carousel.content>
+                    </x-ui.carousel.root>
+                </div>
+
+                <div class="mt-6 flex justify-center">
+                    <x-ui.button
+                        class="w-full max-w-80 bg-green-pea-600 hover:bg-green-pea-500"
+                        href="#"
+                    >
+                        Lihat Lebih Banyak
+                    </x-ui.button>
+                </div>
+            </section>
+
+            <section class="container mt-6 pt-12">
+                <h2
+                    class="scroll-m-20 pb-2 text-center text-3xl font-semibold tracking-tight text-green-pea-600 first:mt-0"
+                >
+                    Wisata Alam
+                </h2>
+                <p class="text-center text-xl text-muted-foreground">
+                    Rekomendasi Wisata Alam yang ada Di desa Tegal Manggung
+                </p>
+
+                <div class="mt-6">
+                    <x-ui.carousel.root
+                        id="natural-tourism-carousel"
+                        class="h-full"
+                    >
+                        <x-ui.carousel.content
+                            id="natural-tourism-carousel-content"
+                            class="-ml-6 h-full lg:-ml-12"
+                        >
+                            @foreach ($news as $newsItem)
+                                <x-ui.carousel.item
+                                    class="pl-6 sm:basis-1/2 lg:basis-1/3 lg:pl-12"
+                                >
+                                    <x-ui.card.root>
+                                        <img
+                                            class="h-48 w-full object-cover object-top"
+                                            src="{{ $newsItem["image"] }}"
+                                            alt="{{ $newsItem["title"] . " Image" }}"
+                                        />
+
+                                        <x-ui.card.header>
+                                            <div
+                                                class="flex items-center justify-between"
+                                            >
+                                                <x-ui.card.title
+                                                    class="max-w-[65%] truncate"
+                                                >
+                                                    {{ $newsItem["title"] }}
+                                                </x-ui.card.title>
+
+                                                <span
+                                                    class="text-xs text-muted-foreground"
+                                                >
+                                                    {{ $newsItem["publishedAt"]->format("Y-m-d") }}
+                                                    <i
+                                                        class="fa-regular fa-calendar ml-1"
+                                                    ></i>
+                                                </span>
+                                            </div>
+                                            <x-ui.card.description
+                                                class="line-clamp-3"
+                                            >
+                                                {{ $newsItem["description"] }}
+                                            </x-ui.card.description>
+                                        </x-ui.card.header>
+
+                                        <x-ui.card.footer class="justify-end">
+                                            <x-ui.button
+                                                variant="ghost"
+                                                href="/news/{{  $newsItem['slug'] }}"
+                                            >
+                                                Baca Selengkapnya
+                                            </x-ui.button>
+                                        </x-ui.card.footer>
+                                    </x-ui.card.root>
+                                </x-ui.carousel.item>
+                            @endforeach
+                        </x-ui.carousel.content>
+                    </x-ui.carousel.root>
+                </div>
+
+                <div class="mt-6 flex justify-center">
+                    <x-ui.button
+                        class="w-full max-w-80 bg-green-pea-600 hover:bg-green-pea-500"
+                        href="#"
+                    >
+                        Lihat Lebih Banyak
+                    </x-ui.button>
+                </div>
+            </section>
+
+            <section class="container mt-6 pt-12">
+                <h2
+                    class="scroll-m-20 pb-2 text-center text-3xl font-semibold tracking-tight text-green-pea-600 first:mt-0"
+                >
+                    Produk UMKM
+                </h2>
+                <p class="text-center text-xl text-muted-foreground">
+                    Rekomendasi Produk UMKM yang ada Di desa Tegal Manggung
+                </p>
+
+                <div class="mt-6">
+                    <x-ui.carousel.root id="umkm-carousel" class="h-full">
+                        <x-ui.carousel.content
+                            id="umkm-carousel-content"
+                            class="-ml-6 h-full lg:-ml-12"
+                        >
+                            @foreach ($news as $newsItem)
+                                <x-ui.carousel.item
+                                    class="pl-6 sm:basis-1/2 lg:basis-1/3 lg:pl-12"
+                                >
+                                    <x-ui.card.root>
+                                        <img
+                                            class="h-48 w-full object-cover object-top"
+                                            src="{{ $newsItem["image"] }}"
+                                            alt="{{ $newsItem["title"] . " Image" }}"
+                                        />
+
+                                        <x-ui.card.header>
+                                            <div
+                                                class="flex items-center justify-between"
+                                            >
+                                                <x-ui.card.title
+                                                    class="max-w-[65%] truncate"
+                                                >
+                                                    {{ $newsItem["title"] }}
+                                                </x-ui.card.title>
+
+                                                <span
+                                                    class="text-xs text-muted-foreground"
+                                                >
+                                                    {{ $newsItem["publishedAt"]->format("Y-m-d") }}
+                                                    <i
+                                                        class="fa-regular fa-calendar ml-1"
+                                                    ></i>
+                                                </span>
+                                            </div>
+                                            <x-ui.card.description
+                                                class="line-clamp-3"
+                                            >
+                                                {{ $newsItem["description"] }}
+                                            </x-ui.card.description>
+                                        </x-ui.card.header>
+
+                                        <x-ui.card.footer class="justify-end">
+                                            <x-ui.button
+                                                variant="ghost"
+                                                href="/news/{{  $newsItem['slug'] }}"
+                                            >
+                                                Baca Selengkapnya
+                                            </x-ui.button>
+                                        </x-ui.card.footer>
+                                    </x-ui.card.root>
+                                </x-ui.carousel.item>
+                            @endforeach
+                        </x-ui.carousel.content>
+                    </x-ui.carousel.root>
+                </div>
+
+                <div class="mt-6 flex justify-center">
+                    <x-ui.button
+                        class="w-full max-w-80 bg-green-pea-600 hover:bg-green-pea-500"
+                        href="#"
+                    >
+                        Lihat Lebih Banyak
+                    </x-ui.button>
+                </div>
             </section>
         </main>
 
         <x-ui.carousel.script id="hero-carousel"></x-ui.carousel.script>
         <x-ui.carousel.script id="news-carousel"></x-ui.carousel.script>
+        <x-ui.carousel.script id="news-award-carousel"></x-ui.carousel.script>
+        <x-ui.carousel.script
+            id="natural-tourism-carousel"
+        ></x-ui.carousel.script>
+        <x-ui.carousel.script id="umkm-carousel"></x-ui.carousel.script>
     </body>
 </html>
