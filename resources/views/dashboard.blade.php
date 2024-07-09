@@ -240,6 +240,104 @@
                     ></iframe>
                 </div>
             </section>
+
+            <section class="container py-12">
+                <h2
+                    class="scroll-m-20 pb-2 text-center text-3xl font-semibold tracking-tight first:mt-0"
+                >
+                    Informasi Tegal Manggung
+                </h2>
+
+                <div class="mx-auto mt-4 flex max-w-screen-lg">
+                    <div
+                        class="flex h-full w-full flex-col items-center justify-start gap-y-2 rounded-md px-2 py-4 text-center"
+                    >
+                        <div
+                            class="flex aspect-square items-center justify-center rounded-full"
+                        >
+                            <i
+                                class="fa-solid fa-user h-12 w-12 text-zinc-800"
+                            ></i>
+                        </div>
+                        <div>
+                            <h6 class="text-lg font-semibold">Penduduk Pria</h6>
+                            <p>67</p>
+                        </div>
+                    </div>
+                    <div
+                        class="flex h-full w-full flex-col items-center justify-start gap-y-2 rounded-md px-2 py-4 text-center"
+                    >
+                        <div
+                            class="flex aspect-square items-center justify-center rounded-full"
+                        >
+                            <i
+                                class="fa-solid fa-users h-24 w-24 text-zinc-800"
+                            ></i>
+                        </div>
+                        <div>
+                            <h6 class="text-lg font-semibold">
+                                Total Penduduk
+                            </h6>
+                            <p>245</p>
+                        </div>
+                    </div>
+                    <div
+                        class="flex h-full w-full flex-col items-center justify-start gap-y-2 rounded-md px-2 py-4 text-center"
+                    >
+                        <div
+                            class="flex aspect-square items-center justify-center rounded-full"
+                        >
+                            <i
+                                class="fa-solid fa-user h-12 w-12 text-zinc-800"
+                            ></i>
+                        </div>
+                        <div>
+                            <h6 class="text-lg font-semibold">
+                                Penduduk Wanita
+                            </h6>
+                            <p>99</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8">
+                    <div
+                        class="flex h-full w-full flex-row justify-center gap-x-2 md:gap-x-8"
+                    >
+                        <div class="flex aspect-square p-4">
+                            <i
+                                class="fa-solid fa-chart-pie h-32 w-32 text-zinc-800"
+                            ></i>
+                        </div>
+                        <div class="space-y-2">
+                            <div>
+                                <h6 class="text-lg font-semibold">
+                                    Luas Tanah Kas Desa
+                                </h6>
+                                <p class="flex items-center">
+                                    <span>2.500 m</span>
+                                    <sup>2</sup>
+                                </p>
+                            </div>
+                            <div>
+                                <h6 class="text-lg font-semibold">
+                                    Luas Tanah Di Desa
+                                </h6>
+                                <p class="flex items-center">
+                                    <span>67</span>
+                                </p>
+                            </div>
+                            <div>
+                                <h6 class="text-lg font-semibold">Luas DHKP</h6>
+                                <p class="flex items-center">
+                                    <span>4.560.000 m</span>
+                                    <sup>2</sup>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </main>
 
         <x-ui.carousel.script id="hero-carousel"></x-ui.carousel.script>
