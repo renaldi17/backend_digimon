@@ -4,7 +4,7 @@
 >
     {{-- Sosial Media --}}
     <section
-        class="container hidden items-center justify-between bg-[#2C5D3C] py-2 text-zinc-50 sm:flex"
+        class="container hidden items-center justify-between bg-[#2C5D3C] py-2 text-zinc-50 md:flex"
     >
         <div class="flex gap-x-4">
             <div>
@@ -133,7 +133,7 @@
     {{-- Navigation Links Mobile --}}
     <section
         id="mobile-menu"
-        class="fixed top-0 z-50 h-screen w-screen bg-background transition-transform duration-300 ease-in-out md:hidden"
+        class="fixed right-0 top-0 z-50 h-screen w-screen bg-background transition-transform duration-300 ease-in-out sm:max-w-sm md:hidden"
         x-show="isOpen"
         x-transition:enter="transition duration-300 ease-out"
         x-transition:enter-start="translate-x-full transform"
@@ -286,4 +286,16 @@
             </section>
         </div>
     </section>
+
+    <div
+        x-show="isOpen"
+        x-transition:enter="transition duration-300 ease-out"
+        x-transition:enter-start="translate-x-full transform"
+        x-transition:enter-end="translate-x-0 transform"
+        x-transition:leave="transition duration-300 ease-in"
+        x-transition:leave-start="translate-x-0 transform"
+        x-transition:leave-end="translate-x-full transform"
+        class="fixed right-0 top-0 z-40 h-screen w-screen bg-foreground/50 transition-transform duration-300 ease-in-out md:hidden"
+        x-on:click="isOpen = !isOpen"
+    ></div>
 </nav>
