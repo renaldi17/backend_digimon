@@ -1,3 +1,26 @@
+{{--
+    Dropdown Root Component
+    
+    Example:
+    ```
+    <x-ui.dropdown.root>
+    <x-ui.dropdown.button>
+    Dropdown Button
+    </x-ui.dropdown.button>
+    
+    <x-ui.dropdown.content>
+    <x-ui.dropdown.item>
+    Item 1
+    </x-ui.dropdown.item>
+    </x-ui.dropdown.content>
+    
+    </x-ui.dropdown.root>
+    ```
+    
+    Note:
+    - Required Dependencies: Alpine.js, Tailwind CSS, Laravel Tailwind Merge
+--}}
+
 <div
     x-data="{
         open: false,
@@ -22,10 +45,10 @@
     x-on:focusin.window="! $refs.panel.contains($event.target) && close()"
     {{
         $attributes->merge([
-            "class" => "relative",
             "x-id" => "['dropdown-button']",
         ])
     }}
+    {{ $attributes->twMerge("relative") }}
 >
     {{ $slot }}
 </div>
