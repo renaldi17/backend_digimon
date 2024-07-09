@@ -241,14 +241,14 @@
                 </div>
             </section>
 
-            <section class="container py-12">
+            <section class="container space-y-8 py-12 md:space-y-16">
                 <h2
                     class="scroll-m-20 pb-2 text-center text-3xl font-semibold tracking-tight first:mt-0"
                 >
                     Informasi Tegal Manggung
                 </h2>
 
-                <div class="mx-auto mt-4 flex max-w-screen-lg">
+                <div class="mx-auto flex max-w-screen-lg">
                     <div
                         class="flex h-full w-full flex-col items-center justify-start gap-y-2 rounded-md px-2 py-4 text-center"
                     >
@@ -300,7 +300,7 @@
                     </div>
                 </div>
 
-                <div class="mt-8">
+                <div>
                     <div
                         class="flex h-full w-full flex-row justify-center gap-x-2 md:gap-x-8"
                     >
@@ -337,7 +337,19 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="flex justify-center">
+                    <x-ui.button
+                        class="w-full max-w-80 bg-green-pea-600 hover:bg-green-pea-500"
+                    >
+                        Selengkapnya
+                    </x-ui.button>
+                </div>
             </section>
+
+            <div class="container">
+                <hr class="h-[1px] w-full shrink-0 bg-border" />
+            </div>
         </main>
 
         <x-ui.carousel.script id="hero-carousel"></x-ui.carousel.script>
