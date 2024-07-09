@@ -30,9 +30,11 @@
         <x-common.navbar />
 
         <main class="min-h-screen pb-32">
-            <section class="container relative min-h-screen pt-16 md:pt-32">
+            <section
+                class="min-[512px] container relative h-screen max-h-[680px] pt-16 md:pt-32"
+            >
                 <div
-                    class="relative z-10 mt-4 flex flex-col gap-y-2 text-zinc-50"
+                    class="relative z-10 mt-4 flex max-w-screen-lg flex-col gap-y-2 text-zinc-50 lg:container xl:pl-48"
                 >
                     <div>
                         <h2
@@ -57,13 +59,15 @@
                     </div>
                 </div>
 
-                <div class="container absolute left-0 top-80 z-10">
+                <div
+                    class="container absolute left-0 right-0 top-80 z-10 max-w-screen-lg lg:top-[512px]"
+                >
                     <div
-                        class="grid grid-cols-2 justify-items-center gap-2 rounded-md bg-background"
+                        class="grid grid-cols-2 justify-items-center gap-2 rounded-md bg-background sm:grid-cols-4"
                     >
                         <a
                             href="#"
-                            class="flex h-full w-full cursor-pointer flex-col items-center justify-center gap-y-2 rounded-md px-2 py-4 text-center transition hover:bg-accent"
+                            class="flex h-full w-full cursor-pointer flex-col items-center justify-start gap-y-2 rounded-md px-2 py-4 text-center transition hover:bg-accent"
                         >
                             <div
                                 class="flex aspect-square items-center justify-center rounded-full bg-blue-500 p-4"
@@ -78,7 +82,7 @@
                         </a>
                         <a
                             href="#"
-                            class="flex h-full w-full cursor-pointer flex-col items-center justify-center gap-y-2 rounded-md px-2 py-4 text-center transition hover:bg-accent"
+                            class="flex h-full w-full cursor-pointer flex-col items-center justify-start gap-y-2 rounded-md px-2 py-4 text-center transition hover:bg-accent"
                         >
                             <div
                                 class="flex aspect-square items-center justify-center rounded-full bg-red-500 p-4"
@@ -94,7 +98,7 @@
 
                         <a
                             href="#"
-                            class="flex h-full w-full cursor-pointer flex-col items-center justify-center gap-y-2 rounded-md px-2 py-4 text-center transition hover:bg-accent"
+                            class="flex h-full w-full cursor-pointer flex-col items-center justify-start gap-y-2 rounded-md px-2 py-4 text-center transition hover:bg-accent"
                         >
                             <div
                                 class="flex aspect-square items-center justify-center rounded-full bg-yellow-500 p-4"
@@ -110,7 +114,7 @@
 
                         <a
                             href="#"
-                            class="flex h-full w-full cursor-pointer flex-col items-center justify-center gap-y-2 rounded-md px-2 py-4 text-center transition hover:bg-accent"
+                            class="flex h-full w-full cursor-pointer flex-col items-center justify-start gap-y-2 rounded-md px-2 py-4 text-center transition hover:bg-accent"
                         >
                             <div
                                 class="flex aspect-square items-center justify-center rounded-full bg-orange-500 p-4"
@@ -126,7 +130,7 @@
 
                         <a
                             href="#"
-                            class="flex h-full w-full cursor-pointer flex-col items-center justify-center gap-y-2 rounded-md px-2 py-4 text-center transition hover:bg-accent"
+                            class="flex h-full w-full cursor-pointer flex-col items-center justify-start gap-y-2 rounded-md px-2 py-4 text-center transition hover:bg-accent"
                         >
                             <div
                                 class="flex aspect-square items-center justify-center rounded-full bg-green-500 p-4"
@@ -142,7 +146,7 @@
 
                         <a
                             href="#"
-                            class="flex h-full w-full cursor-pointer flex-col items-center justify-center gap-y-2 rounded-md px-2 py-4 text-center transition hover:bg-accent"
+                            class="flex h-full w-full cursor-pointer flex-col items-center justify-start gap-y-2 rounded-md px-2 py-4 text-center transition hover:bg-accent"
                         >
                             <div
                                 class="flex aspect-square items-center justify-center rounded-full bg-indigo-500 p-4"
@@ -156,7 +160,7 @@
 
                         <a
                             href="#"
-                            class="flex h-full w-full cursor-pointer flex-col items-center justify-center gap-y-2 rounded-md px-2 py-4 text-center transition hover:bg-accent"
+                            class="flex h-full w-full cursor-pointer flex-col items-center justify-start gap-y-2 rounded-md px-2 py-4 text-center transition hover:bg-accent"
                         >
                             <div
                                 class="flex aspect-square items-center justify-center rounded-full bg-red-500 p-4"
@@ -172,7 +176,7 @@
 
                         <a
                             href="#"
-                            class="flex h-full w-full cursor-pointer flex-col items-center justify-center gap-y-2 rounded-md px-2 py-4 text-center transition hover:bg-accent"
+                            class="flex h-full w-full cursor-pointer flex-col items-center justify-start gap-y-2 rounded-md px-2 py-4 text-center transition hover:bg-accent"
                         >
                             <div
                                 class="flex aspect-square items-center justify-center rounded-full bg-zinc-500 p-4"
