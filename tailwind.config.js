@@ -17,6 +17,19 @@ export default {
         },
         extend: {
             colors: {
+                "green-pea": {
+                    50: "#f3faf5",
+                    100: "#e4f4e9",
+                    200: "#cae8d4",
+                    300: "#a0d5b0",
+                    400: "#6fb986",
+                    500: "#4b9c65",
+                    600: "#398050",
+                    700: "#2c5d3c",
+                    800: "#2a5137",
+                    900: "#24432f",
+                    950: "#0f2417",
+                },
                 border: "hsl(var(--border))",
                 input: "hsl(var(--input))",
                 ring: "hsl(var(--ring))",
