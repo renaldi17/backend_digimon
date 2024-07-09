@@ -347,11 +347,80 @@
                 </div>
             </section>
 
-            <div class="container">
+            <div class="container py-12">
                 <hr class="h-[1px] w-full shrink-0 bg-border" />
             </div>
+
+            <section class="container pt-6">
+                <h2
+                    class="scroll-m-20 pb-2 text-center text-3xl font-semibold tracking-tight text-green-pea-600 first:mt-0"
+                >
+                    Berita Kependudukan
+                </h2>
+                <p class="text-center text-xl text-muted-foreground">
+                    Berita yang disediakan seputar kegiatan dan juga agenda
+                    kelurahan Jayawaras
+                </p>
+
+                <div class="mt-6">
+                    <x-ui.carousel.root id="news-carousel" class="h-full">
+                        <x-ui.carousel.content
+                            id="news-carousel-content"
+                            class="-ml-12 h-full"
+                        >
+                            @foreach ($news as $newsItem)
+                                <x-ui.carousel.item class="pl-12 md:basis-1/3">
+                                    <x-ui.card.root>
+                                        <img
+                                            class="h-48 w-full object-cover object-top"
+                                            src="{{ $newsItem["image"] }}"
+                                            alt="{{ $newsItem["title"] . " Image" }}"
+                                        />
+
+                                        <x-ui.card.header>
+                                            <div
+                                                class="flex items-center justify-between"
+                                            >
+                                                <x-ui.card.title
+                                                    class="max-w-[65%] truncate"
+                                                >
+                                                    {{ $newsItem["title"] }}
+                                                </x-ui.card.title>
+
+                                                <span
+                                                    class="text-xs text-muted-foreground"
+                                                >
+                                                    {{ $newsItem["publishedAt"]->format("Y-m-d") }}
+                                                    <i
+                                                        class="fa-regular fa-calendar ml-1"
+                                                    ></i>
+                                                </span>
+                                            </div>
+                                            <x-ui.card.description
+                                                class="line-clamp-3"
+                                            >
+                                                {{ $newsItem["description"] }}
+                                            </x-ui.card.description>
+                                        </x-ui.card.header>
+
+                                        <x-ui.card.footer class="justify-end">
+                                            <x-ui.button
+                                                variant="ghost"
+                                                href="/news/{{  $newsItem['slug'] }}"
+                                            >
+                                                Baca Selengkapnya
+                                            </x-ui.button>
+                                        </x-ui.card.footer>
+                                    </x-ui.card.root>
+                                </x-ui.carousel.item>
+                            @endforeach
+                        </x-ui.carousel.content>
+                    </x-ui.carousel.root>
+                </div>
+            </section>
         </main>
 
         <x-ui.carousel.script id="hero-carousel"></x-ui.carousel.script>
+        <x-ui.carousel.script id="news-carousel"></x-ui.carousel.script>
     </body>
 </html>
