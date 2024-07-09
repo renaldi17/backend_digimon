@@ -16,6 +16,12 @@ export default {
             },
         },
         extend: {
+            backgroundImage: {
+                "dark-transparent-dark-gradient":
+                    "linear-gradient(180deg, rgba(9, 9, 11, 0.75) 0%, rgba(9, 9, 11, 0.1875) 50%, rgba(9, 9, 11, 0.75) 100%)",
+                "white-transparent-white-gradient":
+                    "linear-gradient(180deg, rgba(250, 250, 250, 0.45) 0%, rgba(250, 250, 250, 0.65) 100%)",
+            },
             colors: {
                 "green-pea": {
                     50: "#f3faf5",

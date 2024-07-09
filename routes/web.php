@@ -19,7 +19,35 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('dashboard', ['title' => 'Dashboard']);
+    $heroImages = [
+        [
+            "id" => 1,
+            "title" => "Image Placeholder 1",
+            "url" => "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1874&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        ],
+        [
+            "id" => 2,
+            "title" => "Image Placeholder 2",
+            "url" => "https://images.unsplash.com/photo-1458668383970-8ddd3927deed?q=80&w=1767&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        ],
+        [
+            "id" => 3,
+            "title" => "Image Placeholder 3",
+            "url" => "https://images.unsplash.com/photo-1426604966848-d7adac402bff?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        ],
+        [
+            "id" => 4,
+            "title" => "Image Placeholder 4",
+            "url" => "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        ]
+    ];
+
+    $data = [
+        'title' => 'Dashboard',
+        'heroImages' => $heroImages
+    ];
+
+    return view('dashboard', $data);
 });
 
 Route::resource('galeri', GaleriController::class);

@@ -1,6 +1,6 @@
 <nav
     x-data="{ isOpen: false }"
-    class="fixed top-0 flex min-h-12 w-full flex-col"
+    class="fixed top-0 z-50 flex min-h-12 w-full flex-col"
 >
     {{-- Sosial Media --}}
     <section
