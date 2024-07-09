@@ -214,7 +214,7 @@
                 </div>
             </section>
 
-            <section class="container mt-80 py-12 sm:mt-12 md:mt-6 lg:mt-40">
+            <section class="container mt-80 py-12 sm:mt-12 md:mt-6 lg:mt-52">
                 <h2
                     class="scroll-m-20 pb-2 text-center text-3xl font-semibold tracking-tight first:mt-0"
                 >
