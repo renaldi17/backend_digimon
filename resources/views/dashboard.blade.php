@@ -369,7 +369,9 @@
                             class="-ml-12 h-full"
                         >
                             @foreach ($news as $newsItem)
-                                <x-ui.carousel.item class="pl-12 md:basis-1/3">
+                                <x-ui.carousel.item
+                                    class="pl-12 sm:basis-1/2 md:basis-1/3"
+                                >
                                     <x-ui.card.root>
                                         <img
                                             class="h-48 w-full object-cover object-top"
