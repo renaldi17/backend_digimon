@@ -29,7 +29,7 @@
     <body>
         <x-common.navbar />
 
-        <main class="min-h-screen pb-32">
+        <main class="min-h-screen">
             <section
                 class="min-[512px] container relative h-screen max-h-[680px] pt-16 md:pt-32"
             >
@@ -669,10 +669,10 @@
             </section>
 
             <section
-                class="container mt-6 flex flex-col gap-x-12 gap-y-6 pt-12 sm:flex-row sm:justify-center"
+                class="container my-6 flex flex-col gap-x-12 gap-y-6 py-12 sm:flex-row sm:justify-center"
             >
                 <x-ui.card.root
-                    class="relative overflow-hidden bg-green-pea-700 text-zinc-50 md:min-w-[320px]"
+                    class="sm:min relative overflow-hidden bg-green-pea-700 text-zinc-50 md:min-w-[320px]"
                 >
                     <i
                         class="fa-solid fa-scale-balanced absolute -right-10 -top-5 h-32 w-32 text-green-pea-700 brightness-125"
@@ -718,7 +718,7 @@
                 </x-ui.card.root>
 
                 <x-ui.card.root
-                    class="relative overflow-hidden bg-green-pea-700 text-zinc-50 md:min-w-[320px]"
+                    class="sm:min relative overflow-hidden bg-green-pea-700 text-zinc-50 md:min-w-[320px]"
                 >
                     <i
                         class="fa-solid fa-file-lines absolute -right-10 -top-5 h-32 w-32 text-green-pea-700 brightness-125"
@@ -764,6 +764,8 @@
                 </x-ui.card.root>
             </section>
         </main>
+
+        <x-common.footer />
 
         <x-ui.carousel.script id="hero-carousel"></x-ui.carousel.script>
         <x-ui.carousel.script id="news-carousel"></x-ui.carousel.script>
