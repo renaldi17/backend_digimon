@@ -193,7 +193,7 @@
                 <div class="absolute left-0 top-0 h-full w-full">
                     <x-ui.carousel.root
                         id="hero-carousel"
-                        class="before:bg-dark-transparent-dark-gradient h-full before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:z-[1] before:bg-opacity-50"
+                        class="h-full before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:z-[1] before:bg-opacity-50 before:bg-dark-transparent-dark-gradient"
                     >
                         <x-ui.carousel.content
                             id="hero-carousel-content"
@@ -211,6 +211,33 @@
                             @endforeach
                         </x-ui.carousel.content>
                     </x-ui.carousel.root>
+                </div>
+            </section>
+
+            <section class="container mt-80 py-12 sm:mt-12 md:mt-6 lg:mt-40">
+                <h2
+                    class="scroll-m-20 pb-2 text-center text-3xl font-semibold tracking-tight first:mt-0"
+                >
+                    Video Profil Desa Tegal Manggung
+                </h2>
+
+                <p class="text-center text-xl text-muted-foreground">
+                    video yang menggambarkan jalan Menuju Desa Tegal Manggung
+                    Jl. No., Kel., Kec. Kab. Sumedang
+                </p>
+
+                <div
+                    class="mx-auto mt-6 aspect-video w-full max-w-screen-lg md:px-8"
+                >
+                    <iframe
+                        class="h-full w-full"
+                        src="https://www.youtube.com/embed/LXb3EKWsInQ?si=fsZZbZr7t-vuSXzR"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen
+                    ></iframe>
                 </div>
             </section>
         </main>
