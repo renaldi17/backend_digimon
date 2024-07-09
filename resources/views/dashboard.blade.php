@@ -667,6 +667,102 @@
                     </x-ui.button>
                 </div>
             </section>
+
+            <section
+                class="container mt-6 flex flex-col gap-x-12 gap-y-6 pt-12 sm:flex-row sm:justify-center"
+            >
+                <x-ui.card.root
+                    class="relative overflow-hidden bg-green-pea-700 text-zinc-50 md:min-w-[320px]"
+                >
+                    <i
+                        class="fa-solid fa-scale-balanced absolute -right-10 -top-5 h-32 w-32 text-green-pea-700 brightness-125"
+                    ></i>
+
+                    <x-ui.card.header class="relative z-[1]">
+                        <x-ui.card.title>Produk Hukum</x-ui.card.title>
+                    </x-ui.card.header>
+                    <x-ui.card.content class="relative z-[1]">
+                        <ul class="flex flex-col">
+                            <li>
+                                <x-ui.button
+                                    class="text-zinc-50"
+                                    variant="link"
+                                    href="#"
+                                >
+                                    Lorem ipsum dolor sit.
+                                </x-ui.button>
+                            </li>
+                            <li>
+                                <x-ui.button
+                                    class="text-zinc-50"
+                                    variant="link"
+                                    href="#"
+                                >
+                                    Lorem ipsum dolor sit.
+                                </x-ui.button>
+                            </li>
+                        </ul>
+                    </x-ui.card.content>
+
+                    <x-ui.card.footer
+                        class="relative z-[1] justify-end bg-green-pea-600 pb-4 pt-3"
+                    >
+                        <x-ui.button
+                            class="text-zinc-50"
+                            variant="link"
+                            href="#"
+                        >
+                            Selengkapnya
+                        </x-ui.button>
+                    </x-ui.card.footer>
+                </x-ui.card.root>
+
+                <x-ui.card.root
+                    class="relative overflow-hidden bg-green-pea-700 text-zinc-50 md:min-w-[320px]"
+                >
+                    <i
+                        class="fa-solid fa-file-lines absolute -right-10 -top-5 h-32 w-32 text-green-pea-700 brightness-125"
+                    ></i>
+
+                    <x-ui.card.header class="relative z-[1]">
+                        <x-ui.card.title>Pengajuan Surat</x-ui.card.title>
+                    </x-ui.card.header>
+                    <x-ui.card.content class="relative z-[1]">
+                        <ul class="flex flex-col">
+                            <li>
+                                <x-ui.button
+                                    class="text-zinc-50"
+                                    variant="link"
+                                    href="#"
+                                >
+                                    Lorem ipsum dolor sit.
+                                </x-ui.button>
+                            </li>
+                            <li>
+                                <x-ui.button
+                                    class="text-zinc-50"
+                                    variant="link"
+                                    href="#"
+                                >
+                                    Lorem ipsum dolor sit.
+                                </x-ui.button>
+                            </li>
+                        </ul>
+                    </x-ui.card.content>
+
+                    <x-ui.card.footer
+                        class="relative z-[1] justify-end bg-green-pea-600 pb-4 pt-3"
+                    >
+                        <x-ui.button
+                            class="text-zinc-50"
+                            variant="link"
+                            href="#"
+                        >
+                            Selengkapnya
+                        </x-ui.button>
+                    </x-ui.card.footer>
+                </x-ui.card.root>
+            </section>
         </main>
 
         <x-ui.carousel.script id="hero-carousel"></x-ui.carousel.script>
