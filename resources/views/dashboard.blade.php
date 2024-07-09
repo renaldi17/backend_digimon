@@ -9,7 +9,6 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
-        @vite("resources/css/app.css")
 
         <script
             src="https://kit.fontawesome.com/89851fc4a2.js"
@@ -19,6 +18,7 @@
             defer
             src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
         ></script>
+        @vite("resources/css/app.css")
 
         <title>Website Desa Tegal Manggung</title>
     </head>
