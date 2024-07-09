@@ -24,11 +24,18 @@
 
 @php
     $selector = "#embla-" . $id;
+    $randomStr = uniqid();
 @endphp
 
 <script type="text/javascript">
-    const emblaCarousel1 = document.querySelector({{ Js::from($selector) }});
-    const options = { loop: true };
-    const plugins = [EmblaCarouselAutoplay()];
-    const emblaCarouselApi1 = EmblaCarousel(emblaCarousel1, options, plugins);
+    const emblaCarousel{{ $randomStr }} = document.querySelector(
+        {{ Js::from($selector) }},
+    );
+    const options{{ $randomStr }} = { loop: true };
+    const plugins{{ $randomStr }} = [EmblaCarouselAutoplay()];
+    const emblaCarouselApi{{ $randomStr }} = EmblaCarousel(
+        emblaCarousel{{ $randomStr }},
+        options{{ $randomStr }},
+        plugins{{ $randomStr }},
+    );
 </script>
