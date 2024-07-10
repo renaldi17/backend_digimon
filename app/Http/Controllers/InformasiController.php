@@ -10,8 +10,8 @@ class InformasiController extends Controller
 {
     public function index()
     {
-        $informasis = Informasi::all();
-        return view('informasi.index', compact('informasis'));
+        $informasies = Informasi::all();
+        return view('informasi.index', compact('informasies'));
     }
 
     public function create()
@@ -20,30 +20,27 @@ class InformasiController extends Controller
     }
 
     public function store(Request $request)
-    {
-        $request->validate([
-            'judul' => 'required|string',
-            'jenis' => 'required|in:berita,pengumuman,agenda,apb',
-            'deskripsi' => 'required|string',
-            'tanggal' => 'required|date',
-            'gambar' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // validasi untuk gambar
-        ]);
+{
+    $request->validate([
+        'jenis_informasi' => 'required|string',
+        'judul' => 'required|string',
+        'gambar' => 'image|nullable',
+        'konten' => 'required|string',
+        'tanggal' => 'required|date',
+    ]);
 
-        $gambarPath = null;
-        if ($request->hasFile('gambar')) {
-            $gambarPath = $request->file('gambar')->store('informasi', 'public');
-        }
+    $gambarPath = $request->file('gambar') ? $request->file('gambar')->store('informasi', 'public') : null;
 
-        Informasi::create([
-            'judul' => $request->judul,
-            'jenis' => $request->jenis,
-            'deskripsi' => $request->deskripsi,
-            'tanggal' => $request->tanggal,
-            'gambar' => $gambarPath,
-        ]);
+    Informasi::create([
+        'jenis_informasi' => $request->jenis_informasi,
+        'judul' => $request->judul,
+        'gambar' => $gambarPath,
+        'konten' => $request->konten,
+        'tanggal' => $request->tanggal,
+    ]);
 
-        return redirect()->route('informasi.index')->with('success', 'Informasi berhasil dibuat.');
-    }
+    return redirect()->route('informasi.index')->with('success', 'Informasi berhasil dibuat.');
+}
 
     public function edit(Informasi $informasi)
     {
@@ -53,26 +50,26 @@ class InformasiController extends Controller
     public function update(Request $request, Informasi $informasi)
     {
         $request->validate([
+            'jenis_informasi' => 'required|string',
             'judul' => 'required|string',
-            'jenis' => 'required|in:berita,pengumuman,agenda,apb',
-            'deskripsi' => 'required|string',
+            'gambar' => 'image|nullable',
+            'konten' => 'required|string',
             'tanggal' => 'required|date',
-            'gambar' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // validasi untuk gambar
         ]);
-
+    
         if ($request->hasFile('gambar')) {
             $gambarPath = $request->file('gambar')->store('informasi', 'public');
             Storage::disk('public')->delete($informasi->gambar);
             $informasi->update(['gambar' => $gambarPath]);
         }
-
+    
         $informasi->update([
+            'jenis_informasi' => $request->jenis_informasi,
             'judul' => $request->judul,
-            'jenis' => $request->jenis,
-            'deskripsi' => $request->deskripsi,
+            'konten' => $request->konten,
             'tanggal' => $request->tanggal,
         ]);
-
+    
         return redirect()->route('informasi.index')->with('success', 'Informasi berhasil diperbaharui.');
     }
 

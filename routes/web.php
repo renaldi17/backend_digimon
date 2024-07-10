@@ -1,10 +1,17 @@
 <?php
 
-use App\Http\Controllers\AspirasiController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\GaleriController;
+use App\Http\Controllers\KontakController;
+use App\Http\Controllers\PerangkatDesaController;
 use App\Http\Controllers\InformasiController;
-use App\Http\Controllers\LayananController;
+use App\Http\Controllers\PotensiDesaController;
 use App\Http\Controllers\ProdukHukumController;
+use App\Http\Controllers\SliderController;
+use App\Http\Controllers\StrukturController;
+use App\Http\Controllers\PendudukController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -83,14 +90,16 @@ Route::get('/', function () {
 });
 
 Route::resource('galeri', GaleriController::class);
+Route::resource('slider', SliderController::class);
+Route::resource('kontak', KontakController::class);
+Route::resource('perangkat_desa', PerangkatDesaController::class);
 Route::resource('informasi', InformasiController::class);
-Route::resource('produk-hukum', ProdukHukumController::class);
-Route::resource('layanan', LayananController::class);
-Route::resource('aspirasi', AspirasiController::class);
+Route::resource('potensi_desa', PotensiDesaController::class);
+Route::resource('produk_hukum', ProdukHukumController::class);
+Route::resource('struktur', StrukturController::class);
+Route::resource('penduduk', PendudukController::class);
 
 //AUTH//
-use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\Auth\LoginController;
 
 // Route for registration
 Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('register');
