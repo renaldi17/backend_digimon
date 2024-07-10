@@ -108,6 +108,16 @@ Route::get('/detail-wisata', function () {
     return view('detail-wisata');
 });
 
+// Route buat pengajuan-layanan
+Route::get('/pengajuan', function () {
+    return view('pengajuan-layanan');
+});
+
+// Route buat cek status surat
+Route::get('/status', function () {
+    return view('status-surat');
+});
+
 // Route untuk infografis (sementara)
 Route::get('/infografis', function () {
     return view('infografis');
