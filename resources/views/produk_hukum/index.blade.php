@@ -1,11 +1,9 @@
-<!-- resources/views/produk_hukum/index.blade.php -->
-
 @extends('layouts.app')
 
 @section('content')
 <div class="container">
     <h1>Produk Hukum</h1>
-    <a href="{{ route('produkhukum.create') }}" class="btn btn-primary mb-3">Create</a>
+    <a href="{{ route('produk_hukum.create') }}" class="btn btn-primary">Create</a>
     <table class="table">
         <thead>
             <tr>
@@ -18,16 +16,16 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($produks as $produk)
+            @foreach ($produkHukums as $produkHukum)
             <tr>
-                <td>{{ $produk->id }}</td>
-                <td>{{ $produk->jenis_produk }}</td>
-                <td>{{ $produk->judul }}</td>
-                <td>{{ $produk->isi }}</td>
-                <td>{{ $produk->tanggal }}</td>
+                <td>{{ $produkHukum->id }}</td>
+                <td>{{ $produkHukum->jenis_produk }}</td>
+                <td>{{ $produkHukum->judul }}</td>
+                <td>{!! Str::limit($produkHukum->isi, 50) !!}</td>
+                <td>{{ $produkHukum->tanggal }}</td>
                 <td>
-                    <a href="{{ route('produkhukum.edit', $produk->id) }}" class="btn btn-warning">Edit</a>
-                    <form action="{{ route('produkhukum.destroy', $produk->id) }}" method="POST" style="display:inline;">
+                    <a href="{{ route('produk_hukum.edit', $produkHukum->id) }}" class="btn btn-warning">Edit</a>
+                    <form action="{{ route('produk_hukum.destroy', $produkHukum->id) }}" method="POST" style="display:inline;">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Delete</button>
