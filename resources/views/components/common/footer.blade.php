@@ -1,4 +1,4 @@
-<div class="md:container">
+<div>
     <footer class="container min-h-48 bg-[#3B432C] py-6 text-zinc-50">
         <div class="flex w-full flex-col gap-x-12 gap-y-8 lg:flex-row">
             <div class="lg:basis-1/3">
