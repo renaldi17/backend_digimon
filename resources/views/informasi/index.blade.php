@@ -8,26 +8,26 @@
         <thead>
             <tr>
                 <th>ID</th>
+                <th>Jenis Informasi</th>
                 <th>Judul</th>
                 <th>Gambar</th>
-                <th>Jenis</th>
-                <th>Deskripsi</th>
+                <th>Konten</th>
                 <th>Tanggal</th>
                 <th>Action</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($informasis as $informasi)
+            @foreach ($informasies as $informasi)
             <tr>
                 <td>{{ $informasi->id }}</td>
+                <td>{{ $informasi->jenis_informasi }}</td>
                 <td>{{ $informasi->judul }}</td>
                 <td>
                     @if ($informasi->gambar)
                         <img src="/storage/{{ $informasi->gambar }}" width="100px">
                     @endif
-                </td>                
-                <td>{{ $informasi->jenis }}</td>
-                <td>{{ $informasi->deskripsi }}</td>
+                </td>
+                <td>{{ Str::limit($informasi->konten, 50) }}</td>
                 <td>{{ $informasi->tanggal }}</td>
                 <td>
                     <a href="{{ route('informasi.edit', $informasi->id) }}" class="btn btn-warning">Edit</a>
