@@ -10,13 +10,16 @@ class GaleriController extends Controller
 {
     public function index()
     {
+        $title = 'Galeri';
         $galeris = Galeri::all();
-        return view('galeri.index', compact('galeris'));
+        return view('admin.galeri.index', compact('galeris', 'title'));
     }
 
     public function create()
     {
-        return view('galeri.create');
+        $title = 'Tambah Galeri';
+
+        return view('admin.galeri.create', compact('title'));
     }
 
     public function store(Request $request)
@@ -43,11 +46,13 @@ class GaleriController extends Controller
 
     public function edit(Galeri $galeri)
     {
-        return view('galeri.edit', compact('galeri'));
+        $title = 'Edit Galeri';
+        return view('admin.galeri.edit', compact('galeri', 'title'));
     }
 
     public function update(Request $request, Galeri $galeri)
     {
+        // \dd($galeri);
         $request->validate([
             'judul' => 'required|string',
             'deskripsi' => 'required|string',

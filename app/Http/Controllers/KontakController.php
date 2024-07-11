@@ -10,12 +10,12 @@ class KontakController extends Controller
     public function index()
     {
         $kontaks = Kontak::all();
-        return view('kontak.index', compact('kontaks'));
+        return view('admin.kontak.index', compact('kontaks'));
     }
 
     public function create()
     {
-        return view('kontak.create');
+        return view('admin.kontak.create');
     }
 
     public function store(Request $request)
@@ -33,7 +33,7 @@ class KontakController extends Controller
 
     public function edit(Kontak $kontak)
     {
-        return view('kontak.edit', compact('kontak'));
+        return view('admin.kontak.edit', compact('kontak'));
     }
 
     public function update(Request $request, Kontak $kontak)
@@ -41,7 +41,7 @@ class KontakController extends Controller
         $request->validate([
             'nama' => 'required|string',
             'nomor_telepon' => 'required|string',
-            'email' => 'required|email|unique:kontaks,email,'.$kontak->id,
+            'email' => 'required|email|unique:kontaks,email,' . $kontak->id,
         ]);
 
         $kontak->update($request->all());

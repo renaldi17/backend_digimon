@@ -10,12 +10,12 @@ class StrukturController extends Controller
     public function index()
     {
         $strukturs = Struktur::all();
-        return view('struktur.index', compact('strukturs'));
+        return view('admin.struktur.index', compact('strukturs'));
     }
 
     public function create()
     {
-        return view('struktur.create');
+        return view('admin.struktur.create');
     }
 
     public function store(Request $request)
@@ -43,7 +43,7 @@ class StrukturController extends Controller
 
     public function edit(Struktur $struktur)
     {
-        return view('struktur.edit', compact('struktur'));
+        return view('admin.struktur.edit', compact('struktur'));
     }
 
     public function update(Request $request, Struktur $struktur)

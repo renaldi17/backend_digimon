@@ -10,12 +10,12 @@ class ProdukHukumController extends Controller
     public function index()
     {
         $produkHukums = ProdukHukum::all();
-        return view('produk_hukum.index', compact('produkHukums'));
+        return view('admin.produk_hukum.index', compact('produkHukums'));
     }
 
     public function create()
     {
-        return view('produk_hukum.create');
+        return view('admin.produk_hukum.create');
     }
 
     public function store(Request $request)
@@ -34,7 +34,7 @@ class ProdukHukumController extends Controller
 
     public function edit(ProdukHukum $produkHukum)
     {
-        return view('produk_hukum.edit', compact('produkHukum'));
+        return view('admin.produk_hukum.edit', compact('produkHukum'));
     }
 
     public function update(Request $request, ProdukHukum $produkHukum)

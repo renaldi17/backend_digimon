@@ -11,12 +11,12 @@ class PotensiDesaController extends Controller
     public function index()
     {
         $potensiDesas = PotensiDesa::all();
-        return view('potensi_desa.index', compact('potensiDesas'));
+        return view('admin.potensi_desa.index', compact('potensiDesas'));
     }
 
     public function create()
     {
-        return view('potensi_desa.create');
+        return view('admin.potensi_desa.create');
     }
 
     public function store(Request $request)
@@ -52,7 +52,7 @@ class PotensiDesaController extends Controller
 
     public function edit(PotensiDesa $potensiDesa)
     {
-        return view('potensi_desa.edit', compact('potensiDesa'));
+        return view('admin.potensi_desa.edit', compact('potensiDesa'));
     }
 
     public function update(Request $request, PotensiDesa $potensiDesa)

@@ -11,12 +11,12 @@ class SliderController extends Controller
     public function index()
     {
         $sliders = Slider::all();
-        return view('slider.index', compact('sliders'));
+        return view('admin.slider.index', compact('sliders'));
     }
 
     public function create()
     {
-        return view('slider.create');
+        return view('admin.slider.create');
     }
 
     public function store(Request $request)
@@ -40,7 +40,7 @@ class SliderController extends Controller
 
     public function edit(Slider $slider)
     {
-        return view('slider.edit', compact('slider'));
+        return view('admin.slider.edit', compact('slider'));
     }
 
     public function update(Request $request, Slider $slider)

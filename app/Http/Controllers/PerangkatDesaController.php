@@ -11,12 +11,12 @@ class PerangkatDesaController extends Controller
     public function index()
     {
         $perangkatDesas = PerangkatDesa::all();
-        return view('perangkat_desa.index', compact('perangkatDesas'));
+        return view('admin.perangkat_desa.index', compact('perangkatDesas'));
     }
 
     public function create()
     {
-        return view('perangkat_desa.create');
+        return view('admin.perangkat_desa.create');
     }
 
     public function store(Request $request)
@@ -42,7 +42,7 @@ class PerangkatDesaController extends Controller
 
     public function edit(PerangkatDesa $perangkatDesa)
     {
-        return view('perangkat_desa.edit', compact('perangkatDesa'));
+        return view('admin.perangkat_desa.edit', compact('perangkatDesa'));
     }
 
     public function update(Request $request, PerangkatDesa $perangkatDesa)

@@ -10,12 +10,12 @@ class PendudukController extends Controller
     public function index()
     {
         $penduduks = Penduduk::all();
-        return view('penduduk.index', compact('penduduks'));
+        return view('admin.penduduk.index', compact('penduduks'));
     }
 
     public function create()
     {
-        return view('penduduk.create');
+        return view('admin.penduduk.create');
     }
 
     public function store(Request $request)
@@ -38,23 +38,23 @@ class PendudukController extends Controller
         Penduduk::create($request->all());
 
         return redirect()->route('penduduk.index')
-                         ->with('success', 'Data penduduk berhasil ditambahkan.');
+            ->with('success', 'Data penduduk berhasil ditambahkan.');
     }
 
     public function show(Penduduk $penduduk)
     {
-        return view('penduduk.show', compact('penduduk'));
+        return view('admin.penduduk.show', compact('penduduk'));
     }
 
     public function edit(Penduduk $penduduk)
     {
-        return view('penduduk.edit', compact('penduduk'));
+        return view('admin.penduduk.edit', compact('penduduk'));
     }
 
     public function update(Request $request, Penduduk $penduduk)
     {
         $request->validate([
-            'NIK' => 'required|unique:penduduks,NIK,'.$penduduk->id,
+            'NIK' => 'required|unique:penduduks,NIK,' . $penduduk->id,
             'No_KK' => 'required',
             'nama' => 'required',
             'tanggal_lahir' => 'required|date',
@@ -71,7 +71,7 @@ class PendudukController extends Controller
         $penduduk->update($request->all());
 
         return redirect()->route('penduduk.index')
-                         ->with('success', 'Data penduduk berhasil diperbarui.');
+            ->with('success', 'Data penduduk berhasil diperbarui.');
     }
 
     public function destroy(Penduduk $penduduk)
@@ -79,6 +79,6 @@ class PendudukController extends Controller
         $penduduk->delete();
 
         return redirect()->route('penduduk.index')
-                         ->with('success', 'Data penduduk berhasil dihapus.');
+            ->with('success', 'Data penduduk berhasil dihapus.');
     }
 }
