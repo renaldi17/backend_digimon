@@ -25,21 +25,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-<<<<<<< HEAD
-
-Route::get('admin', function () {
-    return view('admin.dashboard');
-});
-Route::resource('admin/galeri', GaleriController::class);
-Route::resource('admin/slider', SliderController::class);
-Route::resource('admin/kontak', KontakController::class);
-Route::resource('admin/perangkat_desa', PerangkatDesaController::class);
-Route::resource('admin/informasi', InformasiController::class);
-Route::resource('admin/potensi_desa', PotensiDesaController::class);
-Route::resource('admin/produk_hukum', ProdukHukumController::class);
-Route::resource('admin/struktur', StrukturController::class);
-Route::resource('admin/penduduk', PendudukController::class);
-=======
 Route::get('/', function () {
     $heroImages = [
         [
@@ -104,16 +89,18 @@ Route::get('/', function () {
     return view('dashboard', $data);
 });
 
-Route::resource('galeri', GaleriController::class);
-Route::resource('slider', SliderController::class);
-Route::resource('kontak', KontakController::class);
-Route::resource('perangkat_desa', PerangkatDesaController::class);
-Route::resource('informasi', InformasiController::class);
-Route::resource('potensi_desa', PotensiDesaController::class);
-Route::resource('produk_hukum', ProdukHukumController::class);
-Route::resource('struktur', StrukturController::class);
-Route::resource('penduduk', PendudukController::class);
->>>>>>> 6e8a8b3734178b028bf52345b628eb39b2e78827
+Route::get('admin', function () {
+    return view('admin.dashboard');
+});
+Route::resource('admin/galeri', GaleriController::class);
+Route::resource('admin/slider', SliderController::class);
+Route::resource('admin/kontak', KontakController::class);
+Route::resource('admin/perangkat_desa', PerangkatDesaController::class);
+Route::resource('admin/informasi', InformasiController::class);
+Route::resource('admin/potensi_desa', PotensiDesaController::class);
+Route::resource('admin/produk_hukum', ProdukHukumController::class);
+Route::resource('admin/struktur', StrukturController::class);
+Route::resource('admin/penduduk', PendudukController::class);
 
 //AUTH//
 
@@ -128,14 +115,6 @@ Route::post('login', [LoginController::class, 'login']);
 // Route for logout (optional)
 Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
-<<<<<<< HEAD
-// user tampilan
-Route::get('/', function () {
-    return view('tampilan.home');
-});
-Route::get('/infografis', function () {
-    return view('tampilan.infografis');
-=======
 // Route buat detail wisata
 Route::get('/detail-wisata', function () {
     return view('detail-wisata');
@@ -144,5 +123,4 @@ Route::get('/detail-wisata', function () {
 // Route untuk infografis (sementara)
 Route::get('/infografis', function () {
     return view('infografis');
->>>>>>> 6e8a8b3734178b028bf52345b628eb39b2e78827
 });
