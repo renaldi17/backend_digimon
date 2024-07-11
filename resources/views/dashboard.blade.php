@@ -34,7 +34,7 @@
                 class="min-[512px] relative h-screen max-h-[680px] pt-16 md:pt-32"
             >
                 <div
-                    class="relative z-10 mt-4 flex max-w-screen-lg flex-col gap-y-2 text-zinc-50 lg:container xl:pl-48"
+                    class="container relative z-10 mt-6 flex max-w-screen-lg flex-col gap-y-2 text-zinc-50 sm:mt-8 xl:pl-48"
                 >
                     <div>
                         <h2
@@ -60,7 +60,7 @@
                 </div>
 
                 <div
-                    class="container absolute left-0 right-0 top-80 z-10 max-w-screen-lg lg:top-[512px]"
+                    class="container absolute left-0 right-0 top-80 z-10 max-w-screen-lg md:top-[50vh] lg:top-[70vh] xl:top-[512px]"
                 >
                     <div
                         class="grid grid-cols-2 justify-items-center gap-2 rounded-md bg-background sm:grid-cols-4"
@@ -214,7 +214,9 @@
                 </div>
             </section>
 
-            <section class="container mt-80 py-12 sm:mt-12 md:mt-6 lg:mt-52">
+            <section
+                class="container mt-80 py-12 sm:mt-12 md:mt-[15vh] lg:mt-[25vh] xl:mt-80"
+            >
                 <h2
                     class="scroll-m-20 pb-2 text-center text-3xl font-semibold tracking-tight first:mt-0"
                 >
