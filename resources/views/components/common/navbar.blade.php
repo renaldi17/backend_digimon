@@ -3,130 +3,144 @@
     class="fixed top-0 z-50 flex min-h-12 w-full flex-col"
 >
     {{-- Sosial Media --}}
-    <section
-        class="container hidden items-center justify-between bg-[#2C5D3C] py-2 text-zinc-50 md:flex"
-    >
-        <div class="flex gap-x-4">
-            <div>
-                <a
-                    class="inline-flex w-full items-center justify-start whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors hover:text-accent/75 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
-                    href="mailto:emailTegalmanggung@gmail.com"
-                >
-                    <i class="fa-solid fa-envelope mr-2"></i>
-                    emailTegalmanggung@gmail.com
-                </a>
+    <section class="hidden bg-[#2C5D3C] md:block">
+        <div
+            class="container items-center justify-between py-2 text-zinc-50 md:flex"
+        >
+            <div class="flex gap-x-4">
+                <div>
+                    <a
+                        class="inline-flex w-full items-center justify-start whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors hover:text-accent/75 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
+                        href="mailto:emailTegalmanggung@gmail.com"
+                    >
+                        <i class="fa-solid fa-envelope mr-2"></i>
+                        emailTegalmanggung@gmail.com
+                    </a>
+                </div>
+                <div>
+                    <a
+                        class="inline-flex w-full items-center justify-start whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors hover:text-accent/75 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
+                        href="tel:+6283522130922"
+                    >
+                        <i class="fa-solid fa-phone mr-2"></i>
+                        (+62) 835-2213-0922
+                    </a>
+                </div>
             </div>
-            <div>
-                <a
-                    class="inline-flex w-full items-center justify-start whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors hover:text-accent/75 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
-                    href="tel:+6283522130922"
-                >
-                    <i class="fa-solid fa-phone mr-2"></i>
-                    (+62) 835-2213-0922
-                </a>
-            </div>
-        </div>
 
-        <div class="flex items-center justify-between gap-x-2">
-            <a
-                class="inline-flex h-5 w-5 items-center justify-center whitespace-nowrap rounded-md text-sm font-medium text-[#FCE5AD] ring-offset-background transition-colors hover:text-[#F8C549] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
-                href="#"
-            >
-                <i class="fa-brands fa-twitter h-4 w-4"></i>
-            </a>
-            <a
-                class="inline-flex h-5 w-5 items-center justify-center whitespace-nowrap rounded-md text-sm font-medium text-[#FCE5AD] ring-offset-background transition-colors hover:text-[#F8C549] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
-                href="#"
-            >
-                <i class="fa-brands fa-facebook-f h-4 w-4"></i>
-            </a>
-            <a
-                class="inline-flex h-5 w-5 items-center justify-center whitespace-nowrap rounded-md text-sm font-medium text-[#FCE5AD] ring-offset-background transition-colors hover:text-[#F8C549] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
-                href="#"
-            >
-                <i class="fa-brands fa-youtube h-4 w-4"></i>
-            </a>
-            <a
-                class="inline-flex h-5 w-5 items-center justify-center whitespace-nowrap rounded-md text-sm font-medium text-[#FCE5AD] ring-offset-background transition-colors hover:text-[#F8C549] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
-                href="#"
-            >
-                <i class="fa-brands fa-instagram h-4 w-4"></i>
-            </a>
-            <a
-                class="inline-flex h-5 w-5 items-center justify-center whitespace-nowrap rounded-md text-sm font-medium text-[#FCE5AD] ring-offset-background transition-colors hover:text-[#F8C549] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
-                href="#"
-            >
-                <i class="fa-brands fa-linkedin h-4 w-4"></i>
-            </a>
+            <div class="flex items-center justify-between gap-x-2">
+                <a
+                    class="inline-flex h-5 w-5 items-center justify-center whitespace-nowrap rounded-md text-sm font-medium text-[#FCE5AD] ring-offset-background transition-colors hover:text-[#F8C549] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
+                    href="#"
+                >
+                    <i class="fa-brands fa-twitter h-4 w-4"></i>
+                </a>
+                <a
+                    class="inline-flex h-5 w-5 items-center justify-center whitespace-nowrap rounded-md text-sm font-medium text-[#FCE5AD] ring-offset-background transition-colors hover:text-[#F8C549] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
+                    href="#"
+                >
+                    <i class="fa-brands fa-facebook-f h-4 w-4"></i>
+                </a>
+                <a
+                    class="inline-flex h-5 w-5 items-center justify-center whitespace-nowrap rounded-md text-sm font-medium text-[#FCE5AD] ring-offset-background transition-colors hover:text-[#F8C549] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
+                    href="#"
+                >
+                    <i class="fa-brands fa-youtube h-4 w-4"></i>
+                </a>
+                <a
+                    class="inline-flex h-5 w-5 items-center justify-center whitespace-nowrap rounded-md text-sm font-medium text-[#FCE5AD] ring-offset-background transition-colors hover:text-[#F8C549] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
+                    href="#"
+                >
+                    <i class="fa-brands fa-instagram h-4 w-4"></i>
+                </a>
+                <a
+                    class="inline-flex h-5 w-5 items-center justify-center whitespace-nowrap rounded-md text-sm font-medium text-[#FCE5AD] ring-offset-background transition-colors hover:text-[#F8C549] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
+                    href="#"
+                >
+                    <i class="fa-brands fa-linkedin h-4 w-4"></i>
+                </a>
+            </div>
         </div>
     </section>
 
     {{-- Navigation Links --}}
-    <section
-        class="container flex items-center justify-between bg-background py-2 shadow"
-    >
-        <div class="flex items-center gap-x-2">
-            <img
-                class="h-8 w-8"
-                src="https://pgpaud.upi.edu/wp-content/uploads/2019/09/logo-upi.png"
-                alt="Logo UPI"
-            />
-            <h1 class="text-lg font-semibold tracking-wide">
-                Desa Tegal Manggung
-            </h1>
-        </div>
+    <section class="bg-background shadow">
+        <div class="container flex items-center justify-between py-2">
+            <div class="flex items-center gap-x-2">
+                <img
+                    class="h-8 w-8"
+                    src="https://pgpaud.upi.edu/wp-content/uploads/2019/09/logo-upi.png"
+                    alt="Logo UPI"
+                />
+                <h1 class="text-lg font-semibold tracking-wide">
+                    Desa Tegal Manggung
+                </h1>
+            </div>
 
-        <ul class="hidden gap-x-2 md:flex lg:gap-x-4">
-            <li>
-                <x-ui.button variant="ghost" href="/">Beranda</x-ui.button>
-            </li>
+            <ul class="hidden gap-x-2 md:flex lg:gap-x-4">
+                <li>
+                    <x-ui.button variant="ghost" href="/">Beranda</x-ui.button>
+                </li>
 
-            <li>
-                <x-ui.dropdown.root>
-                    <x-ui.dropdown.button variant="ghost">
-                        Informasi
-                    </x-ui.dropdown.button>
-                    <x-ui.dropdown.content>
-                        <x-ui.dropdown.item>
-                            <a href="#" class="w-full text-left">Informasi 1</a>
-                        </x-ui.dropdown.item>
-                        <x-ui.dropdown.item>
-                            <a href="#" class="w-full text-left">Informasi 2</a>
-                        </x-ui.dropdown.item>
-                        <x-ui.dropdown.item>
-                            <a href="#" class="w-full text-left">Informasi 3</a>
-                        </x-ui.dropdown.item>
-                    </x-ui.dropdown.content>
-                </x-ui.dropdown.root>
-            </li>
+                <li>
+                    <x-ui.dropdown.root>
+                        <x-ui.dropdown.button variant="ghost">
+                            Informasi
+                        </x-ui.dropdown.button>
+                        <x-ui.dropdown.content>
+                            <x-ui.dropdown.item>
+                                <a href="#" class="w-full text-left">
+                                    Informasi 1
+                                </a>
+                            </x-ui.dropdown.item>
+                            <x-ui.dropdown.item>
+                                <a href="#" class="w-full text-left">
+                                    Informasi 2
+                                </a>
+                            </x-ui.dropdown.item>
+                            <x-ui.dropdown.item>
+                                <a href="#" class="w-full text-left">
+                                    Informasi 3
+                                </a>
+                            </x-ui.dropdown.item>
+                        </x-ui.dropdown.content>
+                    </x-ui.dropdown.root>
+                </li>
 
-            <li>
-                <x-ui.button variant="ghost" href="#">Profil</x-ui.button>
-            </li>
+                <li>
+                    <x-ui.button variant="ghost" href="#">Profil</x-ui.button>
+                </li>
 
-            <li>
-                <x-ui.button variant="ghost" href="#">Infografis</x-ui.button>
-            </li>
+                <li>
+                    <x-ui.button variant="ghost" href="#">
+                        Infografis
+                    </x-ui.button>
+                </li>
 
-            <li>
-                <x-ui.button variant="ghost" href="#">Pelayanan</x-ui.button>
-            </li>
+                <li>
+                    <x-ui.button variant="ghost" href="#">
+                        Pelayanan
+                    </x-ui.button>
+                </li>
 
-            <li>
-                <x-ui.button class="bg-green-pea-600 hover:bg-green-pea-500">
-                    Login
+                <li>
+                    <x-ui.button
+                        class="bg-green-pea-600 hover:bg-green-pea-500"
+                    >
+                        Login
+                    </x-ui.button>
+                </li>
+            </ul>
+
+            <div class="md:hidden">
+                <x-ui.button
+                    x-on:click="isOpen = !isOpen"
+                    variant="outline"
+                    size="icon"
+                >
+                    <i class="fa-solid fa-bars h-6 w-6"></i>
                 </x-ui.button>
-            </li>
-        </ul>
-
-        <div class="md:hidden">
-            <x-ui.button
-                x-on:click="isOpen = !isOpen"
-                variant="outline"
-                size="icon"
-            >
-                <i class="fa-solid fa-bars h-6 w-6"></i>
-            </x-ui.button>
+            </div>
         </div>
     </section>
 
@@ -222,7 +236,7 @@
 
                 <li>
                     <x-ui.button
-                        class="bg-green-pea-600 hover:bg-green-pea-500 mt-4 w-full"
+                        class="mt-4 w-full bg-green-pea-600 hover:bg-green-pea-500"
                     >
                         Login
                     </x-ui.button>
