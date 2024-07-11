@@ -112,7 +112,7 @@
                 </li>
 
                 <li>
-                    <x-ui.button variant="ghost" href="#">
+                    <x-ui.button variant="ghost" href="/infografis">
                         Infografis
                     </x-ui.button>
                 </li>
@@ -218,7 +218,7 @@
                     <x-ui.button
                         variant="ghost"
                         class="w-full justify-start"
-                        href="#"
+                        href="/infografis"
                     >
                         Infografis
                     </x-ui.button>
