@@ -18,7 +18,6 @@ class GaleriController extends Controller
     public function create()
     {
         $title = 'Tambah Galeri';
-
         return view('admin.galeri.create', compact('title'));
     }
 
@@ -52,7 +51,6 @@ class GaleriController extends Controller
 
     public function update(Request $request, Galeri $galeri)
     {
-        // \dd($galeri);
         $request->validate([
             'judul' => 'required|string',
             'deskripsi' => 'required|string',

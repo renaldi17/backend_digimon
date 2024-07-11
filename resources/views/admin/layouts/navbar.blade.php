@@ -99,6 +99,11 @@
                             </div>
                         </nav>
                     </div>
+                    <div class="sb-sidenav-menu-heading">Service</div>
+                        <a class="nav-link" href="charts.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                                Surat
+                        </a>
                 </div>
             </div>
         </nav>

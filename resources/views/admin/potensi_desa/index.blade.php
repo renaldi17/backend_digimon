@@ -1,54 +1,82 @@
 @extends('admin.layouts.app')
 
 @section('content')
-    <div class="container">
-        <h1>Potensi Desa</h1>
-        <a href="{{ route('potensi_desa.create') }}" class="btn btn-primary">Create</a>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nama</th>
-                    <th>Jenis</th>
-                    <th>Gambar</th>
-                    <th>Deskripsi</th>
-                    <th>Lokasi</th>
-                    <th>Hari Buka</th>
-                    <th>Hari Tutup</th>
-                    <th>Buka</th>
-                    <th>Tutup</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($potensiDesas as $potensiDesa)
-                    <tr>
-                        <td>{{ $potensiDesa->id }}</td>
-                        <td>{{ $potensiDesa->nama }}</td>
-                        <td>{{ $potensiDesa->jenis }}</td>
-                        <td>
-                            @if ($potensiDesa->gambar)
-                                <img src="/storage/{{ $potensiDesa->gambar }}" width="100px">
-                            @endif
-                        </td>
-                        <td>{{ $potensiDesa->deskripsi }}</td>
-                        <td>{{ $potensiDesa->lokasi }}</td>
-                        <td>{{ $potensiDesa->hari_buka }}</td>
-                        <td>{{ $potensiDesa->hari_tutup }}</td>
-                        <td>{{ $potensiDesa->buka }}</td>
-                        <td>{{ $potensiDesa->tutup }}</td>
-                        <td>
-                            <a href="{{ route('potensi_desa.edit', $potensiDesa->id) }}" class="btn btn-warning">Edit</a>
-                            <form action="{{ route('potensi_desa.destroy', $potensiDesa->id) }}" method="POST"
-                                style="display:inline;">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Delete</button>
-                            </form>
-                        </td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
+    <div class="container-fluid px-5">
+        <h1 class="mt-4">Potensi Desa</h1>
+
+        @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+        <div class="card shadow mb-5">
+            <div class="card-header py-3 d-flex justify-content-end">
+                <a href="{{ route('potensi_desa.create') }}" class="btn btn-primary float-right mb-0" style="color: #ffffff;">
+                    <i class="fa-solid fa-plus"></i>
+                    Tambah</a>
+            </div>
+            <div class="card-body">
+                <table id="datatablesSimple">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nama</th>
+                            <th>Jenis</th>
+                            <th>Gambar</th>
+                            <th>Deskripsi</th>
+                            <th>Lokasi</th>
+                            <th>Hari Buka</th>
+                            <th>Hari Tutup</th>
+                            <th>Buka</th>
+                            <th>Tutup</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($potensiDesas as $potensiDesa)
+                            <tr>
+                                <td>{{ $potensiDesa->id }}</td>
+                                <td>{{ $potensiDesa->nama }}</td>
+                                <td>{{ $potensiDesa->jenis }}</td>
+                                <td>
+                                    @if ($potensiDesa->gambar)
+                                        <img src="{{ asset('storage/' . $potensiDesa->gambar) }}" width="100px">
+                                    @endif
+                                </td>
+                                <td>{{ $potensiDesa->deskripsi }}</td>
+                                <td>{{ $potensiDesa->lokasi }}</td>
+                                <td>{{ $potensiDesa->hari_buka }}</td>
+                                <td>{{ $potensiDesa->hari_tutup }}</td>
+                                <td>{{ $potensiDesa->buka }}</td>
+                                <td>{{ $potensiDesa->tutup }}</td>
+                                <td>
+                                    <a href="{{ route('potensi_desa.edit', $potensiDesa->id) }}" class="btn btn-warning"
+                                        style="color: #ffffff"><i class="fa-solid fa-pen-to-square"
+                                            style="color: #ffffff;"></i> |
+                                        Edit</a>
+                                    <form action="{{ route('potensi_desa.destroy', $potensiDesa->id) }}" method="POST"
+                                        style="display:inline;" id="delete-form-{{ $potensiDesa->id }}">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="button" class="btn btn-danger"
+                                            onclick="confirmDelete({{ $potensiDesa->id }})">
+                                            <i class="fa-solid fa-trash" style="color: #ffffff;"></i> | Delete
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 @endsection
+
+<script>
+    function confirmDelete(id) {
+        if (confirm("Are you sure you want to delete this item?")) {
+            document.getElementById('delete-form-' + id).submit();
+        }
+    }
+</script>

@@ -4,6 +4,11 @@
     <div class="container-fluid px-5">
         <h1 class="mt-4">{{ $title }}</h1>
 
+        @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
 
         <div class="card shadow mb-5 ">
             <div class="card-header py-3 d-flex justify-content-end">

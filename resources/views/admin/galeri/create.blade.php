@@ -5,11 +5,11 @@
         <h1 class="mt-4 mb-4">{{ $title }}</h1>
         <div class="row">
             <div class="col-lg-6">
-                @if (session('error'))
-                    <div class="alert alert-danger">
-                        {{ session('error') }}
-                    </div>
-                @endif
+                @if ($errors->any())
+        <div class="alert alert-danger">
+            Cek lagi inputan anda
+        </div>
+    @endif
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
                         <form id="save-form" action="{{ route('galeri.store') }}" method="POST" enctype="multipart/form-data">
@@ -26,7 +26,7 @@
                                 <div class="col-lg-8">
                                     <div class="mb-3">
                                         <label for="img">Gambar</label>
-                                        <input type="file" class="form-control @error('foto') is-invalid @enderror"
+                                        <input type="file" class="form-control @error('gambar') is-invalid @enderror"
                                             id="img" onchange="previewFile()" name="gambar">
                                         @error('gambar')
                                             <div class="invalid-feedback">{{ $message }}</div>
@@ -39,7 +39,7 @@
                                 </div>
                             </div>
                             <div class="modal-footer mt-5">
-                                <button type="button" class="btn btn-primary save-button">Simpan Perubahan</button>
+                                <button type="button" class="btn btn-primary save-button" data-bs-toggle="modal" data-bs-target="#confirmModal">Simpan Perubahan</button>
                             </div>
                         </form>
                     </div>
@@ -47,4 +47,25 @@
             </div>
         </div>
     </div>
+
+    <!-- Preview File Script -->
+    <script>
+        function previewFile() {
+            const preview = document.getElementById('previewImage');
+            const file = document.getElementById('img').files[0];
+            const reader = new FileReader();
+
+            reader.addEventListener('load', function () {
+                preview.src = reader.result;
+            }, false);
+
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function submitForm() {
+            document.getElementById('save-form').submit();
+        }
+    </script>
 @endsection
