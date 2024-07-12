@@ -115,6 +115,19 @@ Route::post('login', [LoginController::class, 'login']);
 // Route for logout (optional)
 Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
+// IDEA RPL [IN PROGRESS] (START)
+Route::get('/tampilan/detail-produk', function () {
+    return view('/tampilan/detail-produk');
+});
+
+Route::get('/tampilan/potensi-desa', function () {
+    return view('/tampilan/potensi-desa');
+});
+
+Route::get('/tampilan/detail-wisata', function () {
+    return view('/tampilan/detail-wisata');
+});
+
 // Route buat detail wisata
 Route::get('/detail-wisata', function () {
     return view('detail-wisata');
@@ -126,8 +139,10 @@ Route::get('/infografis', function () {
     return view('infografis');
 });
 
+
 // Route untuk profil (sementara)
 // Nanti bisa ditambahkan controller untuk bisa menampilkan gambar perangkat desa
 Route::get('/profil', function () {
     return view('profil');
 });
+// IDEA RPL [IN PROGRESS] (END)
