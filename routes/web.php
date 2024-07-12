@@ -120,7 +120,8 @@ Route::get('/detail-wisata', function () {
     return view('detail-wisata');
 });
 
-// Route untuk infografis (sementara)
+// Route untuk infografis
+// Nanti bisa ditambahkan controller untuk bisa membuat grafik
 Route::get('/infografis', function () {
     return view('infografis');
 });
