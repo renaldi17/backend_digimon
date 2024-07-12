@@ -108,7 +108,9 @@
                 </li>
 
                 <li>
-                    <x-ui.button variant="ghost" href="#">Profil</x-ui.button>
+                    <x-ui.button variant="ghost" href="/profil">
+                        Profil
+                    </x-ui.button>
                 </li>
 
                 <li>

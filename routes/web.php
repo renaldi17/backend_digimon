@@ -120,8 +120,14 @@ Route::get('/detail-wisata', function () {
     return view('detail-wisata');
 });
 
-// Route untuk infografis
+// Route untuk infografis (sementara)
 // Nanti bisa ditambahkan controller untuk bisa membuat grafik
 Route::get('/infografis', function () {
     return view('infografis');
+});
+
+// Route untuk profil (sementara)
+// Nanti bisa ditambahkan controller untuk bisa menampilkan gambar perangkat desa
+Route::get('/profil', function () {
+    return view('profil');
 });
