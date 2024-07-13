@@ -163,4 +163,10 @@ Route::get('/status', function () {
 Route::get('/apbdes', function () {
     return view('/tampilan/apbdes');
 });
+
+// Route untuk produk hukum
+// Nanti bisa ditambahkan controller untuk mengarahkannya dengan tujuan form
+Route::get('/produkHukum', function () {
+    return view('/tampilan/produk-hukum');
+});
 // IDEA RPL [IN PROGRESS] (END)
