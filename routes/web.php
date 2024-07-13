@@ -145,4 +145,22 @@ Route::get('/infografis', function () {
 Route::get('/profil', function () {
     return view('profil');
 });
+
+// Route untuk pengajuan layanan (sementara)
+// Nanti bisa ditambahkan controller untuk mengarahkannya dengan tujuan form
+Route::get('/pengajuan', function () {
+    return view('/tampilan/pengajuan-layanan');
+});
+
+// Route untuk pengajuan layanan (sementara)
+// Nanti bisa ditambahkan controller untuk mengarahkannya dengan tujuan form
+Route::get('/status', function () {
+    return view('/tampilan/status-surat');
+});
+
+// Route untuk pengajuan layanan (sementara)
+// Nanti bisa ditambahkan controller untuk mengarahkannya dengan tujuan form
+Route::get('/apbdes', function () {
+    return view('/tampilan/apbdes');
+});
 // IDEA RPL [IN PROGRESS] (END)
