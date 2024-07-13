@@ -115,12 +115,122 @@ Route::post('login', [LoginController::class, 'login']);
 // Route for logout (optional)
 Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
-// Route buat detail wisata
-Route::get('/detail-wisata', function () {
-    return view('detail-wisata');
+// IDEA RPL [IN PROGRESS] (START)
+// Route detail produk
+Route::get('/produk', function () {
+    return view('/tampilan/produk');
+});
+
+// Route potensi desa
+Route::get('/potensi', function () {
+    $wisata = [
+        [
+            "publishedAt" => new DateTime('2021-01-01'),
+            "slug" => "tempat-wisata-1",
+            "title" => "Tempat Wisata 1",
+            "image" => "https://via.placeholder.com/400x200",
+            "description" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptas. Quisquam, voluptas. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptas. Quisquam, voluptas."
+        ],
+        [
+            "publishedAt" => new DateTime('2021-04-02'),
+            "slug" => "tempat-wisata-2",
+            "title" => "Tempat Wisata 2",
+            "image" => "https://via.placeholder.com/400x200",
+            "description" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptas. Quisquam, voluptas. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptas. Quisquam, voluptas."
+        ],
+        [
+            "publishedAt" => new DateTime('2021-05-03'),
+            "slug" => "tempat-wisata-3",
+            "title" => "Tempat Wisata 3",
+            "image" => "https://via.placeholder.com/400x200",
+            "description" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptas. Quisquam, voluptas. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptas. Quisquam, voluptas."
+        ],
+        [
+            "publishedAt" => new DateTime('2021-06-04'),
+            "slug" => "tempat-wisata-4",
+            "title" => "Tempat Wisata 4",
+            "image" => "https://via.placeholder.com/400x200",
+            "description" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptas. Quisquam, voluptas. Lorem ipsum dolor sit amet consectetur adipisicing elit Quisquam, voluptas. Quisquam, voluptas."
+        ]
+    ];
+
+    $produk = [
+        [
+            "publishedAt" => new DateTime('2021-01-01'),
+            "slug" => "produk-1",
+            "title" => "Produk 1",
+            "image" => "https://via.placeholder.com/400x200",
+            "description" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptas. Quisquam, voluptas. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptas. Quisquam, voluptas."
+        ],
+        [
+            "publishedAt" => new DateTime('2021-04-02'),
+            "slug" => "produk-2",
+            "title" => "Produk 2",
+            "image" => "https://via.placeholder.com/400x200",
+            "description" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptas. Quisquam, voluptas. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptas. Quisquam, voluptas."
+        ],
+        [
+            "publishedAt" => new DateTime('2021-05-03'),
+            "slug" => "produk-3",
+            "title" => "Produk 3",
+            "image" => "https://via.placeholder.com/400x200",
+            "description" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptas. Quisquam, voluptas. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptas. Quisquam, voluptas."
+        ],
+        [
+            "publishedAt" => new DateTime('2021-06-04'),
+            "slug" => "produk-4",
+            "title" => "Produk 4",
+            "image" => "https://via.placeholder.com/400x200",
+            "description" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptas. Quisquam, voluptas. Lorem ipsum dolor sit amet consectetur adipisicing elit Quisquam, voluptas. Quisquam, voluptas."
+        ]
+    ];
+
+    $data = [
+        'wisata' => $wisata,
+        'produk' => $produk,
+    ];
+
+    return view('/tampilan/potensi', $data);
+});
+
+// Route detail wisata
+Route::get('/wisata', function () {
+    return view('/tampilan/wisata');
 });
 
 // Route untuk infografis (sementara)
+// Nanti bisa ditambahkan controller untuk bisa membuat grafik
 Route::get('/infografis', function () {
     return view('infografis');
 });
+
+// Route untuk profil (sementara)
+// Nanti bisa ditambahkan controller untuk bisa menampilkan gambar perangkat desa
+Route::get('/profil', function () {
+    return view('profil');
+});
+
+// Route untuk pengajuan layanan (sementara)
+// Nanti bisa ditambahkan controller untuk mengarahkannya dengan tujuan form
+Route::get('/pengajuan', function () {
+    return view('/tampilan/pengajuan-layanan');
+});
+
+// Route untuk pengajuan layanan (sementara)
+// Nanti bisa ditambahkan controller untuk mengarahkannya dengan tujuan form
+Route::get('/status', function () {
+    return view('/tampilan/status-surat');
+});
+
+// Route untuk pengajuan layanan (sementara)
+// Nanti bisa ditambahkan controller untuk mengarahkannya dengan tujuan form
+Route::get('/apbdes', function () {
+    return view('/tampilan/apbdes');
+});
+
+// Route untuk produk hukum
+// Nanti bisa ditambahkan controller untuk mengarahkannya dengan tujuan form
+Route::get('/produkHukum', function () {
+    return view('/tampilan/produk-hukum');
+});
+// IDEA RPL [IN PROGRESS] (END)
