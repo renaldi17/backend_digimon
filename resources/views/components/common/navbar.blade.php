@@ -69,8 +69,8 @@
             <div class="flex items-center gap-x-2">
                 <img
                     class="h-8 w-8"
-                    src="https://pgpaud.upi.edu/wp-content/uploads/2019/09/logo-upi.png"
-                    alt="Logo UPI"
+                    src="assets\img\desaTegalManggung.png"
+                    alt="Logo TegalManggung"
                 />
                 <h1 class="text-lg font-semibold tracking-wide">
                     Desa Tegal Manggung
@@ -79,7 +79,7 @@
 
             <ul class="hidden gap-x-2 md:flex lg:gap-x-4">
                 <li>
-                    <x-ui.button variant="ghost" href="/">Beranda</x-ui.button>
+                    <x-ui.button variant="ghost" href="/#section-main">Beranda</x-ui.button>
                 </li>
 
                 <li>
@@ -89,18 +89,38 @@
                         </x-ui.dropdown.button>
                         <x-ui.dropdown.content>
                             <x-ui.dropdown.item>
-                                <a href="#" class="w-full text-left">
-                                    Informasi 1
+                                <a href="/#section-profile-video" class="w-full text-left">
+                                    Video Profil
                                 </a>
                             </x-ui.dropdown.item>
                             <x-ui.dropdown.item>
-                                <a href="#" class="w-full text-left">
-                                    Informasi 2
+                                <a href="/#section-kependudukan" class="w-full text-left">
+                                    Kependudukan
                                 </a>
                             </x-ui.dropdown.item>
                             <x-ui.dropdown.item>
-                                <a href="#" class="w-full text-left">
-                                    Informasi 3
+                                <a href="/#section-berita-kependudukan" class="w-full text-left">
+                                    Berita Kependudukan
+                                </a>
+                            </x-ui.dropdown.item>
+                            <x-ui.dropdown.item>
+                                <a href="/#section-berita-penghargaan" class="w-full text-left">
+                                    Berita Penghargaan
+                                </a>
+                            </x-ui.dropdown.item>
+                            <x-ui.dropdown.item>
+                                <a href="/#section-wisata-alam" class="w-full text-left">
+                                    Wisata Alam
+                                </a>
+                            </x-ui.dropdown.item>
+                            <x-ui.dropdown.item>
+                                <a href="/#section-produk-umkm" class="w-full text-left">
+                                    Produk UMKM
+                                </a>
+                            </x-ui.dropdown.item>
+                            <x-ui.dropdown.item>
+                                <a href="/#section-layanan" class="w-full text-left">
+                                    Layanan
                                 </a>
                             </x-ui.dropdown.item>
                         </x-ui.dropdown.content>
@@ -120,7 +140,7 @@
                 </li>
 
                 <li>
-                    <x-ui.button variant="ghost" href="#">
+                    <x-ui.button variant="ghost" href="/#section-layanan">
                         Pelayanan
                     </x-ui.button>
                 </li>
@@ -188,18 +208,38 @@
                         </x-ui.dropdown.button>
                         <x-ui.dropdown.content>
                             <x-ui.dropdown.item>
-                                <a href="#" class="w-full text-left">
-                                    Informasi 1
+                                <a href="/#section-profile-video" class="w-full text-left">
+                                    Video Profil
                                 </a>
                             </x-ui.dropdown.item>
                             <x-ui.dropdown.item>
-                                <a href="#" class="w-full text-left">
-                                    Informasi 2
+                                <a href="/#section-kependudukan" class="w-full text-left">
+                                    Kependudukan
                                 </a>
                             </x-ui.dropdown.item>
                             <x-ui.dropdown.item>
-                                <a href="#" class="w-full text-left">
-                                    Informasi 3
+                                <a href="/#section-berita-kependudukan" class="w-full text-left">
+                                    Berita Kependudukan
+                                </a>
+                            </x-ui.dropdown.item>
+                            <x-ui.dropdown.item>
+                                <a href="/#section-berita-penghargaan" class="w-full text-left">
+                                    Berita Penghargaan
+                                </a>
+                            </x-ui.dropdown.item>
+                            <x-ui.dropdown.item>
+                                <a href="/#section-wisata-alam" class="w-full text-left">
+                                    Wisata Alam
+                                </a>
+                            </x-ui.dropdown.item>
+                            <x-ui.dropdown.item>
+                                <a href="/#section-produk-umkm" class="w-full text-left">
+                                    Produk UMKM
+                                </a>
+                            </x-ui.dropdown.item>
+                            <x-ui.dropdown.item>
+                                <a href="/#section-layanan" class="w-full text-left">
+                                    Layanan
                                 </a>
                             </x-ui.dropdown.item>
                         </x-ui.dropdown.content>
@@ -230,7 +270,7 @@
                     <x-ui.button
                         variant="ghost"
                         class="w-full justify-start"
-                        href="#"
+                        href="/#section-layanan"
                     >
                         Pelayanan
                     </x-ui.button>

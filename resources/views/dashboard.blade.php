@@ -24,13 +24,18 @@
         <script src="https://unpkg.com/embla-carousel-autoplay/embla-carousel-autoplay.umd.js"></script>
 
         <title>Website Desa Tegal Manggung</title>
+        <style>
+            html{
+                scroll-behavior: smooth;
+            }
+        </style>
     </head>
 
     <body>
         <x-common.navbar />
 
         <main class="min-h-screen">
-            <section
+            <section id="section-main"
                 class="min-[512px] relative h-screen max-h-[680px] pt-16 md:pt-32"
             >
                 <div
@@ -66,7 +71,7 @@
                         class="grid grid-cols-2 justify-items-center gap-2 rounded-md bg-background sm:grid-cols-4"
                     >
                         <a
-                            href="#"
+                            href="/profil"
                             class="flex h-full w-full cursor-pointer flex-col items-center justify-start gap-y-2 rounded-md px-2 py-4 text-center transition hover:bg-accent"
                         >
                             <div
@@ -81,7 +86,7 @@
                             </span>
                         </a>
                         <a
-                            href="#"
+                            href="/pengajuan"
                             class="flex h-full w-full cursor-pointer flex-col items-center justify-start gap-y-2 rounded-md px-2 py-4 text-center transition hover:bg-accent"
                         >
                             <div
@@ -113,7 +118,7 @@
                         </a>
 
                         <a
-                            href="#"
+                            href="/tampilan/potensi-desa"
                             class="flex h-full w-full cursor-pointer flex-col items-center justify-start gap-y-2 rounded-md px-2 py-4 text-center transition hover:bg-accent"
                         >
                             <div
@@ -129,7 +134,7 @@
                         </a>
 
                         <a
-                            href="#"
+                            href="/apbdes"
                             class="flex h-full w-full cursor-pointer flex-col items-center justify-start gap-y-2 rounded-md px-2 py-4 text-center transition hover:bg-accent"
                         >
                             <div
@@ -145,7 +150,7 @@
                         </a>
 
                         <a
-                            href="#"
+                            href="/status"
                             class="flex h-full w-full cursor-pointer flex-col items-center justify-start gap-y-2 rounded-md px-2 py-4 text-center transition hover:bg-accent"
                         >
                             <div
@@ -155,11 +160,11 @@
                                     class="fa-solid fa-bullhorn h-12 w-12 text-zinc-50"
                                 ></i>
                             </div>
-                            <span class="text-lg font-semibold">Pengaduan</span>
+                            <span class="text-lg font-semibold">Cek Status Pengajuan</span>
                         </a>
 
                         <a
-                            href="#"
+                            href="/produkHukum"
                             class="flex h-full w-full cursor-pointer flex-col items-center justify-start gap-y-2 rounded-md px-2 py-4 text-center transition hover:bg-accent"
                         >
                             <div
@@ -214,7 +219,7 @@
                 </div>
             </section>
 
-            <section
+            <section id="section-profile-video"
                 class="container mt-80 py-12 sm:mt-12 md:mt-[15vh] lg:mt-[25vh] xl:mt-80"
             >
                 <h2
@@ -243,7 +248,7 @@
                 </div>
             </section>
 
-            <section class="container space-y-8 py-12 md:space-y-16">
+            <section id="section-kependudukan" class="container space-y-8 py-12 md:space-y-16">
                 <h2
                     class="scroll-m-20 pb-2 text-center text-3xl font-semibold tracking-tight first:mt-0"
                 >
@@ -344,7 +349,7 @@
                     <x-ui.button
                         class="w-full max-w-80 bg-green-pea-600 hover:bg-green-pea-500"
                     >
-                        Selengkapnya
+                        <a href="/infografis">Selengkapnya</a>
                     </x-ui.button>
                 </div>
             </section>
@@ -353,7 +358,7 @@
                 <hr class="h-[1px] w-full shrink-0 bg-border" />
             </div>
 
-            <section class="container pt-6">
+            <section id="section-berita-kependudukan" class="container pt-6">
                 <h2
                     class="scroll-m-20 pb-2 text-center text-3xl font-semibold tracking-tight text-green-pea-600 first:mt-0"
                 >
@@ -432,7 +437,7 @@
                 </div>
             </section>
 
-            <section class="container mt-6 pt-12">
+            <section id="section-berita-penghargaan" class="container mt-6 pt-12">
                 <h2
                     class="scroll-m-20 pb-2 text-center text-3xl font-semibold tracking-tight text-green-pea-600 first:mt-0"
                 >
@@ -511,7 +516,7 @@
                 </div>
             </section>
 
-            <section class="container mt-6 pt-12">
+            <section id="section-wisata-alam" class="container mt-6 pt-12">
                 <h2
                     class="scroll-m-20 pb-2 text-center text-3xl font-semibold tracking-tight text-green-pea-600 first:mt-0"
                 >
@@ -585,14 +590,14 @@
                 <div class="mt-6 flex justify-center">
                     <x-ui.button
                         class="w-full max-w-80 bg-green-pea-600 hover:bg-green-pea-500"
-                        href="#"
+                        href="/tampilan/potensi-desa"
                     >
                         Lihat Lebih Banyak
                     </x-ui.button>
                 </div>
             </section>
 
-            <section class="container mt-6 pt-12">
+            <section id="section-produk-umkm" class="container mt-6 pt-12">
                 <h2
                     class="scroll-m-20 pb-2 text-center text-3xl font-semibold tracking-tight text-green-pea-600 first:mt-0"
                 >
@@ -663,17 +668,62 @@
                 <div class="mt-6 flex justify-center">
                     <x-ui.button
                         class="w-full max-w-80 bg-green-pea-600 hover:bg-green-pea-500"
-                        href="#"
+                        href="/tampilan/potensi-desa"
                     >
                         Lihat Lebih Banyak
                     </x-ui.button>
                 </div>
             </section>
 
-            <section
+            <section id="section-layanan"
                 class="container my-6 flex flex-col gap-x-12 gap-y-6 py-12 sm:flex-row sm:justify-center"
             >
-                <x-ui.card.root
+            <x-ui.card.root
+            class="sm:min relative overflow-hidden bg-green-pea-700 text-zinc-50 md:min-w-[320px]"
+        >
+            <i
+                class="fa-solid fa-file-lines absolute -right-10 -top-5 h-32 w-32 text-green-pea-700 brightness-125"
+            ></i>
+
+            <x-ui.card.header class="relative z-[1]">
+                <x-ui.card.title>APBDES</x-ui.card.title>
+            </x-ui.card.header>
+            <x-ui.card.content class="relative z-[1]">
+                <ul class="flex flex-col">
+                    <li>
+                        <x-ui.button
+                            class="text-zinc-50"
+                            variant="link"
+                            href="#"
+                        >
+                            Lorem ipsum dolor sit.
+                        </x-ui.button>
+                    </li>
+                    <li>
+                        <x-ui.button
+                            class="text-zinc-50"
+                            variant="link"
+                            href="#"
+                        >
+                            Lorem ipsum dolor sit.
+                        </x-ui.button>
+                    </li>
+                </ul>
+            </x-ui.card.content>
+
+            <x-ui.card.footer
+                class="relative z-[1] justify-end bg-green-pea-600 pb-4 pt-3"
+            >
+                <x-ui.button
+                    class="text-zinc-50"
+                    variant="link"
+                    href="/apbdes"
+                >
+                    Selengkapnya
+                </x-ui.button>
+            </x-ui.card.footer>
+            </x-ui.card.root>
+            <x-ui.card.root
                     class="sm:min relative overflow-hidden bg-green-pea-700 text-zinc-50 md:min-w-[320px]"
                 >
                     <i
@@ -758,7 +808,7 @@
                         <x-ui.button
                             class="text-zinc-50"
                             variant="link"
-                            href="#"
+                            href="/pengajuan"
                         >
                             Selengkapnya
                         </x-ui.button>
