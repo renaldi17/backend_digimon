@@ -118,7 +118,7 @@ Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 // IDEA RPL [IN PROGRESS] (START)
 // Route detail produk
 Route::get('/produk', function () {
-    return view('/tampilan/detail-produk');
+    return view('/tampilan/produk');
 });
 
 // Route potensi desa
@@ -190,12 +190,12 @@ Route::get('/potensi', function () {
         'produk' => $produk,
     ];
 
-    return view('/tampilan/potensi-desa', $data);
+    return view('/tampilan/potensi', $data);
 });
 
 // Route detail wisata
 Route::get('/wisata', function () {
-    return view('/tampilan/detail-wisata');
+    return view('/tampilan/wisata');
 });
 
 // Route untuk infografis (sementara)
