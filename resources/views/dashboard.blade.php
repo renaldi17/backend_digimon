@@ -762,7 +762,7 @@
                         <x-ui.button
                             class="text-zinc-50"
                             variant="link"
-                            href="#"
+                            href="/produkHukum"
                         >
                             Selengkapnya
                         </x-ui.button>
