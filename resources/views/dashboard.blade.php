@@ -118,7 +118,7 @@
                         </a>
 
                         <a
-                            href="/tampilan/potensi-desa"
+                            href="{{ route('potensi') }}"
                             class="flex h-full w-full cursor-pointer flex-col items-center justify-start gap-y-2 rounded-md px-2 py-4 text-center transition hover:bg-accent"
                         >
                             <div
@@ -590,7 +590,7 @@
                 <div class="mt-6 flex justify-center">
                     <x-ui.button
                         class="w-full max-w-80 bg-green-pea-600 hover:bg-green-pea-500"
-                        href="/tampilan/potensi-desa"
+                        href="{{ route('potensi') }}"
                     >
                         Lihat Lebih Banyak
                     </x-ui.button>
@@ -668,7 +668,7 @@
                 <div class="mt-6 flex justify-center">
                     <x-ui.button
                         class="w-full max-w-80 bg-green-pea-600 hover:bg-green-pea-500"
-                        href="/tampilan/potensi-desa"
+                        href="{{ route('potensi') }}"
                     >
                         Lihat Lebih Banyak
                     </x-ui.button>
