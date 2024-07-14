@@ -11,6 +11,7 @@ use App\Http\Controllers\ProdukHukumController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\StrukturController;
 use App\Http\Controllers\PendudukController;
+use App\Http\Controllers\ProfilController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -101,6 +102,7 @@ Route::resource('admin/potensi_desa', PotensiDesaController::class);
 Route::resource('admin/produk_hukum', ProdukHukumController::class);
 Route::resource('admin/struktur', StrukturController::class);
 Route::resource('admin/penduduk', PendudukController::class);
+Route::resource('admin/profil', ProfilController::class)->except('create', 'store', 'show', 'destroy');
 
 //AUTH//
 
@@ -116,11 +118,6 @@ Route::post('login', [LoginController::class, 'login']);
 Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
 // IDEA RPL [IN PROGRESS] (START)
-// Route detail produk
-Route::get('/produk', function () {
-    return view('/tampilan/produk');
-});
-
 // Route potensi desa
 Route::get('/potensi', function () {
     $wisata = [
@@ -191,12 +188,17 @@ Route::get('/potensi', function () {
     ];
 
     return view('/tampilan/potensi', $data);
-});
+})->name('potensi');
 
 // Route detail wisata
-Route::get('/wisata', function () {
+Route::get('/wisata/{slug}', function ($slug) {
     return view('/tampilan/wisata');
-});
+})->name('wisata.show');
+
+// Route detail produk
+Route::get('/produk-umkm/{slug}', function ($slug) {
+    return view('/tampilan/produk-umkm');
+})->name('produk-umkm.show');
 
 // Route untuk infografis (sementara)
 // Nanti bisa ditambahkan controller untuk bisa membuat grafik
@@ -206,9 +208,7 @@ Route::get('/infografis', function () {
 
 // Route untuk profil (sementara)
 // Nanti bisa ditambahkan controller untuk bisa menampilkan gambar perangkat desa
-Route::get('/profil', function () {
-    return view('profil');
-});
+Route::get('/profil', [ProfilController::class, 'pageProfil']);
 
 // Route untuk pengajuan layanan (sementara)
 // Nanti bisa ditambahkan controller untuk mengarahkannya dengan tujuan form

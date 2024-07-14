@@ -55,7 +55,7 @@
                         data-bs-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
                             <a class="nav-link" href="{{ route('galeri.index') }}">Galeri</a>
-                            <a class="nav-link" href="">Profil</a>
+                            <a class="nav-link" href="{{ route('profil.index') }}">Profil</a>
                             <a class="nav-link" href="{{ route('slider.index') }}">Slider</a>
                             <a class="nav-link" href="{{ route('struktur.index') }}">Struktur</a>
                             <a class="nav-link" href="{{ route('perangkat_desa.index') }}">Perangkat Desa</a>
