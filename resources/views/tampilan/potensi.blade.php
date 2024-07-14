@@ -84,7 +84,7 @@
                                 <x-ui.card.footer class="justify-end">
                                     <x-ui.button
                                         variant="ghost"
-                                        href="/wisata/{{ $wisataItem['slug'] }}"
+                                        href="{{ route('wisata.show', ['slug' => $wisataItem['slug']]) }}"
                                     >
                                         Baca Selengkapnya
                                     </x-ui.button>
@@ -204,7 +204,7 @@
                                 <x-ui.card.footer class="justify-end">
                                     <x-ui.button
                                         variant="ghost"
-                                        href="/produk-umkm/{{ $produkItem['slug'] }}"
+                                        href="{{ route('produk-umkm.show', ['slug' => $produkItem['slug']]) }}"
                                     >
                                         Baca Selengkapnya
                                     </x-ui.button>

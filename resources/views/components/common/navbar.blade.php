@@ -69,7 +69,7 @@
             <div class="flex items-center gap-x-2">
                 <img
                     class="h-8 w-8"
-                    src="assets\img\desaTegalManggung.png"
+                    src="{{ asset('assets/img/desaTegalManggung.png') }}"
                     alt="Logo TegalManggung"
                 />
                 <h1 class="text-lg font-semibold tracking-wide">

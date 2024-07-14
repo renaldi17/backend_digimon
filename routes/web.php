@@ -116,11 +116,6 @@ Route::post('login', [LoginController::class, 'login']);
 Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
 // IDEA RPL [IN PROGRESS] (START)
-// Route detail produk
-Route::get('/produk', function () {
-    return view('/tampilan/produk');
-});
-
 // Route potensi desa
 Route::get('/potensi', function () {
     $wisata = [
@@ -191,12 +186,17 @@ Route::get('/potensi', function () {
     ];
 
     return view('/tampilan/potensi', $data);
-});
+})->name('potensi');
 
 // Route detail wisata
-Route::get('/wisata', function () {
+Route::get('/wisata/{slug}', function ($slug) {
     return view('/tampilan/wisata');
-});
+})->name('wisata.show');
+
+// Route detail produk
+Route::get('/produk-umkm/{slug}', function ($slug) {
+    return view('/tampilan/produk-umkm');
+})->name('produk-umkm.show');
 
 // Route untuk infografis (sementara)
 // Nanti bisa ditambahkan controller untuk bisa membuat grafik
