@@ -53,37 +53,18 @@
                     <figure class="" id="picture">
                         <img
                             class="h-[292px] w-[222px]"
-                            src="assets/kepaladesa.png"
+                            src="{{ Storage::url($profil->gambar_kepala_desa) }}"
                             alt="Kepala Desa"
                         />
                     </figure>
                     <section class="flex flex-col gap-3 md:w-[70%]" id="words">
                         <h2 class="text-black-900 text-3xl font-bold">
-                            Nama Kepala Desa
+                            {{ $profil->nama_kepala_desa }}
                         </h2>
                         <h3 class="text-black-900 text-xl font-bold">
                             Kepala Desa
                         </h3>
-                        <p class="text-justify">Assalamualaikum wr. wb.</p>
-                        <p class="text-justify">
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Et dolorum libero est minus quam! Non
-                            deserunt, culpa labore sed ex dolores nulla earum
-                            iste nemo magni tenetur quam consequuntur eaque
-                            minus est laboriosam quis delectus illo ad quia
-                            inventore quas? Alias tenetur aspernatur odio
-                            quidem, voluptate dolorem tempore excepturi quo?
-                        </p>
-                        <p class="text-justify">
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Et dolorum libero est minus quam! Non
-                            deserunt, culpa labore sed ex dolores nulla earum
-                            iste nemo magni tenetur quam consequuntur eaque
-                            minus est laboriosam quis delectus illo ad quia
-                            inventore quas? Alias tenetur aspernatur odio
-                            quidem, voluptate dolorem tempore excepturi quo?
-                        </p>
-                        <p>Wassalamualaikum Wr. Wb.</p>
+                        <p class="text-justify">{!! $profil->deskripsi_kepala_desa !!}</p>
                     </section>
                 </div>
             </article>
@@ -94,7 +75,7 @@
                     Perangkat Desa
                 </h1>
                 <figure>
-                    <img src="assets/perangkat-desa.png" alt="Perangkat Desa" />
+                    <img src="{{Storage::url($profil->gambar_perangkat_desa) }}" alt="Perangkat Desa" />
                 </figure>
             </article>
 
@@ -109,19 +90,10 @@
                     class="flex flex-wrap-reverse justify-between gap-5 md:flex-nowrap"
                 >
                     <section class="md:w-[70%]">
-                        <p class="text-justify">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing
-                            elit. Enim tempora eaque illo, sapiente quidem
-                            dignissimos voluptates vel quas accusamus possimus
-                            mollitia magnam voluptatem cupiditate ipsam quasi at
-                            veritatis eum a illum incidunt reprehenderit ullam
-                            unde natus fugiat! Voluptatum cupiditate tempore
-                            perspiciatis consequatur? Laboriosam libero magnam
-                            in et ducimus velit maiores.
-                        </p>
+                        <p class="text-justify">{!! $profil->sejarah_desa !!}</p>
                     </section>
                     <figure class="md:w-[30%]">
-                        <img src="assets/sejarah.png" alt="Sejarah" />
+                        <img src="{{ Storage::url($profil->gambar_sejarah_desa) }}" alt="Sejarah" />
                     </figure>
                 </div>
             </article>
@@ -143,53 +115,18 @@
                             <h3 class="text-xl font-bold">
                                 Visi Tegalmanggung
                             </h3>
-                            <p class="text-justify">
-                                Terwujudnya Desa Tegalmanggung yang Mandiri
-                                Amanah Transparan Agamis dan Produktif. " MANTAP
-                                " untuk menuju Desa Tegalmanggung lebih maju,
-                                mandiri dan berkualitas
-                            </p>
+                            <p class="text-justify">{!! $profil->visi_desa !!}</p>
                         </section>
                         <section class="flex flex-col gap-2">
                             <h3 class="text-xl font-bold">
                                 Tujuan Tegalmanggung
                             </h3>
-                            <p class="text-justify">
-                                Mewujudkan Desa Tegalmanggung yang lebih maju,
-                                mandiri dan berkualitas
-                            </p>
+                            <p class="text-justify">{!! $profil->tujuan_desa !!}</p>
                         </section>
                     </div>
                     <section class="flex w-[90%] flex-col gap-2 md:w-[47%]">
                         <h3 class="text-xl font-bold">Misi Tegalmanggung</h3>
-                        <ol class="list-decimal space-y-2 pl-4">
-                            <li class="text-justify">
-                                Meningkatkan mutu pelayanan kepada masyarakat
-                                yang efisien, demokratis, adil dan merata.
-                            </li>
-                            <li class="text-justify">
-                                Lebih terbuka dalam melayani kebutuhan
-                                masyarakat, lebih mengutamakan peran serta
-                                masyarakat melalui lembaga/organisasi
-                                kemasyarakatan di berbagai elemen dalam rangka
-                                mendorong kemandirian masyarakat.
-                            </li>
-                            <li class="text-justify">
-                                Mengadakan pelatihan-pelatihan keterampilan bagi
-                                anak remaja
-                            </li>
-                            <li class="text-justify">
-                                Meningkatkan kualitas aparatur pemerintah desa
-                                melalui pelatihan dan pembinaan
-                            </li>
-                            <li class="text-justify">
-                                Pemberdayaan kelompok ekonomi konsumtif menjadi
-                                kelompok ekonomi produktif
-                            </li>
-                            <li class="text-justify">
-                                Mengembangkan industri kecil
-                            </li>
-                        </ol>
+                        {!! $profil->misi_desa !!}
                     </section>
                 </div>
             </article>

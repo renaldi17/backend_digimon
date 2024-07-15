@@ -16,6 +16,7 @@ use App\Http\Controllers\PengajuanSuratController;
 use App\Http\Controllers\PengajuanSuratUserController;
 use App\Http\Controllers\StatusSuratController;
 
+use App\Http\Controllers\ProfilController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -126,6 +127,7 @@ Route::resource('admin/pengajuan-surat', PengajuanSuratController::class)->names
 ]);
 Route::get('admin/pengajuan-surat/ubah-status/{id}', [PengajuanSuratController::class, 'updateStatusPage'])->name('pengajuanSurat.updateStatus.index');
 Route::put('admin/pengajuan-surat/ubah-status/{id}', [PengajuanSuratController::class, 'updateStatus'])->name('pengajuanSurat.updateStatus.update');
+Route::resource('admin/profil', ProfilController::class)->except('create', 'store', 'show', 'destroy');
 
 //AUTH//
 
@@ -231,9 +233,7 @@ Route::get('/infografis', function () {
 
 // Route untuk profil (sementara)
 // Nanti bisa ditambahkan controller untuk bisa menampilkan gambar perangkat desa
-Route::get('/profil', function () {
-    return view('profil');
-});
+Route::get('/profil', [ProfilController::class, 'pageProfil']);
 
 // Route untuk pengajuan layanan (sementara)
 // Nanti bisa ditambahkan controller untuk mengarahkannya dengan tujuan form

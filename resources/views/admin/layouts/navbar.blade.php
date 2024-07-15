@@ -107,7 +107,12 @@
                             >
                                 Galeri
                             </a>
-                            <a class="nav-link" href="">Profil</a>
+                            <a
+                                class="nav-link"
+                                href="{{ route("profil.index") }}"
+                            >
+                                Profil
+                            </a>
                             <a
                                 class="nav-link"
                                 href="{{ route("slider.index") }}"
