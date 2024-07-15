@@ -39,8 +39,8 @@
                     {{-- FORM STATUS SURAT --}}
                     <form
                         {{-- Action dan Method untuk Form --}}
-                        action=""
-                        method=""
+                        action="{{ route("status.check") }}"
+                        method="POST"
                         class="mb-4 w-full max-w-screen-md rounded bg-white px-4 pb-8 pt-16 sm:px-10 lg:px-5"
                     >
                         @csrf
@@ -64,14 +64,14 @@
                         <div class="mb-4">
                             <label
                                 class="mb-2 block text-xl text-black"
-                                for="nama_lengkap"
+                                for="nama"
                             >
                                 Nama Lengkap
                             </label>
                             <input
                                 type="text"
-                                id="nama_lengkap"
-                                name="nama_lengkap"
+                                id="nama"
+                                name="nama"
                                 class="focus:shadow-outline w-full border-b-2 border-gray-700 px-3 py-2 leading-tight text-gray-700 focus:outline-none"
                                 placeholder="Nama Lengkap"
                             />
@@ -130,7 +130,7 @@
                                         type="text"
                                         id="nik"
                                         name="nik"
-                                        value="{{-- nilai untuk nik --}}"
+                                        value="{{ $nik }}"
                                         class="focus:shadow-outline p-auto md:text-basefocus:outline-none w-full flex-grow appearance-none rounded bg-white px-3 text-sm leading-tight text-gray-700 md:text-base"
                                         disabled
                                     />
@@ -149,27 +149,45 @@
                                         type="text"
                                         id="nama_lengkap"
                                         name="nama_lengkap"
-                                        value="{{-- nilai untuk nama --}}"
+                                        value="{{ $nama }}"
                                         class="focus:shadow-outline w-full flex-grow appearance-none rounded bg-white py-2 text-sm leading-tight text-gray-700 focus:outline-none sm:px-3 md:text-base"
                                         disabled
                                     />
                                 </div>
                             </div>
                             <div class="flex justify-end md:w-5/12 lg:w-1/3">
-                                <label
-                                    for="status_surat"
-                                    class="font mr-4 block whitespace-nowrap text-sm text-gray-700 md:my-2 md:text-base"
+                                <form
+                                    action="{{ route("filterSuratByStatus", $idPenduduk ?? "") }}"
+                                    method="post"
+                                    id="form-filter-surat"
                                 >
-                                    Status Surat
-                                </label>
-                                <select
-                                    id="status_surat"
-                                    class="focus:shadow-outline block w-full rounded-2xl border border-black px-3 py-1 text-sm leading-tight text-gray-700 focus:outline-none"
-                                >
-                                    <option>Semua</option>
-                                    <option>Selesai</option>
-                                    <option>Dibatalkan</option>
-                                </select>
+                                    @csrf
+                                    <label
+                                        for="status_surat"
+                                        class="font mr-4 block whitespace-nowrap text-sm text-gray-700 md:my-2 md:text-base"
+                                    >
+                                        Status Surat
+                                    </label>
+
+                                    @php
+                                        $statusList = ["Semua", "Diajukan", "Disetujui", "Ditolak"];
+                                    @endphp
+
+                                    <select
+                                        id="status_surat"
+                                        name="status_surat"
+                                        class="focus:shadow-outline block w-full rounded-2xl border border-black px-3 py-1 text-sm leading-tight text-gray-700 focus:outline-none"
+                                    >
+                                        @foreach ($statusList as $list)
+                                            <option
+                                                {{ $list === $status ? "selected" : "" }}
+                                                value="{{ $list }}"
+                                            >
+                                                {{ $list }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </form>
                             </div>
                         </div>
 
@@ -198,35 +216,46 @@
                                     </tr>
                                 </thead>
                                 <tbody class="min-h-[12rem]">
-                                    {{-- @foreach ( as ) --}}
-                                    <tr>
-                                        <td
-                                            class="border-b px-4 py-2 text-center"
-                                        >
-                                            0
-                                        </td>
-                                        <td class="border-b px-4 py-2">0</td>
-                                        <td
-                                            class="border-b px-4 py-2 text-center"
-                                        >
-                                            0
-                                        </td>
-                                        <td
-                                            class="border-b px-4 py-2 text-center"
-                                        >
-                                            Selesai
-                                        </td>
-                                        <td
-                                            class="border-b px-4 py-2 text-center"
-                                        >
-                                            <button
-                                                class="rounded border-2 border-[#FF0100] bg-white px-2 py-1 font-normal text-black hover:bg-[#FF0100] hover:text-white"
+                                    @foreach ($dataSurat as $surat)
+                                        <tr>
+                                            <td
+                                                class="border-b px-4 py-2 text-center"
                                             >
-                                                Batalkan
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    {{-- @endforeach --}}
+                                                {{ $loop->iteration }}
+                                            </td>
+                                            <td class="border-b px-4 py-2">
+                                                {{ $surat->jenisSurat->jenis_surat }}
+                                            </td>
+                                            <td
+                                                class="border-b px-4 py-2 text-center"
+                                            >
+                                                {{ $surat->tanggal_pengambilan ? \Carbon\Carbon::parse($surat->tanggal_pengambilan)->isoFormat("D MMMM Y") : "-" }}
+                                            </td>
+                                            <td
+                                                class="border-b px-4 py-2 text-center"
+                                            >
+                                                {{ $surat->status }}
+                                            </td>
+                                            <td
+                                                class="border-b px-4 py-2 text-center"
+                                            >
+                                                <form
+                                                    action="{{ route("pengajuanBatal", $surat->id) }}"
+                                                    method="POST"
+                                                    id="form-pembatalan-{{ $surat->id }}"
+                                                >
+                                                    @csrf
+                                                    @method("DELETE")
+                                                    <button
+                                                        class="rounded border-2 border-[#FF0100] bg-white px-2 py-1 font-normal text-black hover:bg-[#FF0100] hover:text-white"
+                                                        onclick="confirmCancel({{ $surat->id }})"
+                                                    >
+                                                        Batalkan
+                                                    </button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @endforeach
 
                                     <tr class="h-full"></tr>
                                 </tbody>
@@ -237,5 +266,37 @@
             </section>
         </main>
         <x-common.footer />
+
+        <script>
+            function confirmCancel(id) {
+                Swal.fire({
+                    title: 'Apakah anda yakin?',
+                    text: 'Apakah anda yakin untuk membatalkan pengajuan surat tersebut?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Ya, Batalkan!',
+                    cancelButtonText: 'Batal',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        document
+                            .getElementById('form-pembatalan-' + id)
+                            .submit();
+                    }
+                });
+            }
+
+            document
+                .getElementById('status_surat')
+                .addEventListener('change', function () {
+                    document.getElementById('form-filter-surat').submit();
+                });
+        </script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+            crossorigin="anonymous"
+        ></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </body>
 </html>

@@ -35,12 +35,30 @@
                 <h1 class="mb-4 text-center text-4xl font-bold">
                     PENGAJUAN LAYANAN
                 </h1>
+
+                @if (session("error_nik"))
+                    <div
+                        class="alert alert-danger alert-dismissible fade show"
+                        role="alert"
+                    >
+                        {{ session("error_nik") }}
+                        <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="alert"
+                            aria-label="Close"
+                        ></button>
+                    </div>
+                @endif
+
                 {{-- FORM PENGAJUAN --}}
                 <form
                     {{-- Action dan Method untuk Form --}}
-                    action=""
-                    method=""
+                    action="{{ route("pengajuan.store") }}"
+                    method="POST"
+                    enctype="multipart/form-data"
                     class="mb-4 rounded bg-white px-10 pb-8 pt-16 sm:px-20"
+                    id="form-pengajuan"
                 >
                     @csrf
 
@@ -54,9 +72,17 @@
                         <select
                             id="jenisSurat"
                             class="focus:shadow-outline w-full border-b-2 border-gray-700 bg-gray-200 px-3 py-2 leading-tight text-gray-700 focus:outline-none"
+                            name="jenis_surat_id"
                         >
-                            <option>Surat Keterangan</option>
+                            @foreach ($jenisSurat as $item)
+                                <option value="{{ $item->id }}">
+                                    {{ $item->jenis_surat }}
+                                </option>
+                            @endforeach
                         </select>
+                        @error("jenis_surat_id")
+                            <span class="text-red-500">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <div class="mb-4">
@@ -70,22 +96,25 @@
                             class="focus:shadow-outline w-full border-b-2 border-gray-700 px-3 py-2 leading-tight text-gray-700 focus:outline-none"
                             placeholder="NIK"
                         />
+                        @error("nik")
+                            <span class="text-red-500">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <div class="mb-4">
-                        <label
-                            class="mb-2 block text-xl text-black"
-                            for="nama_lengkap"
-                        >
+                        <label class="mb-2 block text-xl text-black" for="nama">
                             Nama Lengkap
                         </label>
                         <input
                             type="text"
-                            id="nama_lengkap"
-                            name="nama_lengkap"
+                            id="nama"
+                            name="nama"
                             class="focus:shadow-outline w-full border-b-2 border-gray-700 px-3 py-2 leading-tight text-gray-700 focus:outline-none"
                             placeholder="Nama Lengkap"
                         />
+                        @error("nama")
+                            <span class="text-red-500">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <div class="mb-4">
@@ -106,6 +135,9 @@
                             placeholder="dd/mm/yyyy"
                             required
                         />
+                        @error("tanggal_lahir")
+                            <span class="text-red-500">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <div class="mb-4">
@@ -123,6 +155,9 @@
                             placeholder="001"
                             required
                         />
+                        @error("rt")
+                            <span class="text-red-500">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <div class="mb-4">
@@ -140,21 +175,27 @@
                             placeholder="004"
                             required
                         />
+                        @error("rw")
+                            <span class="text-red-500">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <div class="mb-4">
                         <label
                             class="mb-2 block text-xl text-black"
-                            for="catatan_tambahan"
+                            for="catatan"
                         >
                             Catatan Tambahan
                         </label>
                         <textarea
-                            id="catatan_tambahan"
-                            name="catatan_tambahan"
+                            id="catatan"
+                            name="catatan"
                             class="focus:shadow-outline w-full border-b-2 border-gray-700 px-3 py-2 leading-tight text-gray-700 focus:outline-none"
                             rows="3"
                         ></textarea>
+                        @error("catatan")
+                            <span class="text-red-500">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <div class="mb-4">
@@ -170,11 +211,15 @@
                         <input
                             type="file"
                             id="foto_ktp"
-                            accept="image/jpeg, image/png"
+                            name="ktp"
+                            accept="application/pdf"
                             {{-- perlu disesuaikan untuk tipe file nya --}}
                             class="focus:shadow-outline w-full border-b-2 border-gray-700 px-3 py-2 leading-tight text-gray-500 file:border-b-0 file:border-l-0 file:border-r-2 file:border-t-0 file:border-gray-300 file:py-1 file:text-gray-400 focus:outline-none"
                             required
                         />
+                        @error("ktp")
+                            <span class="text-red-500">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <div class="mb-4">
@@ -190,11 +235,15 @@
                         <input
                             type="file"
                             id="foto_kk"
-                            accept="image/jpeg, image/png"
+                            name="kk"
+                            accept="application/pdf"
                             {{-- perlu disesuaikan untuk tipe file nya --}}
                             class="focus:shadow-outline w-full border-b-2 border-gray-700 px-3 py-2 leading-tight text-gray-500 file:border-b-0 file:border-l-0 file:border-r-2 file:border-t-0 file:border-gray-300 file:py-1 file:text-gray-400 focus:outline-none"
                             required
                         />
+                        @error("kk")
+                            <span class="text-red-500">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <div class="mb-4">
@@ -210,17 +259,22 @@
                         <input
                             type="file"
                             id="surat_pengantar_rt_rw"
-                            accept="image/jpeg, image/png"
+                            name="pengantar_rt_rw"
+                            accept="application/pdf"
                             {{-- perlu disesuaikan untuk tipe file nya --}}
                             class="focus:shadow-outline w-full border-b-2 border-gray-700 px-3 py-2 leading-tight text-gray-500 file:border-b-0 file:border-l-0 file:border-r-2 file:border-t-0 file:border-gray-300 file:py-1 file:text-gray-400 focus:outline-none"
                             required
                         />
+                        @error("pengantar_rt_rw")
+                            <span class="text-red-500">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <div class="flex items-center justify-between">
                         <button
                             class="focus:shadow-outline w-full rounded border border-[#2C5D3C] bg-green-600 px-4 py-2 text-white hover:bg-[#2C5D3C] focus:outline-none"
-                            type="submit"
+                            type="button"
+                            onclick="confirmSend()"
                         >
                             Kirim Surat
                         </button>
@@ -229,5 +283,29 @@
             </section>
         </main>
         <x-common.footer />
+
+        <script>
+            function confirmSend() {
+                Swal.fire({
+                    title: 'Apakah anda yakin?',
+                    text: 'Apakah data yang anda masukkan sudah benar?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Ya, kirim!',
+                    cancelButtonText: 'Batal',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        document.getElementById('form-pengajuan').submit();
+                    }
+                });
+            }
+        </script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+            crossorigin="anonymous"
+        ></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </body>
 </html>

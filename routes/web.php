@@ -11,6 +11,11 @@ use App\Http\Controllers\ProdukHukumController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\StrukturController;
 use App\Http\Controllers\PendudukController;
+use App\Http\Controllers\JenisSuratController;
+use App\Http\Controllers\PengajuanSuratController;
+use App\Http\Controllers\PengajuanSuratUserController;
+use App\Http\Controllers\StatusSuratController;
+
 
 use Illuminate\Support\Facades\Route;
 
@@ -101,6 +106,26 @@ Route::resource('admin/potensi_desa', PotensiDesaController::class);
 Route::resource('admin/produk_hukum', ProdukHukumController::class);
 Route::resource('admin/struktur', StrukturController::class);
 Route::resource('admin/penduduk', PendudukController::class);
+Route::resource('admin/jenis-surat', JenisSuratController::class)->names([
+    'index' => 'jenisSurat.index',
+    'create' => 'jenisSurat.create',
+    'store' => 'jenisSurat.store',
+    'show' => 'jenisSurat.show',
+    'edit' => 'jenisSurat.edit',
+    'update' => 'jenisSurat.update',
+    'destroy' => 'jenisSurat.destroy'
+]);
+Route::resource('admin/pengajuan-surat', PengajuanSuratController::class)->names([
+    'index' => 'pengajuanSurat.index',
+    'create' => 'pengajuanSurat.create',
+    'store' => 'pengajuanSurat.store',
+    'show' => 'pengajuanSurat.show',
+    'edit' => 'pengajuanSurat.edit',
+    'update' => 'pengajuanSurat.update',
+    'destroy' => 'pengajuanSurat.destroy'
+]);
+Route::get('admin/pengajuan-surat/ubah-status/{id}', [PengajuanSuratController::class, 'updateStatusPage'])->name('pengajuanSurat.updateStatus.index');
+Route::put('admin/pengajuan-surat/ubah-status/{id}', [PengajuanSuratController::class, 'updateStatus'])->name('pengajuanSurat.updateStatus.update');
 
 //AUTH//
 
@@ -212,15 +237,16 @@ Route::get('/profil', function () {
 
 // Route untuk pengajuan layanan (sementara)
 // Nanti bisa ditambahkan controller untuk mengarahkannya dengan tujuan form
-Route::get('/pengajuan', function () {
-    return view('/tampilan/pengajuan-layanan');
-});
+Route::get('/pengajuan', [PengajuanSuratUserController::class, 'index'])->name('pengajuan');
+Route::post('/pengajuan', [PengajuanSuratUserController::class, 'store'])->name('pengajuan.store');
 
 // Route untuk pengajuan layanan (sementara)
 // Nanti bisa ditambahkan controller untuk mengarahkannya dengan tujuan form
-Route::get('/status', function () {
-    return view('/tampilan/status-surat');
-});
+Route::get('/status', [StatusSuratController::class, 'index'])->name('status');
+
+Route::post('/status', [StatusSuratController::class, 'dataSurat'])->name('status.check');
+Route::post('/filter-surat-by-status/{id}', [StatusSuratController::class, 'filterSuratByStatus'])->name('filterSuratByStatus');
+Route::delete('/pengajuan-batal/{id}', [PengajuanSuratUserController::class, 'destroy'])->name('pengajuanBatal');
 
 // Route untuk pengajuan layanan (sementara)
 // Nanti bisa ditambahkan controller untuk mengarahkannya dengan tujuan form

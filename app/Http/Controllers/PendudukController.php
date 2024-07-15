@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Penduduk;
+use App\Models\PengajuanSurat;
+use Illuminate\Support\Facades\Storage;
 
 class PendudukController extends Controller
 {
@@ -76,6 +78,13 @@ class PendudukController extends Controller
 
     public function destroy(Penduduk $penduduk)
     {
+        $pengajuanSurat = PengajuanSurat::where('penduduk_id', $penduduk->id)->get();
+        foreach($pengajuanSurat as $pengajuan) {
+            Storage::disk('public')->delete($pengajuan->ktp);
+            Storage::disk('public')->delete($pengajuan->kk);
+            Storage::disk('public')->delete($pengajuan->pengantar_rt_rw);
+            $pengajuan->delete();
+        }
         $penduduk->delete();
 
         return redirect()->route('penduduk.index')
