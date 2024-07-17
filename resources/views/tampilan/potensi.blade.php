@@ -39,6 +39,19 @@
                 </div>
 
                 <div class="wisata-cards">
+                    <div class="relative my-2 rounded-md shadow-sm">
+                        <div class="pointer-events-none absolute inset-y-0 left-0 pl-3 flex items-center">
+                            <i class="fa-solid fa-magnifying-glass text-gray-400"></i>
+                        </div>
+                        <input
+                            type="text"
+                            name="wisata-search"
+                            id="wisata-search"
+                            class="block w-full rounded-md border-0 py-1.5 pl-10 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6"
+                            placeholder="Cari Tempat Wisata..."
+                        >
+                    </div>
+
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         @foreach ($wisata as $wisataItem)
                             <x-ui.card.root
@@ -103,11 +116,11 @@
                             <div>
                                 <p class="text-sm text-gray-700">
                                     Menampilkan
-                                    <span class="wisata-showing-min font-medium">1</span>
+                                    <span id="wisata-showing-min" class="font-medium">1</span>
                                     hingga
-                                    <span class="wisata-showing-max font-medium">10</span>
+                                    <span id="wisata-showing-max" class="font-medium">10</span>
                                     dari
-                                    <span class="wisata-showing-total font-medium">97</span>
+                                    <span id="wisata-showing-total" class="font-medium">97</span>
                                     hasil
                                 </p>
                             </div>
@@ -159,6 +172,19 @@
                 </div>
 
                 <div class="produk-cards">
+                    <div class="relative my-2 rounded-md shadow-sm">
+                        <div class="pointer-events-none absolute inset-y-0 left-0 pl-3 flex items-center">
+                            <i class="fa-solid fa-magnifying-glass text-gray-400"></i>
+                        </div>
+                        <input
+                            type="text"
+                            name="produk-search"
+                            id="produk-search"
+                            class="block w-full rounded-md border-0 py-1.5 pl-10 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6"
+                            placeholder="Cari Produk UMKM..."
+                        >
+                    </div>
+
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         @foreach ($produk as $produkItem)
                             <x-ui.card.root
@@ -223,11 +249,11 @@
                             <div>
                                 <p class="text-sm text-gray-700">
                                     Menampilkan
-                                    <span class="produk-showing-min font-medium">1</span>
+                                    <span id="produk-showing-min" class="font-medium">1</span>
                                     hingga
-                                    <span class="produk-showing-max font-medium">10</span>
+                                    <span id="produk-showing-max" class="font-medium">10</span>
                                     dari
-                                    <span class="produk-showing-total font-medium">97</span>
+                                    <span id="produk-showing-total" class="font-medium">97</span>
                                     hasil
                                 </p>
                             </div>
