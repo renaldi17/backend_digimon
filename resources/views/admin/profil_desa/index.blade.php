@@ -4,13 +4,14 @@
     <div class="container-fluid px-5">
         <h1 class="mt-4">Profil Desa</h1>
         @if (session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
-        </div>
-    @endif
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
         <div class="card shadow mb-5">
             <div class="card-header py-3 d-flex justify-content-end">
-                <a href="{{ route('profil.edit', $profil->id) }}" class="btn btn-primary float-right mb-0" style="color: #ffffff;">
+                <a href="{{ route('profil.edit', $profil->id) }}" class="btn btn-primary float-right mb-0"
+                    style="color: #ffffff;">
                     <i class="fa-solid fa-pen-to-square"></i>
                     Edit</a>
             </div>
@@ -37,7 +38,7 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th >Deskripsi Kepala Desa</th>
+                            <th>Deskripsi Kepala Desa</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -57,7 +58,7 @@
                         <tr>
                             <td class="text-center">
                                 @if ($profil->gambar_perangkat_desa)
-                                    <img src="{{Storage::url($profil->gambar_perangkat_desa) }}" width="600px">
+                                    <img src="{{ Storage::url($profil->gambar_perangkat_desa) }}" width="600px">
                                 @endif
                             </td>
                         </tr>
