@@ -7,30 +7,24 @@ class Pagination {
         this.totalPages = Math.ceil(this.totalItems / this.perPage);
         this.prevBtns = document.querySelectorAll(`.${selector}-prev-btn`);
         this.nextBtns = document.querySelectorAll(`.${selector}-next-btn`);
-        this.showingMin = document.querySelector(`.${selector}-showing-min`);
-        this.showingMax = document.querySelector(`.${selector}-showing-max`);
-        this.showingTotal = document.querySelector(`.${selector}-showing-total`);
+        this.showingMin = document.getElementById(`${selector}-showing-min`);
+        this.showingMax = document.getElementById(`${selector}-showing-max`);
+        this.showingTotal = document.getElementById(`${selector}-showing-total`);
         this.paginationContainer = document.getElementById(`${selector}-pagination-numbers`);
 
         this.prevBtns.forEach(prevBtn => {
-            prevBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                if (this.currentPage > 1) {
-                    this.currentPage--;
-                    this.renderItems();
-                }
-            });
+            prevBtn.addEventListener('click', this.prevClickHandler);
         });
 
         this.nextBtns.forEach(nextBtn => {
-            nextBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                if (this.currentPage < this.totalPages) {
-                    this.currentPage++;
-                    this.renderItems();
-                }
-            });
+            nextBtn.addEventListener('click', this.nextClickHandler);
         });
+    }
+
+    init() {
+        this.currentPage = 1;
+        this.totalPages = Math.ceil(this.totalItems / this.perPage);
+        this.renderItems();
     }
 
     renderItems() {
@@ -38,10 +32,10 @@ class Pagination {
         const end = this.currentPage * this.perPage;
 
         this.items.forEach((item, index) => {
-            if (!(index >= start && index < end))
-                item.style.display = 'none';
+            if (index >= start && index < end)
+                item.style.display = 'block';
             else
-                item.style.display = 'block'
+                item.style.display = 'none';
         });
 
         this.renderShowing();
@@ -65,11 +59,10 @@ class Pagination {
         this.paginationContainer.innerHTML = ''; // Clear existing page numbers
 
         for (let i = 1; i <= this.totalPages; i++) {
-            if (i === this.currentPage) {
+            if (i === this.currentPage)
                 this.paginationContainer.innerHTML += `<a href="#" aria-current="page" class="relative z-10 inline-flex items-center bg-green-600 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600">${i}</a>`;
-            } else {
+            else
                 this.paginationContainer.innerHTML += `<a href="#" class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">${i}</a>`;
-            }
 
             // Add ellipsis for large number of pages
             if (i === 1 && this.currentPage > 3) {
@@ -82,35 +75,37 @@ class Pagination {
             }
         }
 
-        this.paginationContainer.querySelectorAll('a').forEach(el => {
-            el.addEventListener('click', (e) => {
-                e.preventDefault();
-                const newPage = parseInt(e.target.textContent);
-                this.currentPage = newPage;
-                this.renderItems();
-            });
+        Array.from(this.paginationContainer.getElementsByTagName('a')).forEach(el => {
+            el.addEventListener('click', this.pageClickHandler);
         });
+    }
 
-        this.paginationContainer.querySelectorAll('.ellipsis-prev').forEach(el => {
-            el.addEventListener('click', () => {
-                const newPage = Math.max(this.currentPage - 5, 1);
-                this.currentPage = newPage;
-            });
-        });
+    isEmpty() {
+        return this.items.length === 0;
+    }
 
-        this.paginationContainer.querySelectorAll('.ellipsis-next').forEach(el => {
-            el.addEventListener('click', () => {
-                const newPage = Math.min(this.currentPage + 5, this.totalPages);
-                this.currentPage = newPage;
-            });
-        });
+    prevClickHandler = (e) => {
+        e.preventDefault();
+        if (this.currentPage > 1) {
+            this.currentPage--;
+            this.renderItems();
+        }
+    }
+
+    nextClickHandler = (e) => {
+        e.preventDefault();
+        if (this.currentPage < this.totalPages) {
+            this.currentPage++;
+            this.renderItems();
+        }
+    }
+
+    pageClickHandler = (e) => {
+        e.preventDefault();
+        const newPage = parseInt(e.target.textContent);
+        this.currentPage = newPage;
+        this.renderItems();
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    const wisataPagination = new Pagination('wisata', 6)
-    const produkPagination = new Pagination('produk', 6);
-
-    wisataPagination.renderItems();
-    produkPagination.renderItems();
-});
+export default Pagination;
