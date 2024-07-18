@@ -130,3 +130,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!produkSearch.isEmpty())
         produkSearch.init();
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const stafSearch = new Search('staf', 8);
+
+    if (!stafSearch.isEmpty())
+        stafSearch.init();
+});

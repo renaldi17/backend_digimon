@@ -143,6 +143,76 @@ Route::post('login', [LoginController::class, 'login']);
 Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
 // IDEA RPL [IN PROGRESS] (START)
+// Route perangkat desa
+Route::get('/perangkat', function () {
+    $perangkat = [
+        [
+            "nama" => "Dwayne Johnson",
+            "gambar" => "https://picsum.photos/1920/1080",
+            "jabatan" => "Kepala Desa",
+            "kontak" => [
+                "instagram" => "therock",
+                "facebook" => "DwayneJohnson",
+            ],
+            "nik" => "01234"
+        ],
+        [
+            "nama" => "Emma Watson",
+            "gambar" => "https://picsum.photos/1920/1080",
+            "jabatan" => "Sekretaris Desa",
+            "kontak" => [
+                "instagram" => "emmawatson",
+                "facebook" => "emmawatson",
+            ],
+            "nik" => "01234"
+        ],
+        [
+            "nama" => "Robert Downey Jr.",
+            "gambar" => "https://picsum.photos/1920/1080",
+            "jabatan" => "Bendahara Desa",
+            "kontak" => [
+                "instagram" => "robertdowneyjr",
+                "facebook" => "robertdowneyjr",
+            ],
+            "nik" => "01234"
+        ],
+        [
+            "nama" => "Scarlett Johansson",
+            "gambar" => "https://picsum.photos/1920/1080",
+            "jabatan" => "Kepala Keamanan",
+            "kontak" => [
+                "instagram" => "scarlett.actress",
+            ],
+            "nik" => "01234"
+        ],
+        [
+            "nama" => "Chris Evans",
+            "gambar" => "https://picsum.photos/1920/1080",
+            "jabatan" => "Kepala Pemuda",
+            "kontak" => [
+                "instagram" => "chrisevans",
+            ],
+            "nik" => "01234"
+        ],
+        [
+            "nama" => "Gal Gadot",
+            "gambar" => "https://picsum.photos/1920/1080",
+            "jabatan" => "Kepala Kesejahteraan",
+            "kontak" => [
+                "instagram" => "gal_gadot",
+                "facebook" => "GalGadot",
+            ],
+            "nik" => "01234"
+        ],
+    ];
+
+    $data = [
+        "perangkat" => $perangkat,
+    ];
+
+    return view('/tampilan/perangkat', $data);
+})->name('perangkat');
+
 // Route potensi desa
 Route::get('/potensi', function () {
     $wisata = [
