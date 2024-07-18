@@ -1,0 +1,34 @@
+.galeri {
+    background-image: url('/assets/home/section-galeri.png');
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    width: 100%; 
+    height: 450px; 
+    padding-left: 30px;
+}
+.swiper-container {
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+}
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.swiper-slide img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.videinfo {
+    background: linear-gradient(#ffff,#ffff,#95AE9D ,#4E775B);
+    /* background-color: #4E775B; */
+}
+
+.infografis{
+    background-color: #4E775B;
+}
