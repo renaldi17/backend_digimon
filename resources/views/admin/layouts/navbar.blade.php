@@ -15,11 +15,11 @@
                 <i class="fas fa-user fa-fw"></i>
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                {{-- <li><a class="dropdown-item" href="#!">Settings</a></li>
-                <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                <li><a class="dropdown-item" href="{{ route('admin.profile') }}">Profile</a></li>
+                {{-- <li><a class="dropdown-item" href="#!">Activity Log</a></li> --}}
                 <li>
                     <hr class="dropdown-divider" />
-                </li> --}}
+                </li>
 
                 @guest
                     <li class="nav-item">
@@ -53,6 +53,12 @@
                             <i class="fas fa-tachometer-alt"></i>
                         </div>
                         Dashboard
+                    </a>
+                    <a class="nav-link" href="{{ route ('users.index') }}">
+                        <div class="sb-nav-link-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        User
                     </a>
                     <div class="sb-sidenav-menu-heading">Interface</div>
                     <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
@@ -130,6 +136,9 @@
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="{{ route('informasi.index') }}">
                                         Informasi
+                                    </a>
+                                    <a class="nav-link" href="{{ route('penghargaan.index') }}">
+                                        Penghargaan
                                     </a>
                                     <a class="nav-link" href="{{ route('potensi_desa.index') }}">
                                         Potensi
