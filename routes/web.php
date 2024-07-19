@@ -107,7 +107,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin/profile', [UserController::class, 'profile'])->name('admin.profile');
 
     Route::get('/admin/penduduk/import', [PendudukController::class, 'import'])->name('penduduk.import');
-Route::post('/admin/penduduk/import', [PendudukController::class, 'importProcess'])->name('penduduk.importProcess');
+    Route::post('/admin/penduduk/import', [PendudukController::class, 'importProcess'])->name('penduduk.importProcess');
+    Route::get('/admin/penduduk/export', [PendudukController::class, 'export'])->name('penduduk.export');
+
 
 Route::get('admin', [DashboardController::class, 'index'])->name('admin.dashboard');
 Route::resource('admin/galeri', GaleriController::class);

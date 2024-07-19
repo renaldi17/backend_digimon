@@ -8,6 +8,7 @@ use App\Models\PengajuanSurat;
 use Illuminate\Support\Facades\Storage;
 use Excel;
 use App\Imports\PendudukImport;
+use Carbon\Carbon;
 
 class PendudukController extends Controller
 {
@@ -114,5 +115,18 @@ class PendudukController extends Controller
 
         return redirect()->route('penduduk.index')->with('success', 'Data penduduk berhasil diimport.');
 
+    }
+
+    /**
+     * Mengekspor data penduduk ke dalam file Excel dengan tanggal dan waktu
+     *
+     * @return \Symfony\Component\HttpFoundation\BinaryFileResponse
+     */
+    public function export() 
+    {
+        $timestamp = Carbon::now()->format('Ymd_His');
+        $fileName = 'data-penduduk-' . $timestamp . '.xlsx';
+
+        return Excel::download(new PendudukExport, $fileName);
     }
 }
