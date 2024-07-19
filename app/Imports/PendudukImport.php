@@ -16,7 +16,7 @@ class PendudukImport implements ToModel, WithHeadingRow, WithUpserts
      * @return string|array
      */
 
-    // Pake ini kalo misal ada data double tapi maunya pake data yang baru / data terakhir di insert (data paling bawah)
+    // 1. Pake ini kalo misal ada data double tapi maunya pake data yang baru / data terakhir di insert (data paling bawah)
     public function uniqueBy()
     {
         return 'NIK'; // Kolom yang digunakan untuk mengidentifikasi data unik
@@ -31,7 +31,7 @@ class PendudukImport implements ToModel, WithHeadingRow, WithUpserts
     public function model(array $row)
     {
 
-        // pake ini kalo misal ada data double tapi maunya pake data yang lama / data yang pertama kali di insert (data paling atas)
+        // 2. pake ini kalo misal ada data double tapi maunya pake data yang lama / data yang pertama kali di insert (data paling atas)
         if (Penduduk::where('NIK', $row['nik'])->exists()) {
             return null;
         }
