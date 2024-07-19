@@ -35,21 +35,13 @@
             <div class="wisata-cards">
 
                 <div class="wisata-cards">
-                    <div class="relative my-2 rounded-md shadow-sm">
-
+                    <div class="relative my-2 rounded-md shadow-sm mb-5">
                         <div class="pointer-events-none absolute inset-y-0 left-0 pl-3 flex items-center">
                             <i class="fa-solid fa-magnifying-glass text-gray-400"></i>
                         </div>
                         <input type="text" name="wisata-search" id="wisata-search"
                             class="block w-full rounded-md border-0 py-1.5 pl-10 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6"
                             placeholder="Cari Tempat Wisata...">
-                        <div class="relative ml-4">
-                            <select name="wisata-filter" id="wisata-filter"
-                                class="block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6">
-                                <option value="terbaru">Terbaru</option>
-                                <option value="terlama">Terlama</option>
-                            </select>
-                        </div>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

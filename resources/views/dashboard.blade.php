@@ -179,7 +179,7 @@
                     </h1>
                 </div>
 
-                <div class="mx-auto flex max-w-screen-lg">
+                <div class="mx-auto flex flex-col md:flex-row max-w-screen-lg space-y-8 md:space-y-0 md:space-x-8">
                     <div
                         class="flex h-full w-full flex-col items-center justify-start gap-y-2 rounded-md px-2 py-4 text-center">
                         <div class="bg-[#FCE5AD] pl-[40px] pr-[40px] mt-[50px] rounded-md">
@@ -199,9 +199,7 @@
                                 <i class="fa-solid fa-users h-24 w-24 text-[#2C5D3C]"></i>
                             </div>
                             <div class="mt-[-20px] mb-[20px]">
-                                <h6 class="text-lg font-semibold">
-                                    Total Penduduk
-                                </h6>
+                                <h6 class="text-lg font-semibold">Total Penduduk</h6>
                                 <p>245</p>
                             </div>
                         </div>
@@ -210,12 +208,10 @@
                         class="flex h-full w-full flex-col items-center justify-start gap-y-2 rounded-md px-2 py-4 text-center">
                         <div class="bg-[#FCE5AD] pl-[40px] pr-[40px] mt-[50px] rounded-md">
                             <div class="flex aspect-square items-center justify-center rounded-full">
-                                <i class="fa-solid fa-user h-12 w-12 text-[#2C5D3C] "></i>
+                                <i class="fa-solid fa-user h-12 w-12 text-[#2C5D3C]"></i>
                             </div>
                             <div class="mt-[-35px] mb-[20px]">
-                                <h6 class="text-lg font-semibold">
-                                    Penduduk Wanita
-                                </h6>
+                                <h6 class="text-lg font-semibold">Penduduk Wanita</h6>
                                 <p>99</p>
                             </div>
                         </div>
@@ -225,7 +221,7 @@
                 <div class="flex h-full w-full flex-row justify-center items-center p-4">
                     <div class="bg-[#FCE5AD] p-6 rounded-lg shadow-lg flex flex-col items-center space-y-6">
                         <div
-                            class="aspect-square p-4 rounded-full bg-[#FCE5AD] flex items-center justify-center mb-[-10px] mt-[-75px] ">
+                            class="aspect-square p-4 rounded-full bg-[#FCE5AD] flex items-center justify-center mb-[-10px] mt-[-75px]">
                             <i class="fa-solid fa-map text-[#2C5D3C] text-6xl"></i>
                         </div>
                         <div class="flex flex-row space-x-8">
@@ -260,6 +256,7 @@
                 </div>
             </div>
         </section>
+
 
         {{-- <div class="container py-12">
             <hr class="h-[1px] w-full shrink-0 bg-border" />
