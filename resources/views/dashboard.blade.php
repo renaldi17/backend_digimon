@@ -53,7 +53,7 @@
 
             </div>
             <div
-                class="container absolute left-0 right-0 top-80 z-10 max-w-screen-lg md:top-[50vh] lg:top-[70vh] xl:top-[512px] ">
+                class="container absolute left-0 right-0 top-80 z-10 max-w-screen-lg sm:top-[600px] md:top-[600px] lg:top-[600px] xl:top-[600px] ">
                 <div
                     class="grid grid-cols-2 justify-items-center gap-2 rounded-md bg-background sm:grid-cols-4 shadow-lg ">
                     <a href="/profil"
@@ -149,7 +149,7 @@
         </section>
 
         <section id="section-profile-video" class="videinfo">
-            <div class="container mt-80 py-12 sm:mt-12 md:mt-[15vh] lg:mt-[25vh] xl:mt-80">
+            <div class="container mt-80 py-12 sm:mt-[250px] md:mt-[225px] lg:mt-[225px] xl:mt-[225px]">
 
                 <div id="title" class="flex w-full flex-col items-center text-center text-4xl">
                     <h1 class="font-bold text-green-900">
