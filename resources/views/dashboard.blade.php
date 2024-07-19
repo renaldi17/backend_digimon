@@ -27,7 +27,7 @@
     <x-common.navbar />
 
     <main class="min-h-screen">
-        <section id="section-main" class="min-[512px] relative h-screen max-h-[680px] pt-16 md:pt-32">
+        <section id="section-main" class="min-[512px]  relative h-screen max-h-[680px] pt-16 md:pt-32">
             <div
                 class="container relative z-10 mt-6 flex max-w-screen-lg flex-col gap-y-2 text-zinc-50 sm:mt-8 xl:pl-48">
                 <div>
@@ -49,9 +49,13 @@
                 </div>
             </div>
 
+            <div class="asap absolute left-0 right-0 top-0 z-10 md:top-[0] lg:top-[0] h-[800px] w-[100%]">
+
+            </div>
             <div
-                class="container absolute left-0 right-0 top-80 z-10 max-w-screen-lg md:top-[50vh] lg:top-[70vh] xl:top-[512px]">
-                <div class="grid grid-cols-2 justify-items-center gap-2 rounded-md bg-background sm:grid-cols-4">
+                class="container absolute left-0 right-0 top-80 z-10 max-w-screen-lg md:top-[50vh] lg:top-[70vh] xl:top-[512px] ">
+                <div
+                    class="grid grid-cols-2 justify-items-center gap-2 rounded-md bg-background sm:grid-cols-4 shadow-lg ">
                     <a href="/profil"
                         class="flex h-full w-full cursor-pointer flex-col items-center justify-start gap-y-2 rounded-md px-2 py-4 text-center transition hover:bg-accent">
                         <div class="flex aspect-square items-center justify-center rounded-full bg-blue-500 p-4">
@@ -129,7 +133,7 @@
                 </div>
             </div>
 
-            <div class="absolute left-0 top-0 h-full w-full">
+            <div class="absolute left-0 top-20 h-full w-full">
                 <x-ui.carousel.root id="hero-carousel"
                     class="h-full before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:z-[1] before:bg-opacity-50 before:bg-dark-transparent-dark-gradient">
                     <x-ui.carousel.content id="hero-carousel-content" class="h-full">
@@ -182,7 +186,7 @@
                 <div class="mx-auto flex flex-col md:flex-row max-w-screen-lg space-y-8 md:space-y-0 md:space-x-8">
                     <div
                         class="flex h-full w-full flex-col items-center justify-start gap-y-2 rounded-md px-2 py-4 text-center">
-                        <div class="bg-[#FCE5AD] pl-[40px] pr-[40px] mt-[50px] rounded-md">
+                        <div class="bg-[#FCE5AD] pl-[40px] shadow-lg pr-[40px] mt-[50px] rounded-md">
                             <div class="flex aspect-square items-center justify-center rounded-full">
                                 <i class="fa-solid fa-user h-12 w-12 text-[#2C5D3C]"></i>
                             </div>
@@ -194,7 +198,7 @@
                     </div>
                     <div
                         class="flex h-full w-full flex-col items-center justify-start gap-y-2 rounded-md px-2 py-4 text-center ">
-                        <div class="bg-[#FCE5AD] pl-[40px] pr-[40px] mt-[-40px] rounded-md">
+                        <div class="bg-[#FCE5AD] pl-[40px] shadow-lg pr-[40px] mt-[-40px] rounded-md">
                             <div class="flex aspect-square items-center justify-center rounded-full ">
                                 <i class="fa-solid fa-users h-24 w-24 text-[#2C5D3C]"></i>
                             </div>
@@ -206,7 +210,7 @@
                     </div>
                     <div
                         class="flex h-full w-full flex-col items-center justify-start gap-y-2 rounded-md px-2 py-4 text-center">
-                        <div class="bg-[#FCE5AD] pl-[40px] pr-[40px] mt-[50px] rounded-md">
+                        <div class="bg-[#FCE5AD] pl-[40px] shadow-lg pr-[40px] mt-[50px] rounded-md">
                             <div class="flex aspect-square items-center justify-center rounded-full">
                                 <i class="fa-solid fa-user h-12 w-12 text-[#2C5D3C]"></i>
                             </div>

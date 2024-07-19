@@ -32,3 +32,12 @@
 .infografis{
     background-color: #4E775B;
 }
+
+.asap {
+    background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.05) 0%,
+    rgba(102, 102, 102, 0.5) 90%,
+    rgba(255, 255, 255, 1) 100%
+);  
+}

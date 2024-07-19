@@ -65,9 +65,14 @@
                 <li>
                     <x-ui.dropdown.root>
                         <x-ui.dropdown.button variant="ghost">
-                            Informasi
+                            Informasi Desa
                         </x-ui.dropdown.button>
                         <x-ui.dropdown.content>
+                            <x-ui.dropdown.item>
+                                <a href="/perangkat" class="w-full text-left">
+                                    Perangkat Desa
+                                </a>
+                            </x-ui.dropdown.item>
                             <x-ui.dropdown.item>
                                 <a href="/infodesa/berita" class="w-full text-left">
                                     Berita Desa
@@ -115,7 +120,7 @@
                     </x-ui.button>
                 </li>
 
-                @guest
+                {{-- @guest
                     <li>
                         <x-ui.button class="bg-green-pea-600 hover:bg-green-pea-500" href="{{ route('login') }}">
                             Login
@@ -131,7 +136,7 @@
                             @csrf
                         </form>
                     </li>
-                @endguest
+                @endguest --}}
             </ul>
 
             <div class="md:hidden">
@@ -163,9 +168,14 @@
                 <li>
                     <x-ui.dropdown.root>
                         <x-ui.dropdown.button variant="ghost" class="w-full justify-start">
-                            Informasi
+                            Informasi Desa
                         </x-ui.dropdown.button>
                         <x-ui.dropdown.content>
+                            <x-ui.dropdown.item>
+                                <a href="/perangkat" class="w-full text-left">
+                                    Perangkat Desa
+                                </a>
+                            </x-ui.dropdown.item>
                             <x-ui.dropdown.item>
                                 <a href="/infodesa/berita" class="w-full text-left">
                                     Berita Desa
@@ -213,7 +223,7 @@
                     </x-ui.button>
                 </li>
 
-                @guest
+                {{-- @guest
                     <li>
                         <x-ui.button class="mt-4 w-full bg-green-pea-600 hover:bg-green-pea-500"
                             href="{{ route('login') }}">
@@ -232,7 +242,7 @@
                             @csrf
                         </form>
                     </li>
-                @endguest
+                @endguest --}}
             </ul>
         </div>
     </section>
