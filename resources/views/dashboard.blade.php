@@ -133,7 +133,7 @@
                 </div>
             </div>
 
-            <div class="absolute left-0 top-20 h-full w-full">
+            <div class="absolute left-0 top-20 sm:top-10 md:top-10 h-full w-full">
                 <x-ui.carousel.root id="hero-carousel"
                     class="h-full before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:z-[1] before:bg-opacity-50 before:bg-dark-transparent-dark-gradient">
                     <x-ui.carousel.content id="hero-carousel-content" class="h-full">
