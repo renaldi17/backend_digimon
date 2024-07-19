@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Penduduk;
 use App\Models\PengajuanSurat;
 use Illuminate\Support\Facades\Storage;
+use Excel;
+use App\Imports\PendudukImport;
 
 class PendudukController extends Controller
 {
@@ -89,5 +91,28 @@ class PendudukController extends Controller
 
         return redirect()->route('penduduk.index')
             ->with('success', 'Data penduduk berhasil dihapus.');
+    }
+
+    public function import() {
+        return view('admin.penduduk.import');
+    }
+
+    public function importProcess(Request $request) {
+        
+        $request->validate([
+            'file' => 'required|mimes:xls,xlsx'
+        ]);
+
+        // dd($request->all());
+
+        // $path = $request->file('file')->getRealPath();
+        // $data = Excel::toArray([], $path);
+
+        // dd($data);
+
+        Excel::import(new PendudukImport, $request->file('file'));
+
+        return redirect()->route('penduduk.index')->with('success', 'Data penduduk berhasil diimport.');
+
     }
 }
