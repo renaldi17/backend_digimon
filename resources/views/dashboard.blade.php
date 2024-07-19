@@ -212,7 +212,7 @@
                             </div>
                             <div class="mt-[-35px] mb-[20px]">
                                 <h6 class="text-lg font-semibold">Penduduk Wanita</h6>
-                                <p>99</p>
+                                <p>67</p>
                             </div>
                         </div>
                     </div>
@@ -313,7 +313,7 @@
             </div>
 
             <div class="mt-6 flex justify-center">
-                <x-ui.button href="#" class="w-full max-w-80 bg-green-pea-600 hover:bg-green-pea-500">
+                <x-ui.button href="/infodesa/berita" class="w-full max-w-80 bg-green-pea-600 hover:bg-green-pea-500">
                     Lihat Lebih Banyak
                 </x-ui.button>
             </div>
@@ -369,7 +369,8 @@
             </div>
 
             <div class="mt-6 flex justify-center">
-                <x-ui.button class="w-full max-w-80 bg-green-pea-600 hover:bg-green-pea-500" href="#">
+                <x-ui.button class="w-full max-w-80 bg-green-pea-600 hover:bg-green-pea-500"
+                    href="/infodesa/penghargaan">
                     Lihat Lebih Banyak
                 </x-ui.button>
             </div>
@@ -457,8 +458,7 @@
             </div>
 
             <div class="mt-6 flex justify-center">
-                <x-ui.button class="w-full max-w-80 bg-green-pea-600 hover:bg-green-pea-500"
-                    href="{{ route('potensi') }}">
+                <x-ui.button class="w-full max-w-80 bg-green-pea-600 hover:bg-green-pea-500" href="/infodesa/wisata">
                     Lihat Lebih Banyak
                 </x-ui.button>
             </div>
@@ -514,8 +514,7 @@
             </div>
 
             <div class="mt-6 flex justify-center">
-                <x-ui.button class="w-full max-w-80 bg-green-pea-600 hover:bg-green-pea-500"
-                    href="{{ route('potensi') }}">
+                <x-ui.button class="w-full max-w-80 bg-green-pea-600 hover:bg-green-pea-500" href="/infodesa/produk">
                     Lihat Lebih Banyak
                 </x-ui.button>
             </div>

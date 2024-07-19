@@ -48,9 +48,12 @@
     <section class="bg-background shadow">
         <div class="container flex items-center justify-between py-2">
             <div class="flex items-center gap-x-2">
-                <img class="h-8 w-8" src="{{ asset('assets/img/desaTegalManggung.png') }}" alt="Logo TegalManggung" />
+                <a href="/#section-main">
+                    <img class="h-8 w-8" src="{{ asset('assets/img/desaTegalManggung.png') }}"
+                        alt="Logo TegalManggung" />
+                </a>
                 <h1 class="text-lg font-semibold tracking-wide">
-                    Desa Tegal Manggung
+                    Desa Tegalmanggung
                 </h1>
             </div>
 
@@ -66,32 +69,22 @@
                         </x-ui.dropdown.button>
                         <x-ui.dropdown.content>
                             <x-ui.dropdown.item>
-                                <a href="/#section-profile-video" class="w-full text-left">
-                                    Video Profil
+                                <a href="/infodesa/berita" class="w-full text-left">
+                                    Berita Desa
                                 </a>
                             </x-ui.dropdown.item>
                             <x-ui.dropdown.item>
-                                <a href="/#section-kependudukan" class="w-full text-left">
-                                    Kependudukan
+                                <a href="/infodesa/penghargaan" class="w-full text-left">
+                                    Penghargaan Desa
                                 </a>
                             </x-ui.dropdown.item>
                             <x-ui.dropdown.item>
-                                <a href="/#section-berita-kependudukan" class="w-full text-left">
-                                    Berita Kependudukan
+                                <a href="/infodesa/wisata" class="w-full text-left">
+                                    Wisata Desa
                                 </a>
                             </x-ui.dropdown.item>
                             <x-ui.dropdown.item>
-                                <a href="/#section-berita-penghargaan" class="w-full text-left">
-                                    Berita Penghargaan
-                                </a>
-                            </x-ui.dropdown.item>
-                            <x-ui.dropdown.item>
-                                <a href="/#section-wisata-alam" class="w-full text-left">
-                                    Wisata Alam
-                                </a>
-                            </x-ui.dropdown.item>
-                            <x-ui.dropdown.item>
-                                <a href="/#section-produk-umkm" class="w-full text-left">
+                                <a href="/infodesa/produk" class="w-full text-left">
                                     Produk UMKM
                                 </a>
                             </x-ui.dropdown.item>
@@ -174,32 +167,22 @@
                         </x-ui.dropdown.button>
                         <x-ui.dropdown.content>
                             <x-ui.dropdown.item>
-                                <a href="/#section-profile-video" class="w-full text-left">
-                                    Video Profil
+                                <a href="/infodesa/berita" class="w-full text-left">
+                                    Berita Desa
                                 </a>
                             </x-ui.dropdown.item>
                             <x-ui.dropdown.item>
-                                <a href="/#section-kependudukan" class="w-full text-left">
-                                    Kependudukan
+                                <a href="/infodesa/penghargaan" class="w-full text-left">
+                                    Penghargaan Desa
                                 </a>
                             </x-ui.dropdown.item>
                             <x-ui.dropdown.item>
-                                <a href="/#section-berita-kependudukan" class="w-full text-left">
-                                    Berita Kependudukan
+                                <a href="/infodesa/wisata" class="w-full text-left">
+                                    Wisata Desa
                                 </a>
                             </x-ui.dropdown.item>
                             <x-ui.dropdown.item>
-                                <a href="/#section-berita-penghargaan" class="w-full text-left">
-                                    Berita Penghargaan
-                                </a>
-                            </x-ui.dropdown.item>
-                            <x-ui.dropdown.item>
-                                <a href="/#section-wisata-alam" class="w-full text-left">
-                                    Wisata Alam
-                                </a>
-                            </x-ui.dropdown.item>
-                            <x-ui.dropdown.item>
-                                <a href="/#section-produk-umkm" class="w-full text-left">
+                                <a href="/infodesa/produk" class="w-full text-left">
                                     Produk UMKM
                                 </a>
                             </x-ui.dropdown.item>
@@ -232,17 +215,20 @@
 
                 @guest
                     <li>
-                        <x-ui.button class="mt-4 w-full bg-green-pea-600 hover:bg-green-pea-500" href="{{ route('login') }}">
+                        <x-ui.button class="mt-4 w-full bg-green-pea-600 hover:bg-green-pea-500"
+                            href="{{ route('login') }}">
                             Login
                         </x-ui.button>
                     </li>
                 @else
                     <li>
-                        <x-ui.button class="mt-4 w-full bg-green-pea-600 hover:bg-green-pea-500" href="{{ route('logout') }}"
+                        <x-ui.button class="mt-4 w-full bg-green-pea-600 hover:bg-green-pea-500"
+                            href="{{ route('logout') }}"
                             onclick="event.preventDefault(); document.getElementById('logout-form-mobile').submit();">
                             Logout
                         </x-ui.button>
-                        <form id="logout-form-mobile" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        <form id="logout-form-mobile" action="{{ route('logout') }}" method="POST"
+                            style="display: none;">
                             @csrf
                         </form>
                     </li>
