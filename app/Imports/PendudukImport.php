@@ -5,9 +5,24 @@ namespace App\Imports;
 use App\Models\Penduduk;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
+use Maatwebsite\Excel\Concerns\WithUpserts;
 
-class PendudukImport implements ToModel, WithHeadingRow
+class PendudukImport implements ToModel, WithHeadingRow, WithUpserts
 {
+
+    /**
+     * Tentukan kolom unik untuk upsert
+     *
+     * @return string|array
+     */
+
+    // Pake ini kalo misal ada data double tapi maunya pake data yang baru / data terakhir di insert (data paling bawah)
+    public function uniqueBy()
+    {
+        return 'NIK'; // Kolom yang digunakan untuk mengidentifikasi data unik
+    }
+
+
     /**
     * @param array $row
     *
@@ -15,6 +30,11 @@ class PendudukImport implements ToModel, WithHeadingRow
     */
     public function model(array $row)
     {
+
+        // pake ini kalo misal ada data double tapi maunya pake data yang lama / data yang pertama kali di insert (data paling atas)
+        if (Penduduk::where('NIK', $row['nik'])->exists()) {
+            return null;
+        }
 
         return new Penduduk([
             'NIK' => $row['nik'],
