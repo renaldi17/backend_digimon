@@ -7,7 +7,9 @@ use App\Http\Controllers\KontakController;
 use App\Http\Controllers\PerangkatDesaController;
 use App\Http\Controllers\InformasiController;
 use App\Http\Controllers\PotensiDesaController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProdukHukumController;
+use App\Http\Controllers\PenghargaanController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\StrukturController;
 use App\Http\Controllers\PendudukController;
@@ -98,7 +100,13 @@ Route::get('/', function () {
     return view('dashboard', $data);
 });
 
-Route::get('/admin/penduduk/import', [PendudukController::class, 'import'])->name('penduduk.import');
+
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('admin/profile', [UserController::class, 'profile'])->name('admin.profile');
+
+    Route::get('/admin/penduduk/import', [PendudukController::class, 'import'])->name('penduduk.import');
 Route::post('/admin/penduduk/import', [PendudukController::class, 'importProcess'])->name('penduduk.importProcess');
 
 Route::get('admin', [DashboardController::class, 'index'])->name('admin.dashboard');
@@ -107,7 +115,10 @@ Route::resource('admin/slider', SliderController::class);
 Route::resource('admin/kontak', KontakController::class);
 Route::resource('admin/perangkat_desa', PerangkatDesaController::class);
 Route::resource('admin/informasi', InformasiController::class);
+Route::resource('admin/penghargaan', PenghargaanController::class);
 Route::resource('admin/potensi_desa', PotensiDesaController::class);
+Route::resource('admin/users', UserController::class);
+Route::get('admin/profile', [UserController::class, 'profile'])->name('admin.profile');
 Route::resource('admin/produk_hukum', ProdukHukumController::class);
 Route::resource('admin/struktur', StrukturController::class);
 Route::resource('admin/penduduk', PendudukController::class);
@@ -133,7 +144,7 @@ Route::resource('admin/pengajuan-surat', PengajuanSuratController::class)->names
 Route::get('admin/pengajuan-surat/ubah-status/{id}', [PengajuanSuratController::class, 'updateStatusPage'])->name('pengajuanSurat.updateStatus.index');
 Route::put('admin/pengajuan-surat/ubah-status/{id}', [PengajuanSuratController::class, 'updateStatus'])->name('pengajuanSurat.updateStatus.update');
 Route::resource('admin/profil', ProfilController::class)->except('create', 'store', 'show', 'destroy');
-
+});
 //AUTH//
 
 // Route for registration

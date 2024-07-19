@@ -122,11 +122,23 @@
                     </x-ui.button>
                 </li>
 
-                <li>
-                    <x-ui.button class="bg-green-pea-600 hover:bg-green-pea-500">
-                        Login
-                    </x-ui.button>
-                </li>
+                @guest
+                    <li>
+                        <x-ui.button class="bg-green-pea-600 hover:bg-green-pea-500" href="{{ route('login') }}">
+                            Login
+                        </x-ui.button>
+                    </li>
+                @else
+                    <li>
+                        <x-ui.button class="bg-green-pea-600 hover:bg-green-pea-500" href="{{ route('logout') }}"
+                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            Logout
+                        </x-ui.button>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </li>
+                @endguest
             </ul>
 
             <div class="md:hidden">
@@ -201,7 +213,7 @@
                 </li>
 
                 <li>
-                    <x-ui.button variant="ghost" class="w-full justify-start" href="#">
+                    <x-ui.button variant="ghost" class="w-full justify-start" href="/profil">
                         Profil
                     </x-ui.button>
                 </li>
@@ -218,61 +230,24 @@
                     </x-ui.button>
                 </li>
 
-                <li>
-                    <x-ui.button class="mt-4 w-full bg-green-pea-600 hover:bg-green-pea-500">
-                        Login
-                    </x-ui.button>
-                </li>
+                @guest
+                    <li>
+                        <x-ui.button class="mt-4 w-full bg-green-pea-600 hover:bg-green-pea-500" href="{{ route('login') }}">
+                            Login
+                        </x-ui.button>
+                    </li>
+                @else
+                    <li>
+                        <x-ui.button class="mt-4 w-full bg-green-pea-600 hover:bg-green-pea-500" href="{{ route('logout') }}"
+                            onclick="event.preventDefault(); document.getElementById('logout-form-mobile').submit();">
+                            Logout
+                        </x-ui.button>
+                        <form id="logout-form-mobile" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </li>
+                @endguest
             </ul>
-
-            {{-- Sosial Media Mobile --}}
-            <section class="container bg-[#2C5D3C] py-6 text-zinc-50">
-                <ul class="flex flex-col gap-y-2">
-                    <li>
-                        <a class="inline-flex h-10 w-full items-center justify-start whitespace-nowrap rounded-md px-4 py-2 text-sm font-medium ring-offset-background transition-colors hover:text-accent/75 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
-                            href="mailto:emailTegalmanggung@gmail.com">
-                            <i class="fa-solid fa-envelope mr-2"></i>
-                            emailTegalmanggung@gmail.com
-                        </a>
-                    </li>
-                    <li>
-                        <a class="inline-flex h-10 w-full items-center justify-start whitespace-nowrap rounded-md px-4 py-2 text-sm font-medium ring-offset-background transition-colors hover:text-accent/75 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
-                            href="tel:+6283522130922">
-                            <i class="fa-solid fa-phone mr-2"></i>
-                            (+62) 835-2213-0922
-                        </a>
-                    </li>
-                    <li class="flex justify-between gap-x-2">
-                        <a class="inline-flex h-10 w-10 items-center justify-center whitespace-nowrap rounded-md text-sm font-medium text-[#FCE5AD] ring-offset-background transition-colors hover:text-[#F8C549] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
-                            href="#">
-                            <i class="fa-brands fa-twitter h-6 w-6"></i>
-                        </a>
-                        <a class="inline-flex h-10 w-10 items-center justify-center whitespace-nowrap rounded-md text-sm font-medium text-[#FCE5AD] ring-offset-background transition-colors hover:text-[#F8C549] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
-                            href="#">
-                            <i class="fa-brands fa-facebook-f h-6 w-6"></i>
-                        </a>
-                        <a class="inline-flex h-10 w-10 items-center justify-center whitespace-nowrap rounded-md text-sm font-medium text-[#FCE5AD] ring-offset-background transition-colors hover:text-[#F8C549] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
-                            href="#">
-                            <i class="fa-brands fa-youtube h-6 w-6"></i>
-                        </a>
-                        <a class="inline-flex h-10 w-10 items-center justify-center whitespace-nowrap rounded-md text-sm font-medium text-[#FCE5AD] ring-offset-background transition-colors hover:text-[#F8C549] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
-                            href="#">
-                            <i class="fa-brands fa-instagram h-6 w-6"></i>
-                        </a>
-                        <a class="inline-flex h-10 w-10 items-center justify-center whitespace-nowrap rounded-md text-sm font-medium text-[#FCE5AD] ring-offset-background transition-colors hover:text-[#F8C549] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
-                            href="#">
-                            <i class="fa-brands fa-linkedin h-6 w-6"></i>
-                        </a>
-                    </li>
-                </ul>
-            </section>
         </div>
     </section>
-
-    <div x-show="isOpen" x-transition:enter="transition duration-300 ease-out"
-        x-transition:enter-start="translate-x-full transform" x-transition:enter-end="translate-x-0 transform"
-        x-transition:leave="transition duration-300 ease-in" x-transition:leave-start="translate-x-0 transform"
-        x-transition:leave-end="translate-x-full transform"
-        class="fixed right-0 top-0 z-40 h-screen w-screen bg-foreground/50 transition-transform duration-300 ease-in-out md:hidden"
-        x-on:click="isOpen = !isOpen"></div>
 </nav>
