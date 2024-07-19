@@ -13,8 +13,16 @@
         <div class="card mb-5 shadow">
             <div class="card-header d-flex justify-content-end py-3">
                 <a
+                    href="{{ route("penduduk.export") }}"
+                    class="btn btn-success float-right mb-0"
+                    style="color: #ffffff"
+                >
+                    <i class="fa-solid fa-file-export"></i>
+                    Export Data
+                </a>
+                <a
                     href="{{ route("penduduk.import") }}"
-                    class="btn btn-info float-right mb-0 me-2"
+                    class="btn btn-info float-right mx-2 mb-0"
                     style="color: #ffffff"
                 >
                     <i class="fa-solid fa-file-import"></i>
