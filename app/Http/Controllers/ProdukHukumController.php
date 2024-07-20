@@ -13,6 +13,12 @@ class ProdukHukumController extends Controller
         return view('admin.produk_hukum.index', compact('produkHukums'));
     }
 
+    public function detail()
+    {
+        $produkHukums = ProdukHukum::all();
+        return view('tampilan.produk-hukum', compact('produkHukums'));
+    }    
+
     public function create()
     {
         return view('admin.produk_hukum.create');

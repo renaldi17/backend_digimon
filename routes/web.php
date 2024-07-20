@@ -343,7 +343,9 @@ Route::get('/apbdes', function () {
 
 // Route untuk produk hukum
 // Nanti bisa ditambahkan controller untuk mengarahkannya dengan tujuan form
-Route::get('/produkHukum', function () {
-    return view('/tampilan/produk-hukum');
-});
+        // Route::get('/produkHukum', function () {
+        //     return view('/tampilan/produk-hukum');
+        // });
+Route::get('/produkHukum', [ProdukHukumController::class, 'detail'])->name('produk_hukum.detail');
+
 // IDEA RPL [IN PROGRESS] (END)
