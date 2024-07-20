@@ -101,9 +101,10 @@ Route::get('/', function () {
 });
 
 
-Route::get('admin', [DashboardController::class, 'index'])->name('admin.dashboard');
 
 Route::middleware(['auth'])->group(function () {
+    Route::get('admin', [DashboardController::class, 'index'])->name('admin.dashboard');
+
     Route::get('admin/profile', [UserController::class, 'profile'])->name('admin.profile');
 
     Route::get('/admin/penduduk/import', [PendudukController::class, 'import'])->name('penduduk.import');
