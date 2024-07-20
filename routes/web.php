@@ -22,6 +22,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\InfoGrafisController;
 
 use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\TampilanPerangkatController;
 use App\Http\Controllers\TampilInfoContoller;
 use Illuminate\Support\Facades\Route;
 
@@ -163,74 +164,75 @@ Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
 // IDEA RPL [IN PROGRESS] (START)
 // Route perangkat desa
-Route::get('/perangkat', function () {
-    $perangkat = [
-        [
-            "nama" => "Dwayne Johnson",
-            "gambar" => "https://picsum.photos/1920/1080",
-            "jabatan" => "Kepala Desa",
-            "kontak" => [
-                "instagram" => "therock",
-                "facebook" => "DwayneJohnson",
-            ],
-            "nik" => "01234"
-        ],
-        [
-            "nama" => "Emma Watson",
-            "gambar" => "https://picsum.photos/1920/1080",
-            "jabatan" => "Sekretaris Desa",
-            "kontak" => [
-                "instagram" => "emmawatson",
-                "facebook" => "emmawatson",
-            ],
-            "nik" => "01234"
-        ],
-        [
-            "nama" => "Robert Downey Jr.",
-            "gambar" => "https://picsum.photos/1920/1080",
-            "jabatan" => "Bendahara Desa",
-            "kontak" => [
-                "instagram" => "robertdowneyjr",
-                "facebook" => "robertdowneyjr",
-            ],
-            "nik" => "01234"
-        ],
-        [
-            "nama" => "Scarlett Johansson",
-            "gambar" => "https://picsum.photos/1920/1080",
-            "jabatan" => "Kepala Keamanan",
-            "kontak" => [
-                "instagram" => "scarlett.actress",
-            ],
-            "nik" => "01234"
-        ],
-        [
-            "nama" => "Chris Evans",
-            "gambar" => "https://picsum.photos/1920/1080",
-            "jabatan" => "Kepala Pemuda",
-            "kontak" => [
-                "instagram" => "chrisevans",
-            ],
-            "nik" => "01234"
-        ],
-        [
-            "nama" => "Gal Gadot",
-            "gambar" => "https://picsum.photos/1920/1080",
-            "jabatan" => "Kepala Kesejahteraan",
-            "kontak" => [
-                "instagram" => "gal_gadot",
-                "facebook" => "GalGadot",
-            ],
-            "nik" => "01234"
-        ],
-    ];
+// Route::get('/perangkat', function () {
+//     $perangkat = [
+//         [
+//             "nama" => "Dwayne Johnson",
+//             "gambar" => "https://picsum.photos/1920/1080",
+//             "jabatan" => "Kepala Desa",
+//             "kontak" => [
+//                 "instagram" => "therock",
+//                 "facebook" => "DwayneJohnson",
+//             ],
+//             "nik" => "01234"
+//         ],
+//         [
+//             "nama" => "Emma Watson",
+//             "gambar" => "https://picsum.photos/1920/1080",
+//             "jabatan" => "Sekretaris Desa",
+//             "kontak" => [
+//                 "instagram" => "emmawatson",
+//                 "facebook" => "emmawatson",
+//             ],
+//             "nik" => "01234"
+//         ],
+//         [
+//             "nama" => "Robert Downey Jr.",
+//             "gambar" => "https://picsum.photos/1920/1080",
+//             "jabatan" => "Bendahara Desa",
+//             "kontak" => [
+//                 "instagram" => "robertdowneyjr",
+//                 "facebook" => "robertdowneyjr",
+//             ],
+//             "nik" => "01234"
+//         ],
+//         [
+//             "nama" => "Scarlett Johansson",
+//             "gambar" => "https://picsum.photos/1920/1080",
+//             "jabatan" => "Kepala Keamanan",
+//             "kontak" => [
+//                 "instagram" => "scarlett.actress",
+//             ],
+//             "nik" => "01234"
+//         ],
+//         [
+//             "nama" => "Chris Evans",
+//             "gambar" => "https://picsum.photos/1920/1080",
+//             "jabatan" => "Kepala Pemuda",
+//             "kontak" => [
+//                 "instagram" => "chrisevans",
+//             ],
+//             "nik" => "01234"
+//         ],
+//         [
+//             "nama" => "Gal Gadot",
+//             "gambar" => "https://picsum.photos/1920/1080",
+//             "jabatan" => "Kepala Kesejahteraan",
+//             "kontak" => [
+//                 "instagram" => "gal_gadot",
+//                 "facebook" => "GalGadot",
+//             ],
+//             "nik" => "01234"
+//         ],
+//     ];
 
-    $data = [
-        "perangkat" => $perangkat,
-    ];
+//     $data = [
+//         "perangkat" => $perangkat,
+//     ];
 
-    return view('/tampilan/perangkat', $data);
-})->name('perangkat');
+//     return view('/tampilan/perangkat', $data);
+// })->name('perangkat');
+Route::get('/perangkat', [TampilanPerangkatController::class, 'index'])->name('perangkat');
 Route::get('/infodesa/{jenis}', [TampilInfoContoller::class, 'index'])->name('Infodesa');
 // Route potensi desa
 Route::get('/potensi', function () {
@@ -337,9 +339,9 @@ Route::delete('/pengajuan-batal/{id}', [PengajuanSuratUserController::class, 'de
 
 // Route untuk pengajuan layanan (sementara)
 // Nanti bisa ditambahkan controller untuk mengarahkannya dengan tujuan form
-Route::get('/apbdes', function () {
-    return view('/tampilan/apbdes');
-});
+// Route::get('/apbdes', function () {
+//     return view('/tampilan/apbdes');
+// });
 
 // Route untuk produk hukum
 // Nanti bisa ditambahkan controller untuk mengarahkannya dengan tujuan form
