@@ -17,7 +17,7 @@ class CreatePenduduksTable extends Migration
             $table->string('tempat_lahir');
             $table->enum('jenis_kelamin', ['Laki-laki', 'Perempuan']);
             $table->enum('status', ['Belum Kawin', 'Kawin', 'Cerai Hidup', 'Cerai Mati']);
-            $table->string('pekerjaan');
+            $table->enum('pekerjaan', ['PNS', 'Pelajar', 'Wiraswasta', 'Tidak Bekerja', 'Pengurus Rumah Tangga', 'Guru', 'S3', 'Putus Sekolah']);
             $table->string('RT');
             $table->string('RW');
             $table->text('alamat');

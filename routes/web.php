@@ -101,7 +101,7 @@ Route::get('/', function () {
 });
 
 
-
+Route::get('admin', [DashboardController::class, 'index'])->name('admin.dashboard');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('admin/profile', [UserController::class, 'profile'])->name('admin.profile');
@@ -111,7 +111,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/penduduk/export', [PendudukController::class, 'export'])->name('penduduk.export');
 
 
-    Route::get('admin', [DashboardController::class, 'index'])->name('admin.dashboard');
+    
     Route::resource('admin/galeri', GaleriController::class);
     Route::resource('admin/slider', SliderController::class);
     Route::resource('admin/kontak', KontakController::class);
