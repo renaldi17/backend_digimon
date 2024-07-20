@@ -24,6 +24,8 @@
                 <textarea name="deskripsi" class="form-control" id="deskripsi" rows="5">{{ $struktur->deskripsi }}</textarea>
             </div>
             <button type="button" class="btn btn-primary" onclick="confirmUpdate()">Simpan Perubahan</button>
+            <a href="{{ route('struktur.index') }}" class="btn btn-secondary">Kembali</a>
+
         </form>
     </div>
 

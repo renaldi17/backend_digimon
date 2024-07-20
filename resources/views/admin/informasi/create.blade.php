@@ -34,7 +34,9 @@
                                 <label for="tanggal">Tanggal:</label>
                                 <input type="date" name="tanggal" class="form-control" id="tanggal" required>
                             </div>
-                            <button type="button" class="btn btn-primary save-button">Submit</button>
+                            <button type="button" class="btn btn-primary save-button">Simpan</button>
+                            <a href="{{ route('informasi.index') }}" class="btn btn-secondary">Kembali</a>
+
                         </form>
                     </div>
                 </div>

@@ -18,6 +18,8 @@
                 <textarea name="deskripsi" class="form-control" id="deskripsi" rows="5"></textarea>
             </div>
             <button type="button" class="btn btn-primary" onclick="confirmSave()">Simpan</button>
+            <a href="{{ route('struktur.index') }}" class="btn btn-secondary">Kembali</a>
+
         </form>
     </div>
 
