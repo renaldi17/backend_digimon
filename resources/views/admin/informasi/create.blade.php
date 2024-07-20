@@ -55,6 +55,9 @@
                             <div class="modal-footer">
                                 <button type="button" class=" btn btn-primary save-button mt-3">Submit</button>
                             </div>
+                            <button type="button" class="btn btn-primary save-button">Simpan</button>
+                            <a href="{{ route('informasi.index') }}" class="btn btn-secondary">Kembali</a>
+
                         </form>
                     </div>
                 </div>

@@ -22,7 +22,7 @@
                                 <input type="file" name="gambar" class="form-control-file" id="gambar">
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-primary">Simpan</button>
                                 <a href="{{ route('slider.index') }}" class="btn btn-secondary">Kembali</a>
                             </div>
                         </form>

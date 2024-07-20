@@ -129,14 +129,7 @@
                                 />
                             </div>
                             <div class="modal-footer mt-5">
-                                <button
-                                    type="button"
-                                    class="btn btn-primary save-button"
-                                    data-bs-toggle="modal"
-                                    data-bs-target="#confirmModal"
-                                >
-                                    Simpan
-                                </button>
+                                <button type="button" class="btn btn-primary save-button" data-bs-toggle="modal" data-bs-target="#confirmModal">Simpan</button>
                             </div>
                         </form>
                     </div>

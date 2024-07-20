@@ -35,6 +35,8 @@
                             </div>
                             <div class="modal-footer mt-5">
                                 <button type="button" class="btn btn-primary save-button" onclick="confirmSave()">Simpan</button>
+                                <a href="{{ route('produk_hukum.index') }}" class="btn btn-secondary">Kembali</a>
+
                             </div>
                         </form>
                     </div>

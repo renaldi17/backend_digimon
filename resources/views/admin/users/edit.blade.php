@@ -27,7 +27,9 @@
                                 <label for="email">Email:</label>
                                 <input type="email" name="email" class="form-control" id="email" value="{{ $user->email }}" required>
                             </div>
-                            <button type="submit" class="btn btn-primary">Update User</button>
+                            <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+                            <a href="{{ route('users.index') }}" class="btn btn-secondary">Kembali</a>
+
                         </form>
                     </div>
                 </div>

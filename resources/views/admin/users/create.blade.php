@@ -38,7 +38,9 @@
                                 <label for="password_confirmation">Confirm Password:</label>
                                 <input type="password" name="password_confirmation" class="form-control" id="password_confirmation" required>
                             </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary">Simpan</button>
+                            <a href="{{ route('users.index') }}" class="btn btn-secondary">Kembali</a>
+
                         </form>
                     </div>
                 </div>

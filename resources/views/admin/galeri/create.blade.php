@@ -41,6 +41,8 @@
                             <div class="modal-footer mt-5">
                                 <button type="button" class="btn btn-primary save-button" data-bs-toggle="modal"
                                     data-bs-target="#confirmModal">Simpan Perubahan</button>
+                                <a href="{{ route('galeri.index') }}" class="btn btn-secondary">Kembali</a>
+
                             </div>
                         </form>
                     </div>

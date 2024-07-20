@@ -75,9 +75,15 @@
                         </select>
                     </div>
 
+<<<<<<< HEAD
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    <a href="{{ route('penduduk.index') }}" class="btn btn-secondary">Kembali</a>
+
+=======
                     <button type="submit" class="btn btn-primary">
                         Simpan
                     </button>
+>>>>>>> d2530b2cd6cd7de9f849ea96b020ea18bad5c9d2
                 </form>
             </div>
         </div>
