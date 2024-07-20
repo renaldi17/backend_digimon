@@ -47,10 +47,11 @@
                     Alamat Kelurahan
                 </h4>
 
-                <p class="leading-7 text-muted [&:not(:first-child)]:mt-2">
+                <a href="https://maps.app.goo.gl/hw5Y8RykFhLfbcFn7"
+                    class="leading-7 text-muted [&:not(:first-child)]:mt-2">
                     <i class="fa-solid fa-location-dot mr-2"></i>
-                    Alamat
-                </p>
+                    Tegalmanggung, Cimanggung, Sumedang Regency, West Java 45364
+                </a>
 
                 <div class="mt-4 flex items-center justify-between gap-x-2 sm:max-w-64">
                     <a class="inline-flex h-5 w-5 items-center justify-center whitespace-nowrap rounded-md text-sm font-medium text-[#FCE5AD] ring-offset-background transition-colors hover:text-[#F8C549] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"

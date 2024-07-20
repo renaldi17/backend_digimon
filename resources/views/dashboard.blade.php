@@ -27,7 +27,7 @@
     <x-common.navbar />
 
     <main class="min-h-screen">
-        <section id="section-main" class="min-[512px] relative h-screen max-h-[680px] pt-16 md:pt-32">
+        <section id="section-main" class="min-[512px]  relative h-screen max-h-[680px] pt-16 md:pt-32">
             <div
                 class="container relative z-10 mt-6 flex max-w-screen-lg flex-col gap-y-2 text-zinc-50 sm:mt-8 xl:pl-48">
                 <div>
@@ -49,9 +49,13 @@
                 </div>
             </div>
 
+            <div class="asap absolute left-0 right-0 top-0 z-10 md:top-[0] lg:top-[0] h-[800px] w-[100%]">
+
+            </div>
             <div
-                class="container absolute left-0 right-0 top-80 z-10 max-w-screen-lg md:top-[50vh] lg:top-[70vh] xl:top-[512px]">
-                <div class="grid grid-cols-2 justify-items-center gap-2 rounded-md bg-background sm:grid-cols-4">
+                class="container absolute left-0 right-0 top-80 z-10 max-w-screen-lg sm:top-[600px] md:top-[600px] lg:top-[600px] xl:top-[600px] ">
+                <div
+                    class="grid grid-cols-2 justify-items-center gap-2 rounded-md bg-background sm:grid-cols-4 shadow-lg ">
                     <a href="/profil"
                         class="flex h-full w-full cursor-pointer flex-col items-center justify-start gap-y-2 rounded-md px-2 py-4 text-center transition hover:bg-accent">
                         <div class="flex aspect-square items-center justify-center rounded-full bg-blue-500 p-4">
@@ -129,7 +133,7 @@
                 </div>
             </div>
 
-            <div class="absolute left-0 top-0 h-full w-full">
+            <div class="absolute left-0 top-20 sm:top-10 md:top-10 h-full w-full">
                 <x-ui.carousel.root id="hero-carousel"
                     class="h-full before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:z-[1] before:bg-opacity-50 before:bg-dark-transparent-dark-gradient">
                     <x-ui.carousel.content id="hero-carousel-content" class="h-full">
@@ -145,7 +149,7 @@
         </section>
 
         <section id="section-profile-video" class="videinfo">
-            <div class="container mt-80 py-12 sm:mt-12 md:mt-[15vh] lg:mt-[25vh] xl:mt-80">
+            <div class="container mt-80 py-12 sm:mt-[250px] md:mt-[225px] lg:mt-[225px] xl:mt-[225px]">
 
                 <div id="title" class="flex w-full flex-col items-center text-center text-4xl">
                     <h1 class="font-bold text-green-900">
@@ -179,10 +183,10 @@
                     </h1>
                 </div>
 
-                <div class="mx-auto flex max-w-screen-lg">
+                <div class="mx-auto flex flex-col md:flex-row max-w-screen-lg space-y-8 md:space-y-0 md:space-x-8">
                     <div
                         class="flex h-full w-full flex-col items-center justify-start gap-y-2 rounded-md px-2 py-4 text-center">
-                        <div class="bg-[#FCE5AD] pl-[40px] pr-[40px] mt-[50px] rounded-md">
+                        <div class="bg-[#FCE5AD] pl-[40px] shadow-lg pr-[40px] mt-[50px] rounded-md">
                             <div class="flex aspect-square items-center justify-center rounded-full">
                                 <i class="fa-solid fa-user h-12 w-12 text-[#2C5D3C]"></i>
                             </div>
@@ -194,29 +198,25 @@
                     </div>
                     <div
                         class="flex h-full w-full flex-col items-center justify-start gap-y-2 rounded-md px-2 py-4 text-center ">
-                        <div class="bg-[#FCE5AD] pl-[40px] pr-[40px] mt-[-40px] rounded-md">
+                        <div class="bg-[#FCE5AD] pl-[40px] shadow-lg pr-[40px] mt-[-40px] rounded-md">
                             <div class="flex aspect-square items-center justify-center rounded-full ">
                                 <i class="fa-solid fa-users h-24 w-24 text-[#2C5D3C]"></i>
                             </div>
                             <div class="mt-[-20px] mb-[20px]">
-                                <h6 class="text-lg font-semibold">
-                                    Total Penduduk
-                                </h6>
+                                <h6 class="text-lg font-semibold">Total Penduduk</h6>
                                 <p>245</p>
                             </div>
                         </div>
                     </div>
                     <div
                         class="flex h-full w-full flex-col items-center justify-start gap-y-2 rounded-md px-2 py-4 text-center">
-                        <div class="bg-[#FCE5AD] pl-[40px] pr-[40px] mt-[50px] rounded-md">
+                        <div class="bg-[#FCE5AD] pl-[40px] shadow-lg pr-[40px] mt-[50px] rounded-md">
                             <div class="flex aspect-square items-center justify-center rounded-full">
-                                <i class="fa-solid fa-user h-12 w-12 text-[#2C5D3C] "></i>
+                                <i class="fa-solid fa-user h-12 w-12 text-[#2C5D3C]"></i>
                             </div>
                             <div class="mt-[-35px] mb-[20px]">
-                                <h6 class="text-lg font-semibold">
-                                    Penduduk Wanita
-                                </h6>
-                                <p>99</p>
+                                <h6 class="text-lg font-semibold">Penduduk Wanita</h6>
+                                <p>67</p>
                             </div>
                         </div>
                     </div>
@@ -225,7 +225,7 @@
                 <div class="flex h-full w-full flex-row justify-center items-center p-4">
                     <div class="bg-[#FCE5AD] p-6 rounded-lg shadow-lg flex flex-col items-center space-y-6">
                         <div
-                            class="aspect-square p-4 rounded-full bg-[#FCE5AD] flex items-center justify-center mb-[-10px] mt-[-75px] ">
+                            class="aspect-square p-4 rounded-full bg-[#FCE5AD] flex items-center justify-center mb-[-10px] mt-[-75px]">
                             <i class="fa-solid fa-map text-[#2C5D3C] text-6xl"></i>
                         </div>
                         <div class="flex flex-row space-x-8">
@@ -260,6 +260,7 @@
                 </div>
             </div>
         </section>
+
 
         {{-- <div class="container py-12">
             <hr class="h-[1px] w-full shrink-0 bg-border" />
@@ -316,7 +317,7 @@
             </div>
 
             <div class="mt-6 flex justify-center">
-                <x-ui.button href="#" class="w-full max-w-80 bg-green-pea-600 hover:bg-green-pea-500">
+                <x-ui.button href="/infodesa/berita" class="w-full max-w-80 bg-green-pea-600 hover:bg-green-pea-500">
                     Lihat Lebih Banyak
                 </x-ui.button>
             </div>
@@ -372,7 +373,8 @@
             </div>
 
             <div class="mt-6 flex justify-center">
-                <x-ui.button class="w-full max-w-80 bg-green-pea-600 hover:bg-green-pea-500" href="#">
+                <x-ui.button class="w-full max-w-80 bg-green-pea-600 hover:bg-green-pea-500"
+                    href="/infodesa/penghargaan">
                     Lihat Lebih Banyak
                 </x-ui.button>
             </div>
@@ -460,8 +462,7 @@
             </div>
 
             <div class="mt-6 flex justify-center">
-                <x-ui.button class="w-full max-w-80 bg-green-pea-600 hover:bg-green-pea-500"
-                    href="{{ route('potensi') }}">
+                <x-ui.button class="w-full max-w-80 bg-green-pea-600 hover:bg-green-pea-500" href="/infodesa/wisata">
                     Lihat Lebih Banyak
                 </x-ui.button>
             </div>
@@ -517,8 +518,7 @@
             </div>
 
             <div class="mt-6 flex justify-center">
-                <x-ui.button class="w-full max-w-80 bg-green-pea-600 hover:bg-green-pea-500"
-                    href="{{ route('potensi') }}">
+                <x-ui.button class="w-full max-w-80 bg-green-pea-600 hover:bg-green-pea-500" href="/infodesa/produk">
                     Lihat Lebih Banyak
                 </x-ui.button>
             </div>
