@@ -6,10 +6,10 @@
         <div class="row">
             <div class="col-lg-6">
                 @if ($errors->any())
-        <div class="alert alert-danger">
-            Cek lagi inputan anda
-        </div>
-    @endif
+                    <div class="alert alert-danger">
+                        Cek lagi inputan anda
+                    </div>
+                @endif
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
                         <form id="save-form" action="{{ route('galeri.store') }}" method="POST" enctype="multipart/form-data">
@@ -39,7 +39,8 @@
                                 </div>
                             </div>
                             <div class="modal-footer mt-5">
-                                <button type="button" class="btn btn-primary save-button" data-bs-toggle="modal" data-bs-target="#confirmModal">Simpan Perubahan</button>
+                                <button type="button" class="btn btn-primary save-button" data-bs-toggle="modal"
+                                    data-bs-target="#confirmModal">Simpan Perubahan</button>
                             </div>
                         </form>
                     </div>
@@ -47,25 +48,4 @@
             </div>
         </div>
     </div>
-
-    <!-- Preview File Script -->
-    <script>
-        function previewFile() {
-            const preview = document.getElementById('previewImage');
-            const file = document.getElementById('img').files[0];
-            const reader = new FileReader();
-
-            reader.addEventListener('load', function () {
-                preview.src = reader.result;
-            }, false);
-
-            if (file) {
-                reader.readAsDataURL(file);
-            }
-        }
-
-        function submitForm() {
-            document.getElementById('save-form').submit();
-        }
-    </script>
 @endsection

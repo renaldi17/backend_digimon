@@ -8,6 +8,7 @@ use App\Models\PengajuanSurat;
 use Illuminate\Support\Facades\Storage;
 use Excel;
 use App\Imports\PendudukImport;
+use App\Exports\PendudukExport;
 use Carbon\Carbon;
 
 class PendudukController extends Controller
@@ -82,7 +83,7 @@ class PendudukController extends Controller
     public function destroy(Penduduk $penduduk)
     {
         $pengajuanSurat = PengajuanSurat::where('penduduk_id', $penduduk->id)->get();
-        foreach($pengajuanSurat as $pengajuan) {
+        foreach ($pengajuanSurat as $pengajuan) {
             Storage::disk('public')->delete($pengajuan->ktp);
             Storage::disk('public')->delete($pengajuan->kk);
             Storage::disk('public')->delete($pengajuan->pengantar_rt_rw);
@@ -94,12 +95,14 @@ class PendudukController extends Controller
             ->with('success', 'Data penduduk berhasil dihapus.');
     }
 
-    public function import() {
+    public function import()
+    {
         return view('admin.penduduk.import');
     }
 
-    public function importProcess(Request $request) {
-        
+    public function importProcess(Request $request)
+    {
+
         $request->validate([
             'file' => 'required|mimes:xls,xlsx'
         ]);
@@ -114,7 +117,6 @@ class PendudukController extends Controller
         Excel::import(new PendudukImport, $request->file('file'));
 
         return redirect()->route('penduduk.index')->with('success', 'Data penduduk berhasil diimport.');
-
     }
 
     /**
@@ -122,7 +124,7 @@ class PendudukController extends Controller
      *
      * @return \Symfony\Component\HttpFoundation\BinaryFileResponse
      */
-    public function export() 
+    public function export()
     {
         $timestamp = Carbon::now()->format('Ymd_His');
         $fileName = 'data-penduduk-' . $timestamp . '.xlsx';

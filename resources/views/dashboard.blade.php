@@ -27,7 +27,7 @@
     <x-common.navbar />
 
     <main class="min-h-screen">
-        <section id="section-main" class="min-[512px]  relative h-screen max-h-[680px] pt-16 md:pt-32">
+        <section id="section-main" class="fade-in min-[512px]  relative h-screen max-h-[680px] pt-16 md:pt-32">
             <div
                 class="container relative z-10 mt-6 flex max-w-screen-lg flex-col gap-y-2 text-zinc-50 sm:mt-8 xl:pl-48">
                 <div>
@@ -148,8 +148,8 @@
             </div>
         </section>
 
-        <section id="section-profile-video" class="videinfo">
-            <div class="container mt-80 py-12 sm:mt-[250px] md:mt-[225px] lg:mt-[225px] xl:mt-[225px]">
+        <section id="section-profile-video" class=" videinfo">
+            <div class="fade-in container mt-80 py-12 sm:mt-[250px] md:mt-[225px] lg:mt-[225px] xl:mt-[225px]">
 
                 <div id="title" class="flex w-full flex-col items-center text-center text-4xl">
                     <h1 class="font-bold text-green-900">
@@ -174,7 +174,7 @@
         </section>
 
         <section id="section-kependudukan" class="infografis">
-            <div class="container space-y-8 py-12 md:space-y-16">
+            <div class="fade-in container space-y-8 py-12 md:space-y-16">
                 <div id="title" class="flex w-full flex-col items-center text-center text-4xl">
                     <h1 class="font-bold text-white">
                         Infografis
@@ -266,7 +266,7 @@
             <hr class="h-[1px] w-full shrink-0 bg-border" />
         </div> --}}
 
-        <section id="section-berita-kependudukan" class="container pt-6">
+        <section id="section-berita-kependudukan" class="fade-in container pt-6 ">
             <div id="title" class="flex w-full flex-col items-center text-center text-4xl">
                 <h1 class="font-bold text-green-900">
                     Berita
@@ -305,7 +305,7 @@
                                     </x-ui.card.header>
 
                                     <x-ui.card.footer class="justify-end">
-                                        <x-ui.button variant="ghost" href="/news/{{ $newsItem['slug'] }}">
+                                        <x-ui.button variant="ghost" href="/berita/{{ $newsItem['slug'] }}">
                                             Baca Selengkapnya
                                         </x-ui.button>
                                     </x-ui.card.footer>
@@ -323,7 +323,7 @@
             </div>
         </section>
 
-        <section id="section-berita-penghargaan" class="container mt-6 pt-12">
+        <section id="section-berita-penghargaan" class="fade-in container mt-6 pt-12 ">
             <div id="title" class="flex w-full flex-col items-center text-center text-4xl">
                 <h1 class="font-bold text-green-900">
                     Penghargaan
@@ -361,7 +361,7 @@
                                     </x-ui.card.header>
 
                                     <x-ui.card.footer class="justify-end">
-                                        <x-ui.button variant="ghost" href="/news/{{ $newsItem['slug'] }}">
+                                        <x-ui.button variant="ghost" href="/penghargaan/{{ $newsItem['slug'] }}">
                                             Baca Selengkapnya
                                         </x-ui.button>
                                     </x-ui.card.footer>
@@ -380,7 +380,7 @@
             </div>
         </section>
 
-        <section class="galeri">
+        <section class="galeri fade-in">
             <div class="container mt-6 pt-12">
                 {{-- <h2 class="scroll-m-20 pb-2 text-center text-3xl font-semibold tracking-tight text-white ">
                     Galeri
@@ -412,7 +412,7 @@
 
         </section>
 
-        <section id="section-wisata-alam" class="container mt-6 pt-12">
+        <section id="section-wisata-alam" class="fade-in container mt-6 pt-12 ">
             <div id="title" class="flex w-full flex-col items-center text-center text-4xl">
                 <h1 class="font-bold text-green-900">
                     Wisata
@@ -450,7 +450,7 @@
                                     </x-ui.card.header>
 
                                     <x-ui.card.footer class="justify-end">
-                                        <x-ui.button variant="ghost" href="/news/{{ $newsItem['slug'] }}">
+                                        <x-ui.button variant="ghost" href="/wisata/{{ $newsItem['slug'] }}">
                                             Baca Selengkapnya
                                         </x-ui.button>
                                     </x-ui.card.footer>
@@ -468,7 +468,7 @@
             </div>
         </section>
 
-        <section id="section-produk-umkm" class="container mt-6 pt-12">
+        <section id="section-produk-umkm" class="fade-in container mt-6 pt-12">
             <div id="title" class="flex w-full flex-col items-center text-center text-4xl">
                 <h1 class="font-bold text-green-900">
                     Produk UMKM
@@ -506,7 +506,7 @@
                                     </x-ui.card.header>
 
                                     <x-ui.card.footer class="justify-end">
-                                        <x-ui.button variant="ghost" href="/news/{{ $newsItem['slug'] }}">
+                                        <x-ui.button variant="ghost" href="/produk/{{ $newsItem['slug'] }}">
                                             Baca Selengkapnya
                                         </x-ui.button>
                                     </x-ui.card.footer>
@@ -525,7 +525,7 @@
         </section>
 
         <section id="section-layanan"
-            class="container my-6 flex flex-col gap-x-12 gap-y-6 py-12 sm:flex-row sm:justify-center">
+            class="fade-in container my-6 flex flex-col gap-x-12 gap-y-6 py-12 sm:flex-row sm:justify-center">
             <x-ui.card.root class="sm:min relative overflow-hidden bg-green-pea-700 text-zinc-50 md:min-w-[320px]">
                 <i
                     class="fa-solid fa-file-lines absolute -right-10 -top-5 h-32 w-32 text-green-pea-700 brightness-125"></i>
@@ -621,6 +621,26 @@
     <x-ui.carousel.script id="news-award-carousel"></x-ui.carousel.script>
     <x-ui.carousel.script id="natural-tourism-carousel"></x-ui.carousel.script>
     <x-ui.carousel.script id="umkm-carousel"></x-ui.carousel.script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const sections = document.querySelectorAll('.fade-in');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
 </body>
 
 </html>
