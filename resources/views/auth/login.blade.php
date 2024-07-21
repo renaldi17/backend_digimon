@@ -37,10 +37,10 @@
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
                     <div class="form-group">
-                        <label for="email">Email:</label>
-                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email"
-                            value="{{ old('email') }}" required autocomplete="email" autofocus>
-                        @error('email')
+                        <label for="username">Username:</label>
+                        <input id="username" type="username" class="form-control @error('username') is-invalid @enderror" name="username"
+                            value="{{ old('username') }}" required autocomplete="email" autofocus>
+                        @error('username')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -57,9 +57,9 @@
                         @enderror
                     </div>
                     <button type="submit" class="btn btn-primary btn-block">Login</button>
-                    <div class="text-center mt-3">
+                    {{-- <div class="text-center mt-3">
                         <a href="{{ route('register') }}">Belum punya akun?</a>
-                    </div>
+                    </div> --}}
                 </form>
             </div>
             <div class="card-footer text-center">

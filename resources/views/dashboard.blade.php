@@ -20,6 +20,34 @@
         html {
             scroll-behavior: smooth;
         }
+        .text-cream {
+            color: #ffff9c; /* Warna cre
+            am */
+        }
+        .embla {
+            position: relative;
+            overflow: hidden;
+        }
+        .embla__viewport {
+            overflow: hidden;
+        }
+        .embla__container {
+            display: flex;
+            flex-direction: row;
+            will-change: transform;
+        }
+        .embla__slide {
+            position: relative;
+            min-width: 100%;
+            display: flex;
+            justify-content: center; /* Memusatkan gambar secara horizontal */
+            align-items: center; /* Memusatkan gambar secara vertikal */
+        }
+        .embla__slide img {
+            width: 700px;
+            height: 380px;
+            display: block;
+        }
     </style>
 </head>
 
@@ -148,9 +176,8 @@
             </div>
         </section>
 
-        <section id="section-profile-video" class=" videinfo">
+        <section id="section-profile-video" class="videinfo">
             <div class="fade-in container mt-80 py-12 sm:mt-[250px] md:mt-[225px] lg:mt-[225px] xl:mt-[225px]">
-
                 <div id="title" class="flex w-full flex-col items-center text-center text-4xl">
                     <h1 class="font-bold text-green-900">
                         Video Profil
@@ -158,21 +185,26 @@
                         <div class="ml-[35%] h-[2px] w-[10%] shrink-0 bg-green-900"></div>
                     </h1>
                 </div>
-
+        
                 <p class="text-center text-xl text-muted-foreground">
-                    video yang menggambarkan jalan Menuju Desa Tegal Manggung
+                    Video yang menggambarkan jalan Menuju Desa Tegal Manggung
                     Jl. No., Kel., Kec. Kab. Sumedang
                 </p>
-
+        
                 <div class="mx-auto mt-6 aspect-video w-full max-w-screen-lg md:px-8">
-                    <iframe class="h-full w-full" src="https://www.youtube.com/embed/LXb3EKWsInQ?si=fsZZbZr7t-vuSXzR"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    @if($videoUrl)
+                        <video class="h-full w-full" controls>
+                            <source src="{{ $videoUrl }}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    @else
+                        <p class="text-center text-xl text-muted-foreground">Video belum tersedia.</p>
+                    @endif
                 </div>
             </div>
         </section>
 
+        <!-- Infografis Kependudukan -->
         <section id="section-kependudukan" class="infografis">
             <div class="fade-in container space-y-8 py-12 md:space-y-16">
                 <div id="title" class="flex w-full flex-col items-center text-center text-4xl">
@@ -184,39 +216,36 @@
                 </div>
 
                 <div class="mx-auto flex flex-col md:flex-row max-w-screen-lg space-y-8 md:space-y-0 md:space-x-8">
-                    <div
-                        class="flex h-full w-full flex-col items-center justify-start gap-y-2 rounded-md px-2 py-4 text-center">
+                    <div class="flex h-full w-full flex-col items-center justify-start gap-y-2 rounded-md px-2 py-4 text-center">
                         <div class="bg-[#FCE5AD] pl-[40px] shadow-lg pr-[40px] mt-[50px] rounded-md">
                             <div class="flex aspect-square items-center justify-center rounded-full">
                                 <i class="fa-solid fa-user h-12 w-12 text-[#2C5D3C]"></i>
                             </div>
                             <div class="mt-[-35px] mb-[20px]">
                                 <h6 class="text-lg font-semibold">Penduduk Pria</h6>
-                                <p>67</p>
+                                <p>{{ $totalPendudukLakiLaki }}</p>
                             </div>
                         </div>
                     </div>
-                    <div
-                        class="flex h-full w-full flex-col items-center justify-start gap-y-2 rounded-md px-2 py-4 text-center ">
+                    <div class="flex h-full w-full flex-col items-center justify-start gap-y-2 rounded-md px-2 py-4 text-center ">
                         <div class="bg-[#FCE5AD] pl-[40px] shadow-lg pr-[40px] mt-[-40px] rounded-md">
                             <div class="flex aspect-square items-center justify-center rounded-full ">
                                 <i class="fa-solid fa-users h-24 w-24 text-[#2C5D3C]"></i>
                             </div>
                             <div class="mt-[-20px] mb-[20px]">
                                 <h6 class="text-lg font-semibold">Total Penduduk</h6>
-                                <p>245</p>
+                                <p>{{ $totalPenduduk }}</p>
                             </div>
                         </div>
                     </div>
-                    <div
-                        class="flex h-full w-full flex-col items-center justify-start gap-y-2 rounded-md px-2 py-4 text-center">
+                    <div class="flex h-full w-full flex-col items-center justify-start gap-y-2 rounded-md px-2 py-4 text-center">
                         <div class="bg-[#FCE5AD] pl-[40px] shadow-lg pr-[40px] mt-[50px] rounded-md">
                             <div class="flex aspect-square items-center justify-center rounded-full">
                                 <i class="fa-solid fa-user h-12 w-12 text-[#2C5D3C]"></i>
                             </div>
                             <div class="mt-[-35px] mb-[20px]">
                                 <h6 class="text-lg font-semibold">Penduduk Wanita</h6>
-                                <p>67</p>
+                                <p>{{ $totalPendudukPerempuan }}</p>
                             </div>
                         </div>
                     </div>
@@ -224,8 +253,7 @@
 
                 <div class="flex h-full w-full flex-row justify-center items-center p-4">
                     <div class="bg-[#FCE5AD] p-6 rounded-lg shadow-lg flex flex-col items-center space-y-6">
-                        <div
-                            class="aspect-square p-4 rounded-full bg-[#FCE5AD] flex items-center justify-center mb-[-10px] mt-[-75px]">
+                        <div class="aspect-square p-4 rounded-full bg-[#FCE5AD] flex items-center justify-center mb-[-10px] mt-[-75px]">
                             <i class="fa-solid fa-map text-[#2C5D3C] text-6xl"></i>
                         </div>
                         <div class="flex flex-row space-x-8">
@@ -260,7 +288,6 @@
                 </div>
             </div>
         </section>
-
 
         {{-- <div class="container py-12">
             <hr class="h-[1px] w-full shrink-0 bg-border" />
@@ -380,36 +407,33 @@
             </div>
         </section>
 
+        <!-- Galeri -->
         <section class="galeri fade-in">
             <div class="container mt-6 pt-12">
-                {{-- <h2 class="scroll-m-20 pb-2 text-center text-3xl font-semibold tracking-tight text-white ">
-                    Galeri
-                </h2> --}}
                 <div id="title" class="flex w-full flex-col items-center text-center text-4xl">
                     <h1 class="font-bold text-white">
                         Galeri
-                        <b class="text-[#FCE5AD]">Tegalmanggung</b>
-                        <div class="ml-[25%] h-[2px] w-[10%] shrink-0 bg-white"></div>
+                        <b class="text-cream">Tegalmanggung</b>
+                        <div class="ml-[22%] h-[2px] w-[10%] shrink-0 bg-white"></div>
                     </h1>
+                    <p class="text-white text-center text-xl text-muted-foreground">
+                        Slide gambar untuk melihat yang lainnya
+                    </p>
                 </div>
-                <p class="text-center text-xl text-muted-foreground text-white">
-                    Galeri Tegalmanggung
-                </p>
-
-                <div class="mt-12 ">
-                    <x-ui.carousel.root id="umkm-carousel" class="h-full">
-                        <x-ui.carousel.content id="umkm-carousel-content" class="h-full lg:ml-0">
-                            @foreach ($news as $newsItem)
-                                <x-ui.carousel.item class="sm:basis-1/3 lg:basis-1/4 align-middle">
-                                    <img class="align-middle" width="300px" src="{{ $newsItem['image'] }}"
-                                        alt="{{ $newsItem['title'] . ' Image' }}" />
-                                </x-ui.carousel.item>
-                            @endforeach
-                        </x-ui.carousel.content>
-                    </x-ui.carousel.root>
+                <div class="mt-8 mx-auto max-w-screen-lg">
+                    <div class="embla">
+                        <div class="embla__viewport">
+                            <div class="embla__container">
+                                @foreach ($galeriImages->take(4) as $image)
+                                    <div class="embla__slide">
+                                        <img src="{{ asset('storage/'.$image->gambar) }}" alt="Image" class="object-cover h-60 rounded-md">
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-
         </section>
 
         <section id="section-wisata-alam" class="fade-in container mt-6 pt-12 ">
@@ -526,7 +550,7 @@
 
         <section id="section-layanan"
             class="fade-in container my-6 flex flex-col gap-x-12 gap-y-6 py-12 sm:flex-row sm:justify-center">
-            <x-ui.card.root class="sm:min relative overflow-hidden bg-green-pea-700 text-zinc-50 md:min-w-[320px]">
+            {{-- <x-ui.card.root class="sm:min relative overflow-hidden bg-green-pea-700 text-zinc-50 md:min-w-[320px]">
                 <i
                     class="fa-solid fa-file-lines absolute -right-10 -top-5 h-32 w-32 text-green-pea-700 brightness-125"></i>
 
@@ -553,7 +577,7 @@
                         Selengkapnya
                     </x-ui.button>
                 </x-ui.card.footer>
-            </x-ui.card.root>
+            </x-ui.card.root> --}}
             <x-ui.card.root class="sm:min relative overflow-hidden bg-green-pea-700 text-zinc-50 md:min-w-[320px]">
                 <i
                     class="fa-solid fa-scale-balanced absolute -right-10 -top-5 h-32 w-32 text-green-pea-700 brightness-125"></i>
@@ -564,13 +588,13 @@
                 <x-ui.card.content class="relative z-[1]">
                     <ul class="flex flex-col">
                         <li>
-                            <x-ui.button class="text-zinc-50" variant="link" href="#">
-                                Lorem ipsum dolor sit.
+                            <x-ui.button class="text-zinc-50" variant="link" href="/produkHukum">
+                                Hukum Desa
                             </x-ui.button>
                         </li>
                         <li>
-                            <x-ui.button class="text-zinc-50" variant="link" href="#">
-                                Lorem ipsum dolor sit.
+                            <x-ui.button class="text-zinc-50" variant="link" href="/produkHukum">
+                                Hukum Kepala Desa
                             </x-ui.button>
                         </li>
                     </ul>
@@ -593,13 +617,13 @@
                 <x-ui.card.content class="relative z-[1]">
                     <ul class="flex flex-col">
                         <li>
-                            <x-ui.button class="text-zinc-50" variant="link" href="#">
-                                Lorem ipsum dolor sit.
+                            <x-ui.button class="text-zinc-50" variant="link" href="/status">
+                                Cek surat
                             </x-ui.button>
                         </li>
                         <li>
-                            <x-ui.button class="text-zinc-50" variant="link" href="#">
-                                Lorem ipsum dolor sit.
+                            <x-ui.button class="text-zinc-50" variant="link" href="/pengajuan">
+                                Buat Surat
                             </x-ui.button>
                         </li>
                     </ul>
@@ -619,6 +643,7 @@
     <x-ui.carousel.script id="hero-carousel"></x-ui.carousel.script>
     <x-ui.carousel.script id="news-carousel"></x-ui.carousel.script>
     <x-ui.carousel.script id="news-award-carousel"></x-ui.carousel.script>
+    <x-ui.carousel.script id="gallery-carousel"></x-ui.carousel.script>
     <x-ui.carousel.script id="natural-tourism-carousel"></x-ui.carousel.script>
     <x-ui.carousel.script id="umkm-carousel"></x-ui.carousel.script>
     <script>
@@ -639,6 +664,23 @@
             sections.forEach(section => {
                 observer.observe(section);
             });
+
+            const emblaNode = document.querySelector('.embla');
+            const viewportNode = emblaNode.querySelector('.embla__viewport');
+            const containerNode = emblaNode.querySelector('.embla__container');
+
+            const embla = EmblaCarousel(viewportNode, { loop: true });
+            const autoplay = EmblaCarouselAutoplay({ delay: 3000 });
+
+            embla.on('init', () => {
+                autoplay.start();
+            });
+
+            embla.on('select', () => {
+                autoplay.restart();
+            });
+
+            embla.init();
         });
     </script>
 </body>

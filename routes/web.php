@@ -22,6 +22,8 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\InfoGrafisController;
 
 use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\TampilanBerandaController;
+use App\Http\Controllers\TampilanPerangkatController;
 use App\Http\Controllers\TampilInfoContoller;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Crypt;
@@ -38,81 +40,78 @@ use Illuminate\Support\Facades\Crypt;
 |
 */
 
-Route::get('/', function () {
-    $heroImages = [
-        [
-            "id" => 1,
-            "title" => "Image Placeholder 1",
-            "url" => "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1874&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        ],
-        [
-            "id" => 2,
-            "title" => "Image Placeholder 2",
-            "url" => "https://images.unsplash.com/photo-1458668383970-8ddd3927deed?q=80&w=1767&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        ],
-        [
-            "id" => 3,
-            "title" => "Image Placeholder 3",
-            "url" => "https://images.unsplash.com/photo-1426604966848-d7adac402bff?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        ],
-        [
-            "id" => 4,
-            "title" => "Image Placeholder 4",
-            "url" => "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        ]
-    ];
+// Route::get('/', function () {
+//     $heroImages = [
+//         [
+//             "id" => 1,
+//             "title" => "Image Placeholder 1",
+//             "url" => "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1874&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+//         ],
+//         [
+//             "id" => 2,
+//             "title" => "Image Placeholder 2",
+//             "url" => "https://images.unsplash.com/photo-1458668383970-8ddd3927deed?q=80&w=1767&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+//         ],
+//         [
+//             "id" => 3,
+//             "title" => "Image Placeholder 3",
+//             "url" => "https://images.unsplash.com/photo-1426604966848-d7adac402bff?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+//         ],
+//         [
+//             "id" => 4,
+//             "title" => "Image Placeholder 4",
+//             "url" => "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+//         ]
+//     ];
 
-    $news = [
-        [
-            "publishedAt" => new DateTime('2021-01-01'),
-            "slug" => "berita-terkini-1",
-            "title" => "Berita Terkini 1",
-            "image" => "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1874&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-            "description" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptas. Quisquam, voluptas. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptas. Quisquam, voluptas."
-        ],
-        [
-            "publishedAt" => new DateTime('2021-04-02'),
-            "slug" => "berita-terkini-2",
-            "title" => "Berita Terkini 2",
-            "image" => "https://images.unsplash.com/photo-1458668383970-8ddd3927deed?q=80&w=1767&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-            "description" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptas. Quisquam, voluptas. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptas. Quisquam, voluptas."
-        ],
-        [
-            "publishedAt" => new DateTime('2021-05-03'),
-            "slug" => "berita-terkini-3",
-            "title" => "Berita Terkini 3",
-            "image" => "https://images.unsplash.com/photo-1426604966848-d7adac402bff?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-            "description" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptas. Quisquam, voluptas. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptas. Quisquam, voluptas."
-        ],
-        [
-            "publishedAt" => new DateTime('2021-06-04'),
-            "slug" => "berita-terkini-4",
-            "title" => "Berita Terkini 4",
-            "image" => "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-            "description" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptas. Quisquam, voluptas. Lorem ipsum dolor sit amet consectetur adipisicing elit Quisquam, voluptas. Quisquam, voluptas."
-        ]
-    ];
+//     $news = [
+//         [
+//             "publishedAt" => new DateTime('2021-01-01'),
+//             "slug" => "berita-terkini-1",
+//             "title" => "Berita Terkini 1",
+//             "image" => "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1874&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+//             "description" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptas. Quisquam, voluptas. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptas. Quisquam, voluptas."
+//         ],
+//         [
+//             "publishedAt" => new DateTime('2021-04-02'),
+//             "slug" => "berita-terkini-2",
+//             "title" => "Berita Terkini 2",
+//             "image" => "https://images.unsplash.com/photo-1458668383970-8ddd3927deed?q=80&w=1767&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+//             "description" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptas. Quisquam, voluptas. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptas. Quisquam, voluptas."
+//         ],
+//         [
+//             "publishedAt" => new DateTime('2021-05-03'),
+//             "slug" => "berita-terkini-3",
+//             "title" => "Berita Terkini 3",
+//             "image" => "https://images.unsplash.com/photo-1426604966848-d7adac402bff?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+//             "description" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptas. Quisquam, voluptas. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptas. Quisquam, voluptas."
+//         ],
+//         [
+//             "publishedAt" => new DateTime('2021-06-04'),
+//             "slug" => "berita-terkini-4",
+//             "title" => "Berita Terkini 4",
+//             "image" => "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+//             "description" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptas. Quisquam, voluptas. Lorem ipsum dolor sit amet consectetur adipisicing elit Quisquam, voluptas. Quisquam, voluptas."
+//         ]
+//     ];
 
-    $data = [
-        'title' => 'Dashboard',
-        'heroImages' => $heroImages,
-        'news' => $news,
-    ];
+//     $data = [
+//         'title' => 'Dashboard',
+//         'heroImages' => $heroImages,
+//         'news' => $news,
+//     ];
 
-    return view('dashboard', $data);
-});
+//     return view('dashboard', $data);
+// });
 
-
-Route::get('admin', [DashboardController::class, 'index'])->name('admin.dashboard');
+Route::get('/', [TampilanBerandaController::class, 'dashboard'])->name('dashboard');
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('admin/profile', [UserController::class, 'profile'])->name('admin.profile');
+    Route::get('admin', [DashboardController::class, 'index'])->name('admin.dashboard');
 
     Route::get('/admin/penduduk/import', [PendudukController::class, 'import'])->name('penduduk.import');
     Route::post('/admin/penduduk/import', [PendudukController::class, 'importProcess'])->name('penduduk.importProcess');
     Route::get('/admin/penduduk/export', [PendudukController::class, 'export'])->name('penduduk.export');
-
-
 
     Route::resource('admin/galeri', GaleriController::class);
     Route::resource('admin/slider', SliderController::class);
@@ -164,74 +163,75 @@ Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
 // IDEA RPL [IN PROGRESS] (START)
 // Route perangkat desa
-Route::get('/perangkat', function () {
-    $perangkat = [
-        [
-            "nama" => "Dwayne Johnson",
-            "gambar" => "https://picsum.photos/1920/1080",
-            "jabatan" => "Kepala Desa",
-            "kontak" => [
-                "instagram" => "therock",
-                "facebook" => "DwayneJohnson",
-            ],
-            "nik" => "01234"
-        ],
-        [
-            "nama" => "Emma Watson",
-            "gambar" => "https://picsum.photos/1920/1080",
-            "jabatan" => "Sekretaris Desa",
-            "kontak" => [
-                "instagram" => "emmawatson",
-                "facebook" => "emmawatson",
-            ],
-            "nik" => "01234"
-        ],
-        [
-            "nama" => "Robert Downey Jr.",
-            "gambar" => "https://picsum.photos/1920/1080",
-            "jabatan" => "Bendahara Desa",
-            "kontak" => [
-                "instagram" => "robertdowneyjr",
-                "facebook" => "robertdowneyjr",
-            ],
-            "nik" => "01234"
-        ],
-        [
-            "nama" => "Scarlett Johansson",
-            "gambar" => "https://picsum.photos/1920/1080",
-            "jabatan" => "Kepala Keamanan",
-            "kontak" => [
-                "instagram" => "scarlett.actress",
-            ],
-            "nik" => "01234"
-        ],
-        [
-            "nama" => "Chris Evans",
-            "gambar" => "https://picsum.photos/1920/1080",
-            "jabatan" => "Kepala Pemuda",
-            "kontak" => [
-                "instagram" => "chrisevans",
-            ],
-            "nik" => "01234"
-        ],
-        [
-            "nama" => "Gal Gadot",
-            "gambar" => "https://picsum.photos/1920/1080",
-            "jabatan" => "Kepala Kesejahteraan",
-            "kontak" => [
-                "instagram" => "gal_gadot",
-                "facebook" => "GalGadot",
-            ],
-            "nik" => "01234"
-        ],
-    ];
+// Route::get('/perangkat', function () {
+//     $perangkat = [
+//         [
+//             "nama" => "Dwayne Johnson",
+//             "gambar" => "https://picsum.photos/1920/1080",
+//             "jabatan" => "Kepala Desa",
+//             "kontak" => [
+//                 "instagram" => "therock",
+//                 "facebook" => "DwayneJohnson",
+//             ],
+//             "nik" => "01234"
+//         ],
+//         [
+//             "nama" => "Emma Watson",
+//             "gambar" => "https://picsum.photos/1920/1080",
+//             "jabatan" => "Sekretaris Desa",
+//             "kontak" => [
+//                 "instagram" => "emmawatson",
+//                 "facebook" => "emmawatson",
+//             ],
+//             "nik" => "01234"
+//         ],
+//         [
+//             "nama" => "Robert Downey Jr.",
+//             "gambar" => "https://picsum.photos/1920/1080",
+//             "jabatan" => "Bendahara Desa",
+//             "kontak" => [
+//                 "instagram" => "robertdowneyjr",
+//                 "facebook" => "robertdowneyjr",
+//             ],
+//             "nik" => "01234"
+//         ],
+//         [
+//             "nama" => "Scarlett Johansson",
+//             "gambar" => "https://picsum.photos/1920/1080",
+//             "jabatan" => "Kepala Keamanan",
+//             "kontak" => [
+//                 "instagram" => "scarlett.actress",
+//             ],
+//             "nik" => "01234"
+//         ],
+//         [
+//             "nama" => "Chris Evans",
+//             "gambar" => "https://picsum.photos/1920/1080",
+//             "jabatan" => "Kepala Pemuda",
+//             "kontak" => [
+//                 "instagram" => "chrisevans",
+//             ],
+//             "nik" => "01234"
+//         ],
+//         [
+//             "nama" => "Gal Gadot",
+//             "gambar" => "https://picsum.photos/1920/1080",
+//             "jabatan" => "Kepala Kesejahteraan",
+//             "kontak" => [
+//                 "instagram" => "gal_gadot",
+//                 "facebook" => "GalGadot",
+//             ],
+//             "nik" => "01234"
+//         ],
+//     ];
 
-    $data = [
-        "perangkat" => $perangkat,
-    ];
+//     $data = [
+//         "perangkat" => $perangkat,
+//     ];
 
-    return view('/tampilan/perangkat', $data);
-})->name('perangkat');
+//     return view('/tampilan/perangkat', $data);
+// })->name('perangkat');
+Route::get('/perangkat', [TampilanPerangkatController::class, 'index'])->name('perangkat');
 Route::get('/infodesa/{jenis}', [TampilInfoContoller::class, 'index'])->name('Infodesa');
 // Route potensi desa
 Route::get('/potensi', function () {
@@ -336,13 +336,15 @@ Route::delete('/pengajuan-batal/{id}', [PengajuanSuratUserController::class, 'de
 
 // Route untuk pengajuan layanan (sementara)
 // Nanti bisa ditambahkan controller untuk mengarahkannya dengan tujuan form
-Route::get('/apbdes', function () {
-    return view('/tampilan/apbdes');
-});
+// Route::get('/apbdes', function () {
+//     return view('/tampilan/apbdes');
+// });
 
 // Route untuk produk hukum
 // Nanti bisa ditambahkan controller untuk mengarahkannya dengan tujuan form
-Route::get('/produkHukum', function () {
-    return view('/tampilan/produk-hukum');
-});
+// Route::get('/produkHukum', function () {
+//     return view('/tampilan/produk-hukum');
+// });
+Route::get('/produkHukum', [ProdukHukumController::class, 'detail'])->name('produk_hukum.detail');
+
 // IDEA RPL [IN PROGRESS] (END)

@@ -17,15 +17,15 @@ class LoginController extends Controller
     // Handle login form submission
     public function login(Request $request)
     {
-        $credentials = $request->only('email', 'password');
+        $credentials = $request->only('username', 'password');
 
         if (Auth::attempt($credentials)) {
             // Authentication passed...
             return redirect()->intended('/');
         }
 
-        return redirect()->back()->withInput($request->only('email'))->withErrors([
-            'email' => 'These credentials do not match our records.',
+        return redirect()->back()->withInput($request->only('username'))->withErrors([
+            'username' => 'Erorr, Tolong isi dengan benar',
         ]);
     }
 
