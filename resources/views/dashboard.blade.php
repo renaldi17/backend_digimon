@@ -20,29 +20,38 @@
         html {
             scroll-behavior: smooth;
         }
+
         .text-cream {
-            color: #ffff9c; /* Warna cre
+            color: #ffff9c;
+            /* Warna cre
             am */
         }
+
         .embla {
             position: relative;
             overflow: hidden;
         }
+
         .embla__viewport {
             overflow: hidden;
         }
+
         .embla__container {
             display: flex;
             flex-direction: row;
             will-change: transform;
         }
+
         .embla__slide {
             position: relative;
             min-width: 100%;
             display: flex;
-            justify-content: center; /* Memusatkan gambar secara horizontal */
-            align-items: center; /* Memusatkan gambar secara vertikal */
+            justify-content: center;
+            /* Memusatkan gambar secara horizontal */
+            align-items: center;
+            /* Memusatkan gambar secara vertikal */
         }
+
         .embla__slide img {
             width: 700px;
             height: 380px;
@@ -165,10 +174,10 @@
                 <x-ui.carousel.root id="hero-carousel"
                     class="h-full before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:z-[1] before:bg-opacity-50 before:bg-dark-transparent-dark-gradient">
                     <x-ui.carousel.content id="hero-carousel-content" class="h-full">
-                        @foreach ($heroImages as $heroImage)
+                        @foreach ($slide as $heroImage)
                             <x-ui.carousel.item>
-                                <img id="{{ $heroImage['id'] }}" src="{{ $heroImage['url'] }}"
-                                    alt="{{ $heroImage['title'] }}" class="h-full w-full object-cover" />
+                                <img id="{{ $heroImage['id'] }}" src="/storage/{{ $heroImage['gambar'] }}"
+                                    alt="{{ $heroImage['judul'] }}" class="h-full w-full object-cover" />
                             </x-ui.carousel.item>
                         @endforeach
                     </x-ui.carousel.content>
@@ -185,20 +194,24 @@
                         <div class="ml-[35%] h-[2px] w-[10%] shrink-0 bg-green-900"></div>
                     </h1>
                 </div>
-        
+
                 <p class="text-center text-xl text-muted-foreground">
                     Video yang menggambarkan jalan Menuju Desa Tegal Manggung
                     Jl. No., Kel., Kec. Kab. Sumedang
                 </p>
-        
+
                 <div class="mx-auto mt-6 aspect-video w-full max-w-screen-lg md:px-8">
-                    @if($videoUrl)
+                    @if ($videoUrl)
                         <video class="h-full w-full" controls>
                             <source src="{{ $videoUrl }}" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                     @else
-                        <p class="text-center text-xl text-muted-foreground">Video belum tersedia.</p>
+                        <iframe width="100%" height="100%"
+                            src="https://www.youtube.com/embed/dVzUtJBCuFk?si=vV-gzzzDLl5TNcgl"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     @endif
                 </div>
             </div>
@@ -216,7 +229,8 @@
                 </div>
 
                 <div class="mx-auto flex flex-col md:flex-row max-w-screen-lg space-y-8 md:space-y-0 md:space-x-8">
-                    <div class="flex h-full w-full flex-col items-center justify-start gap-y-2 rounded-md px-2 py-4 text-center">
+                    <div
+                        class="flex h-full w-full flex-col items-center justify-start gap-y-2 rounded-md px-2 py-4 text-center">
                         <div class="bg-[#FCE5AD] pl-[40px] shadow-lg pr-[40px] mt-[50px] rounded-md">
                             <div class="flex aspect-square items-center justify-center rounded-full">
                                 <i class="fa-solid fa-user h-12 w-12 text-[#2C5D3C]"></i>
@@ -227,7 +241,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="flex h-full w-full flex-col items-center justify-start gap-y-2 rounded-md px-2 py-4 text-center ">
+                    <div
+                        class="flex h-full w-full flex-col items-center justify-start gap-y-2 rounded-md px-2 py-4 text-center ">
                         <div class="bg-[#FCE5AD] pl-[40px] shadow-lg pr-[40px] mt-[-40px] rounded-md">
                             <div class="flex aspect-square items-center justify-center rounded-full ">
                                 <i class="fa-solid fa-users h-24 w-24 text-[#2C5D3C]"></i>
@@ -238,7 +253,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="flex h-full w-full flex-col items-center justify-start gap-y-2 rounded-md px-2 py-4 text-center">
+                    <div
+                        class="flex h-full w-full flex-col items-center justify-start gap-y-2 rounded-md px-2 py-4 text-center">
                         <div class="bg-[#FCE5AD] pl-[40px] shadow-lg pr-[40px] mt-[50px] rounded-md">
                             <div class="flex aspect-square items-center justify-center rounded-full">
                                 <i class="fa-solid fa-user h-12 w-12 text-[#2C5D3C]"></i>
@@ -253,7 +269,8 @@
 
                 <div class="flex h-full w-full flex-row justify-center items-center p-4">
                     <div class="bg-[#FCE5AD] p-6 rounded-lg shadow-lg flex flex-col items-center space-y-6">
-                        <div class="aspect-square p-4 rounded-full bg-[#FCE5AD] flex items-center justify-center mb-[-10px] mt-[-75px]">
+                        <div
+                            class="aspect-square p-4 rounded-full bg-[#FCE5AD] flex items-center justify-center mb-[-10px] mt-[-75px]">
                             <i class="fa-solid fa-map text-[#2C5D3C] text-6xl"></i>
                         </div>
                         <div class="flex flex-row space-x-8">
@@ -309,30 +326,32 @@
             <div class="mt-6">
                 <x-ui.carousel.root id="news-carousel" class="h-full">
                     <x-ui.carousel.content id="news-carousel-content" class="-ml-6 h-full lg:-ml-12">
-                        @foreach ($news as $newsItem)
+                        @foreach ($berita as $newsItem)
                             <x-ui.carousel.item class="pl-6 sm:basis-1/2 lg:basis-1/3 lg:pl-12">
                                 <x-ui.card.root>
-                                    <img class="h-48 w-full object-cover object-top" src="{{ $newsItem['image'] }}"
-                                        alt="{{ $newsItem['title'] . ' Image' }}" />
+                                    <img class="h-48 w-full object-cover object-top"
+                                        src="/storage/{{ $newsItem['gambar'] }}"
+                                        alt="{{ $newsItem['judul'] . 'gambar' }}" />
 
                                     <x-ui.card.header>
                                         <div class="flex items-center justify-between">
                                             <x-ui.card.title class="max-w-[65%] truncate">
-                                                {{ $newsItem['title'] }}
+                                                {{ $newsItem['judul'] }}
                                             </x-ui.card.title>
 
                                             <span class="text-xs text-muted-foreground">
-                                                {{ $newsItem['publishedAt']->format('Y-m-d') }}
+                                                {{ \Carbon\Carbon::parse($newsItem['tanggal'])->format('Y-m-d') }}
                                                 <i class="fa-regular fa-calendar ml-1"></i>
                                             </span>
                                         </div>
                                         <x-ui.card.description class="line-clamp-3">
-                                            {{ $newsItem['description'] }}
+                                            {{ Str::limit(strip_tags($newsItem->konten), 150) }}
                                         </x-ui.card.description>
                                     </x-ui.card.header>
 
                                     <x-ui.card.footer class="justify-end">
-                                        <x-ui.button variant="ghost" href="/berita/{{ $newsItem['slug'] }}">
+                                        <x-ui.button variant="ghost"
+                                            href="{{ route('info.show', ['title' => 'Berita', 'id' => Crypt::encryptString($newsItem->id)]) }}">
                                             Baca Selengkapnya
                                         </x-ui.button>
                                     </x-ui.card.footer>
@@ -365,30 +384,32 @@
             <div class="mt-6">
                 <x-ui.carousel.root id="news-award-carousel" class="h-full">
                     <x-ui.carousel.content id="news-award-carousel-content" class="-ml-6 h-full lg:-ml-12">
-                        @foreach ($news as $newsItem)
+                        @foreach ($penghargaan as $newsItem)
                             <x-ui.carousel.item class="pl-6 sm:basis-1/2 lg:basis-1/3 lg:pl-12">
                                 <x-ui.card.root>
-                                    <img class="h-48 w-full object-cover object-top" src="{{ $newsItem['image'] }}"
-                                        alt="{{ $newsItem['title'] . ' Image' }}" />
+                                    <img class="h-48 w-full object-cover object-top"
+                                        src="/storage/{{ $newsItem['gambar'] }}"
+                                        alt="{{ $newsItem['judul'] . 'gambar' }}" />
 
                                     <x-ui.card.header>
                                         <div class="flex items-center justify-between">
                                             <x-ui.card.title class="max-w-[65%] truncate">
-                                                {{ $newsItem['title'] }}
+                                                {{ $newsItem['judul'] }}
                                             </x-ui.card.title>
 
                                             <span class="text-xs text-muted-foreground">
-                                                {{ $newsItem['publishedAt']->format('Y-m-d') }}
+                                                {{ \Carbon\Carbon::parse($newsItem->tanggal)->format('Y-m-d') }}
                                                 <i class="fa-regular fa-calendar ml-1"></i>
                                             </span>
                                         </div>
                                         <x-ui.card.description class="line-clamp-3">
-                                            {{ $newsItem['description'] }}
+                                            {{ Str::limit(strip_tags($newsItem->konten), 150) }}
                                         </x-ui.card.description>
                                     </x-ui.card.header>
 
                                     <x-ui.card.footer class="justify-end">
-                                        <x-ui.button variant="ghost" href="/penghargaan/{{ $newsItem['slug'] }}">
+                                        <x-ui.button variant="ghost"
+                                            href="{{ route('info.show', ['title' => 'Penghargaan', 'id' => Crypt::encryptString($newsItem->id)]) }}">
                                             Baca Selengkapnya
                                         </x-ui.button>
                                     </x-ui.card.footer>
@@ -420,19 +441,33 @@
                         Slide gambar untuk melihat yang lainnya
                     </p>
                 </div>
-                <div class="mt-8 mx-auto max-w-screen-lg">
+                <div class="mt-12 ">
+                    <x-ui.carousel.root id="umkm-carousel" class="h-full">
+                        <x-ui.carousel.content id="umkm-carousel-content" class="h-full lg:ml-0">
+                            @foreach ($galeriImages as $newsItem)
+                                <x-ui.carousel.item class="sm:basis-1/2 lg:basis-1/3  align-middle">
+                                    <img class="align-middle" width="500px"
+                                        src="/storage/{{ $newsItem['gambar'] }}"
+                                        alt="{{ $newsItem['judul'] . ' Image' }}" />
+                                </x-ui.carousel.item>
+                            @endforeach
+                        </x-ui.carousel.content>
+                    </x-ui.carousel.root>
+                </div>
+                {{-- <div class="mt-8 mx-auto max-w-screen-lg">
                     <div class="embla">
                         <div class="embla__viewport">
                             <div class="embla__container">
-                                @foreach ($galeriImages->take(4) as $image)
+                                @foreach ($galeriImages as $image)
                                     <div class="embla__slide">
-                                        <img src="{{ asset('storage/'.$image->gambar) }}" alt="Image" class="object-cover h-60 rounded-md">
+                                        <img src="{{ asset('storage/' . $image->gambar) }}" alt="Image"
+                                            class="object-cover h-60 rounded-md">
                                     </div>
                                 @endforeach
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </section>
 
@@ -451,30 +486,32 @@
             <div class="mt-6">
                 <x-ui.carousel.root id="natural-tourism-carousel" class="h-full">
                     <x-ui.carousel.content id="natural-tourism-carousel-content" class="-ml-6 h-full lg:-ml-12">
-                        @foreach ($news as $newsItem)
+                        @foreach ($wisata as $newsItem)
                             <x-ui.carousel.item class="pl-6 sm:basis-1/2 lg:basis-1/3 lg:pl-12">
                                 <x-ui.card.root>
-                                    <img class="h-48 w-full object-cover object-top" src="{{ $newsItem['image'] }}"
-                                        alt="{{ $newsItem['title'] . ' Image' }}" />
+                                    <img class="h-48 w-full object-cover object-top"
+                                        src="/storage/{{ $newsItem['gambar'] }}"
+                                        alt="{{ $newsItem['judul'] . 'gambar' }}" />
 
                                     <x-ui.card.header>
                                         <div class="flex items-center justify-between">
                                             <x-ui.card.title class="max-w-[65%] truncate">
-                                                {{ $newsItem['title'] }}
+                                                {{ $newsItem['judul'] }}
                                             </x-ui.card.title>
 
                                             <span class="text-xs text-muted-foreground">
-                                                {{ $newsItem['publishedAt']->format('Y-m-d') }}
+                                                {{ $newsItem['created_at']->format('Y-m-d') }}
                                                 <i class="fa-regular fa-calendar ml-1"></i>
                                             </span>
                                         </div>
                                         <x-ui.card.description class="line-clamp-3">
-                                            {{ $newsItem['description'] }}
+                                            {{ Str::limit(strip_tags($newsItem->konten), 150) }}
                                         </x-ui.card.description>
                                     </x-ui.card.header>
 
                                     <x-ui.card.footer class="justify-end">
-                                        <x-ui.button variant="ghost" href="/wisata/{{ $newsItem['slug'] }}">
+                                        <x-ui.button variant="ghost"
+                                            href="{{ route('info.show', ['title' => 'Wisata', 'id' => Crypt::encryptString($newsItem->id)]) }}">
                                             Baca Selengkapnya
                                         </x-ui.button>
                                     </x-ui.card.footer>
@@ -507,30 +544,32 @@
             <div class="mt-6">
                 <x-ui.carousel.root id="umkm-carousel" class="h-full">
                     <x-ui.carousel.content id="umkm-carousel-content" class="-ml-6 h-full lg:-ml-12">
-                        @foreach ($news as $newsItem)
+                        @foreach ($produk as $newsItem)
                             <x-ui.carousel.item class="pl-6 sm:basis-1/2 lg:basis-1/3 lg:pl-12">
                                 <x-ui.card.root>
-                                    <img class="h-48 w-full object-cover object-top" src="{{ $newsItem['image'] }}"
-                                        alt="{{ $newsItem['title'] . ' Image' }}" />
+                                    <img class="h-48 w-full object-cover object-top"
+                                        src="/storage/{{ $newsItem['gambar'] }}"
+                                        alt="{{ $newsItem['judul'] . 'gambar' }}" />
 
                                     <x-ui.card.header>
                                         <div class="flex items-center justify-between">
                                             <x-ui.card.title class="max-w-[65%] truncate">
-                                                {{ $newsItem['title'] }}
+                                                {{ $newsItem['judul'] }}
                                             </x-ui.card.title>
 
                                             <span class="text-xs text-muted-foreground">
-                                                {{ $newsItem['publishedAt']->format('Y-m-d') }}
+                                                {{ $newsItem['created_at']->format('Y-m-d') }}
                                                 <i class="fa-regular fa-calendar ml-1"></i>
                                             </span>
                                         </div>
                                         <x-ui.card.description class="line-clamp-3">
-                                            {{ $newsItem['description'] }}
+                                            {{ Str::limit(strip_tags($newsItem->konten), 150) }}
                                         </x-ui.card.description>
                                     </x-ui.card.header>
 
                                     <x-ui.card.footer class="justify-end">
-                                        <x-ui.button variant="ghost" href="/produk/{{ $newsItem['slug'] }}">
+                                        <x-ui.button variant="ghost"
+                                            href="{{ route('info.show', ['title' => 'Produk', 'id' => Crypt::encryptString($newsItem->id)]) }}">
                                             Baca Selengkapnya
                                         </x-ui.button>
                                     </x-ui.card.footer>
@@ -669,8 +708,12 @@
             const viewportNode = emblaNode.querySelector('.embla__viewport');
             const containerNode = emblaNode.querySelector('.embla__container');
 
-            const embla = EmblaCarousel(viewportNode, { loop: true });
-            const autoplay = EmblaCarouselAutoplay({ delay: 3000 });
+            const embla = EmblaCarousel(viewportNode, {
+                loop: true
+            });
+            const autoplay = EmblaCarouselAutoplay({
+                delay: 3000
+            });
 
             embla.on('init', () => {
                 autoplay.start();

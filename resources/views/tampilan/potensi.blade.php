@@ -66,7 +66,7 @@
                                         <span class="text-xs text-muted-foreground">
                                             @if ($jenis == 'berita' || $jenis == 'penghargaan')
                                                 {{ \Carbon\Carbon::parse($data->tanggal)->format('Y-m-d') }}
-                                            @else
+                                            @elseif($jenis == 'wisata' || $jenis == 'produk')
                                                 {{ \Carbon\Carbon::parse($data->created_at)->format('Y-m-d') }}
                                             @endif
                                             <i class="fa-regular fa-calendar ml-1"></i>

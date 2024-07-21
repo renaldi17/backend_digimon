@@ -12,18 +12,33 @@
                             @method('PUT')
                             <div class="form-group">
                                 <label for="nama">Nama:</label>
-                                <input type="text" name="nama" class="form-control" id="nama" value="{{ $slider->nama }}" required>
+                                <input type="text" name="nama" class="form-control" id="nama"
+                                    value="{{ $slider->nama }}" required>
                             </div>
                             <div class="form-group">
                                 <label for="deskripsi">Deskripsi:</label>
                                 <textarea name="deskripsi" class="form-control" id="deskripsi" required>{{ $slider->deskripsi }}</textarea>
                             </div>
-                            <div class="form-group">
-                                <label for="gambar">Gambar:</label>
-                                <input type="file" name="gambar" class="form-control-file" id="gambar">
-                                @if ($slider->gambar)
-                                    <img src="/storage/{{ $slider->gambar }}" width="300px">
-                                @endif
+                            <div class="form-group row mt-3">
+                                <div class="col-lg-8">
+                                    <div class="mb-3">
+                                        <label for="img">Gambar</label>
+                                        <input type="file" class="form-control @error('gambar') is-invalid @enderror"
+                                            id="img" onchange="previewFile()" name="gambar">
+                                        @error('gambar')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-md-3 mt-2">
+                                    @if ($slider->gambar)
+                                        <img src="{{ asset('storage/' . $slider->gambar) }}" class="img-thumbnail mt-2"
+                                            id="previewImage" style="max-width: 100%;">
+                                    @else
+                                        <img src="/assets/img/no_img.jpg" class="img-thumbnail mt-2" alt=""
+                                            width="150px" id="previewImage" style="max-width: 100%;">
+                                    @endif
+                                </div>
                             </div>
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary">Simpan Perubahan</button>

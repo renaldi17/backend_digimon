@@ -13,15 +13,27 @@
                                 <label for="nama">Nama:</label>
                                 <input type="text" name="nama" class="form-control" id="nama" required>
                             </div>
-                            <div class="form-group">
-                                <label for="deskripsi">Deskripsi:</label>
+                            <div class="form-group mt-3">
+                                <label for="deskripsi">Deskripsi</label>
                                 <textarea name="deskripsi" class="form-control" id="deskripsi" required></textarea>
                             </div>
-                            <div class="form-group">
-                                <label for="gambar">Gambar:</label>
-                                <input type="file" name="gambar" class="form-control-file" id="gambar">
+                            <div class="form-group row mt-3">
+                                <div class="col-lg-8">
+                                    <div class="mb-3">
+                                        <label for="img">Gambar</label>
+                                        <input type="file" class="form-control @error('gambar') is-invalid @enderror"
+                                            id="img" onchange="previewFile()" name="gambar">
+                                        @error('gambar')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-md-3 mt-2">
+                                    <img src="/assets/img/no_img.jpg" class="img-thumbnail" alt="" width="150px"
+                                        id="previewImage" style="max-width: 100%;">
+                                </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group ">
                                 <button type="submit" class="btn btn-primary">Simpan</button>
                                 <a href="{{ route('slider.index') }}" class="btn btn-secondary">Kembali</a>
                             </div>
