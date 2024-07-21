@@ -58,16 +58,19 @@
                                 </tbody>
                                 <thead>
                                     <tr>
-                                        <td colspan="2"><label for="gambar_perangkat_desa">Gambar Perangkat Desa : </label></td>
+                                        <td colspan="2"><label for="video_desa">Video Desa : </label></td>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td colspan="2">
-                                            @if ($profil->gambar_perangkat_desa)
-                                                <img src="{{ Storage::url($profil->gambar_perangkat_desa) }}" width="500px" class="mb-2">
+                                            @if ($profil->video_desa)
+                                                <video width="500" controls>
+                                                    <source src="{{ Storage::url($profil->video_desa) }}" type="video/mp4">
+                                                    Your browser does not support the video tag.
+                                                </video>
                                             @endif
-                                            <input type="file" name="gambar_perangkat_desa" class="form-control-file form-control" id="gambar_perangkat_desa">
+                                            <input type="file" name="video_desa" class="form-control-file form-control" id="video_desa">
                                         </td>
                                     </tr>
                                 </tbody>

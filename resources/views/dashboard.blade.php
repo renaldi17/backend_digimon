@@ -176,9 +176,8 @@
             </div>
         </section>
 
-        <section id="section-profile-video" class=" videinfo">
+        <section id="section-profile-video" class="videinfo">
             <div class="fade-in container mt-80 py-12 sm:mt-[250px] md:mt-[225px] lg:mt-[225px] xl:mt-[225px]">
-
                 <div id="title" class="flex w-full flex-col items-center text-center text-4xl">
                     <h1 class="font-bold text-green-900">
                         Video Profil
@@ -186,19 +185,21 @@
                         <div class="ml-[35%] h-[2px] w-[10%] shrink-0 bg-green-900"></div>
                     </h1>
                 </div>
-
+        
                 <p class="text-center text-xl text-muted-foreground">
-                    video yang menggambarkan jalan Menuju Desa Tegal Manggung
+                    Video yang menggambarkan jalan Menuju Desa Tegal Manggung
                     Jl. No., Kel., Kec. Kab. Sumedang
                 </p>
-
+        
                 <div class="mx-auto mt-6 aspect-video w-full max-w-screen-lg md:px-8">
-                    <iframe class="h-full w-full" src="https://www.youtube.com/embed/LXb3EKWsInQ?si=fsZZbZr7t-vuSXzR"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
-                        >
-                    </iframe>
+                    @if($videoUrl)
+                        <video class="h-full w-full" controls>
+                            <source src="{{ $videoUrl }}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    @else
+                        <p class="text-center text-xl text-muted-foreground">Video belum tersedia.</p>
+                    @endif
                 </div>
             </div>
         </section>

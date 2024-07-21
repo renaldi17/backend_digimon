@@ -51,14 +51,17 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th class="text-center">Gambar Perangkat Desa</th>
+                            <th class="text-center">Video Desa</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td class="text-center">
-                                @if ($profil->gambar_perangkat_desa)
-                                    <img src="{{ Storage::url($profil->gambar_perangkat_desa) }}" width="600px">
+                                @if ($profil->video_desa)
+                                    <video width="600" controls>
+                                        <source src="{{ Storage::url($profil->video_desa) }}" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
                                 @endif
                             </td>
                         </tr>

@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Penduduk;
 use App\Models\Galeri;
+use App\Models\Profil;
 use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class TampilanBerandaController extends Controller
 {
@@ -17,14 +19,14 @@ class TampilanBerandaController extends Controller
                             ->groupBy('jenis_kelamin')
                             ->pluck('total', 'jenis_kelamin')
                             ->toArray();
-
+    
         $totalPendudukLakiLaki = $byGender['Laki-laki'] ?? 0;
         $totalPendudukPerempuan = $byGender['Perempuan'] ?? 0;
         $totalPenduduk = Penduduk::count();
-
+    
         // Mengambil gambar untuk galeri (hanya 4 gambar pertama untuk ditampilkan, lebih banyak jika ingin)
         $galeriImages = Galeri::orderBy('id')->take(10)->get(); // ambil 10 gambar jika ingin lebih banyak
-
+    
         // Data gambar hero
         $heroImages = [
             [
@@ -48,7 +50,7 @@ class TampilanBerandaController extends Controller
                 "url" => "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
             ]
         ];
-
+    
         // Data berita
         $news = [
             [
@@ -80,7 +82,11 @@ class TampilanBerandaController extends Controller
                 "description" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptas. Quisquam, voluptas. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptas. Quisquam, voluptas."
             ]
         ];
-
+    
+        // Ambil video profil
+        $profil = Profil::first();
+        $videoUrl = $profil->video_desa ? Storage::url($profil->video_desa) : '';
+    
         // Return view dengan data
         return view('dashboard', [
             'title' => 'Dashboard',
@@ -90,6 +96,7 @@ class TampilanBerandaController extends Controller
             'totalPendudukPerempuan' => $totalPendudukPerempuan,
             'totalPenduduk' => $totalPenduduk,
             'galeriImages' => $galeriImages,
+            'videoUrl' => $videoUrl,
         ]);
-    }
+    }    
 }
