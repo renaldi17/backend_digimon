@@ -76,21 +76,6 @@
                                 </tbody>
                                 <thead>
                                     <tr>
-                                        <td colspan="2"><label for="gambar_sejarah_desa">Gambar Sejarah Desa : </label></td>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td colspan="2">
-                                            @if ($profil->gambar_sejarah_desa)
-                                                <img src="{{ Storage::url($profil->gambar_sejarah_desa) }}" width="500px" class="mb-2">
-                                            @endif
-                                            <input type="file" name="gambar_sejarah_desa" class="form-control-file form-control" id="gambar_sejarah_desa">
-                                        </td>
-                                    </tr>
-                                </tbody>
-                                <thead>
-                                    <tr>
                                         <td colspan="2"><label for="sejarah_desa">Sejarah Desa : </label></td>
                                     </tr>
                                 </thead>

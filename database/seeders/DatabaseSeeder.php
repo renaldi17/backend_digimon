@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
             Lorem ipsum dolor sit amet consectetur adipisicing elit.</p><p> Et dolorum libero est minus quam! Non deserunt, culpa labore sed ex dolores nulla earum iste nemo magni tenetur quam consequuntur eaque minus est laboriosam quis delectus illo ad quia inventore quas? Alias tenetur aspernatur odio quidem, voluptate dolorem tempore excepturi quo?</p><p>
 
             Wassalamualaikum Wr. Wb.</p>',
-            'gambar_perangkat_desa' => 'public/profil_images/perangkat_desa/6OvFt43nQqbuFqvHApNFAd6pbIMx9MEJQLdb0Ncq.png',
+            'video_desa' => 'public/profil_images/perangkat_desa/6OvFt43nQqbuFqvHApNFAd6pbIMx9MEJQLdb0Ncq.png',
             'gambar_sejarah_desa' => 'public/profil_images/sejarah_desa/rvovaFCpiHrNK7QWZwD0frrtKhxxyPF3oCmeL1PU.png',
             'sejarah_desa' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim tempora eaque illo, sapiente quidem dignissimos voluptates vel quas accusamus possimus mollitia magnam voluptatem cupiditate ipsam quasi at veritatis eum a illum incidunt reprehenderit ullam unde natus fugiat! Voluptatum cupiditate tempore perspiciatis consequatur? Laboriosam libero magnam in et ducimus velit maiores.',
             'visi_desa' => 'Terwujudnya Desa Tegalmanggung yang Mandiri Amanah Transparan Agamis dan Produktif. " MANTAP " untuk menuju Desa Tegalmanggung lebih maju, mandiri dan berkualitas',

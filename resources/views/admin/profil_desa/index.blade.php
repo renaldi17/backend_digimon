@@ -71,17 +71,11 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th class="text-center w-25">Gambar Sejarah Desa</th>
                             <th class="text-center">Sejarah Desa</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="text-center">
-                                @if ($profil->gambar_sejarah_desa)
-                                    <img src="{{ Storage::url($profil->gambar_sejarah_desa) }}" width="250px">
-                                @endif
-                            </td>
                             <td>{!! $profil->sejarah_desa !!}</td>
                         </tr>
                     </tbody>
