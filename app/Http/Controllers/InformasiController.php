@@ -22,24 +22,22 @@ class InformasiController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'jenis_informasi' => 'required|string',
             'judul' => 'required|string',
             'gambar' => 'image|nullable',
             'konten' => 'required|string',
             'tanggal' => 'required|date',
         ]);
 
-        $gambarPath = $request->file('gambar') ? $request->file('gambar')->store('informasi', 'public') : null;
+        $gambarPath = $request->file('gambar') ? $request->file('gambar')->store('berita', 'public') : null;
 
         Informasi::create([
-            'jenis_informasi' => $request->jenis_informasi,
             'judul' => $request->judul,
             'gambar' => $gambarPath,
             'konten' => $request->konten,
             'tanggal' => $request->tanggal,
         ]);
 
-        return redirect()->route('informasi.index')->with('success', 'Informasi berhasil dibuat.');
+        return redirect()->route('informasi.index')->with('success', 'Berita berhasil dibuat.');
     }
 
     public function edit(Informasi $informasi)
@@ -50,7 +48,6 @@ class InformasiController extends Controller
     public function update(Request $request, Informasi $informasi)
     {
         $request->validate([
-            'jenis_informasi' => 'required|string',
             'judul' => 'required|string',
             'gambar' => 'image|nullable',
             'konten' => 'required|string',
@@ -58,19 +55,18 @@ class InformasiController extends Controller
         ]);
 
         if ($request->hasFile('gambar')) {
-            $gambarPath = $request->file('gambar')->store('informasi', 'public');
+            $gambarPath = $request->file('gambar')->store('berita', 'public');
             Storage::disk('public')->delete($informasi->gambar);
             $informasi->update(['gambar' => $gambarPath]);
         }
 
         $informasi->update([
-            'jenis_informasi' => $request->jenis_informasi,
             'judul' => $request->judul,
             'konten' => $request->konten,
             'tanggal' => $request->tanggal,
         ]);
 
-        return redirect()->route('informasi.index')->with('success', 'Informasi berhasil diperbaharui.');
+        return redirect()->route('informasi.index')->with('success', 'Berita berhasil diperbaharui.');
     }
 
     public function destroy(Informasi $informasi)
@@ -78,6 +74,6 @@ class InformasiController extends Controller
         Storage::disk('public')->delete($informasi->gambar);
         $informasi->delete();
 
-        return redirect()->route('informasi.index')->with('success', 'Informasi berhasil dihapus.');
+        return redirect()->route('informasi.index')->with('success', 'Berita berhasil dihapus.');
     }
 }

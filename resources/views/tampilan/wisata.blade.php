@@ -26,7 +26,7 @@
             </h1>
 
             <div class="text-sm text-gray-400 flex items-center gap-2">
-                <i class="fa-solid fa-location-dot"></i>
+                <i class="fa-regular fa-calendar ml-1"></i>
                 Alamat Desa
             </div>
 

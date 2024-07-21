@@ -10,10 +10,10 @@ class PotensiDesa extends Model
     use HasFactory;
 
     protected $fillable = [
-        'nama',
+        'judul',
         'jenis',
         'gambar',
-        'deskripsi',
+        'konten',
         'lokasi',
         'hari_buka',
         'hari_tutup',

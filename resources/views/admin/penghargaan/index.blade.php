@@ -37,7 +37,7 @@
                                         <img src="{{ asset('storage/' . $penghargaan->gambar) }}" width="100px">
                                     @endif
                                 </td>
-                                <td>{{ Str::limit($penghargaan->konten, 50) }}</td>
+                                <td>{{ Str::limit(strip_tags($penghargaan->konten), 50) }}</td>
                                 <td>{{ $penghargaan->tanggal }}</td>
                                 <td>
                                     <a href="{{ route('penghargaan.edit', $penghargaan->id) }}" class="btn btn-warning"

@@ -34,12 +34,12 @@ class PotensiDesaController extends Controller
         ]);
 
         $gambarPath = $request->file('gambar') ? $request->file('gambar')->store('potensi_desa', 'public') : null;
-
+        // \dd($gambarPath);
         PotensiDesa::create([
-            'nama' => $request->nama,
+            'judul' => $request->nama,
             'jenis' => $request->jenis,
             'gambar' => $gambarPath,
-            'deskripsi' => $request->deskripsi,
+            'konten' => $request->deskripsi,
             'lokasi' => $request->lokasi,
             'hari_buka' => $request->hari_buka,
             'hari_tutup' => $request->hari_tutup,
@@ -76,9 +76,9 @@ class PotensiDesaController extends Controller
         }
 
         $potensiDesa->update([
-            'nama' => $request->nama,
+            'judul' => $request->nama,
             'jenis' => $request->jenis,
-            'deskripsi' => $request->deskripsi,
+            'konten' => $request->deskripsi,
             'lokasi' => $request->lokasi,
             'hari_buka' => $request->hari_buka,
             'hari_tutup' => $request->hari_tutup,

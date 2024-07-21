@@ -24,6 +24,8 @@ use App\Http\Controllers\InfoGrafisController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\TampilInfoContoller;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Crypt;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -111,7 +113,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/penduduk/export', [PendudukController::class, 'export'])->name('penduduk.export');
 
 
-    
+
     Route::resource('admin/galeri', GaleriController::class);
     Route::resource('admin/slider', SliderController::class);
     Route::resource('admin/kontak', KontakController::class);
@@ -267,7 +269,7 @@ Route::get('/potensi', function () {
     $produk = [
         [
             "publishedAt" => new DateTime('2021-01-01'),
-            "slug" => "produk-1",
+            "slug" => "D",
             "title" => "Produk 1",
             "image" => "https://via.placeholder.com/400x200",
             "description" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptas. Quisquam, voluptas. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptas. Quisquam, voluptas."
@@ -304,9 +306,7 @@ Route::get('/potensi', function () {
 })->name('potensi');
 
 // Route detail wisata
-Route::get('/wisata/{slug}', function ($slug) {
-    return view('/tampilan/wisata');
-})->name('wisata.show');
+Route::get('/info/{title}/{id}', [TampilInfoContoller::class, 'isiinfo'])->name('info.show');
 
 // Route detail produk
 Route::get('/produk-umkm/{slug}', function ($slug) {

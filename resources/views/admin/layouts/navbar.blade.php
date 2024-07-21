@@ -54,7 +54,7 @@
                         </div>
                         Dashboard
                     </a>
-                    <a class="nav-link" href="{{ route ('users.index') }}">
+                    <a class="nav-link" href="{{ route('users.index') }}">
                         <div class="sb-nav-link-icon">
                             <i class="fas fa-user"></i>
                         </div>
@@ -135,7 +135,7 @@
                                 data-bs-parent="#sidenavAccordionPages">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="{{ route('informasi.index') }}">
-                                        Informasi
+                                        Berita
                                     </a>
                                     <a class="nav-link" href="{{ route('penghargaan.index') }}">
                                         Penghargaan

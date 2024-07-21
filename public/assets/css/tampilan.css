@@ -29,6 +29,16 @@
     /* background-color: #4E775B; */
 }
 
+@media screen and (max-width: 800px) {
+    .videinfo {
+        margin-top: 300px;
+    }
+}
+@media screen and (max-width: 700px) {
+    .videinfo {
+        margin-top: 400px;
+    }
+}
 .infografis{
     background-color: #4E775B;
 }

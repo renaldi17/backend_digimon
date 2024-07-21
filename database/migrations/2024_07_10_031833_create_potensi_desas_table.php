@@ -10,11 +10,11 @@ class CreatePotensiDesasTable extends Migration
     {
         Schema::create('potensi_desas', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
+            $table->string('judul');
             $table->enum('jenis', ['umkm', 'wisata']);
             $table->string('gambar')->nullable();
-            $table->text('deskripsi');
-            $table->string('lokasi');
+            $table->text('konten');
+            $table->text('lokasi');
             $table->string('hari_buka');
             $table->string('hari_tutup');
             $table->time('buka');

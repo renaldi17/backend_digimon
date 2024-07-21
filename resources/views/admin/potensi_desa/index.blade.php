@@ -5,10 +5,10 @@
         <h1 class="mt-4">Potensi Desa</h1>
 
         @if (session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
-        </div>
-    @endif
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
         <div class="card shadow mb-5">
             <div class="card-header py-3 d-flex justify-content-end">
                 <a href="{{ route('potensi_desa.create') }}" class="btn btn-primary float-right mb-0" style="color: #ffffff;">
@@ -19,12 +19,10 @@
                 <table id="datatablesSimple">
                     <thead>
                         <tr>
-                            <th>ID</th>
+                            <th>No</th>
                             <th>Nama</th>
                             <th>Jenis</th>
                             <th>Gambar</th>
-                            <th>Deskripsi</th>
-                            <th>Lokasi</th>
                             <th>Hari Buka</th>
                             <th>Hari Tutup</th>
                             <th>Buka</th>
@@ -33,22 +31,20 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($potensiDesas as $potensiDesa)
+                        @foreach ($potensiDesas as $i => $potensiDesa)
                             <tr>
-                                <td>{{ $potensiDesa->id }}</td>
-                                <td>{{ $potensiDesa->nama }}</td>
+                                <td>{{ $i + 1 }}</td>
+                                <td>{{ $potensiDesa->judul }}</td>
                                 <td>{{ $potensiDesa->jenis }}</td>
                                 <td>
                                     @if ($potensiDesa->gambar)
                                         <img src="{{ asset('storage/' . $potensiDesa->gambar) }}" width="100px">
                                     @endif
                                 </td>
-                                <td>{{ $potensiDesa->deskripsi }}</td>
-                                <td>{{ $potensiDesa->lokasi }}</td>
                                 <td>{{ $potensiDesa->hari_buka }}</td>
                                 <td>{{ $potensiDesa->hari_tutup }}</td>
-                                <td>{{ $potensiDesa->buka }}</td>
-                                <td>{{ $potensiDesa->tutup }}</td>
+                                <td>{{ \Carbon\Carbon::parse($potensiDesa->buka)->format('H:i') }}</td>
+                                <td>{{ \Carbon\Carbon::parse($potensiDesa->tutup)->format('H:i') }}</td>
                                 <td>
                                     <a href="{{ route('potensi_desa.edit', $potensiDesa->id) }}" class="btn btn-warning"
                                         style="color: #ffffff"><i class="fa-solid fa-pen-to-square"

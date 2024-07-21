@@ -51,9 +51,9 @@
 
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         @foreach ($data as $data)
-                            <x-ui.card.root class="wisata-item" data-published-at="{{ $data->created_at }}"
+                            <x-ui.card.root class="wisata-item" data-published-at="{{ $data->tanggal }}"
                                 data-title="{{ $data->judul }}" data-image="{{ $data->gambar }}"
-                                data-description="{{ $data->konten }}">
+                                data-description="{{ $data->deskripsi }}">
                                 <img class="h-48 w-full object-cover object-top" src="/storage/{{ $data->gambar }}"
                                     alt="{{ $data->judul . 'gambar' }}" />
 
@@ -64,24 +64,19 @@
                                         </x-ui.card.title>
 
                                         <span class="text-xs text-muted-foreground">
-                                            @if ($jenis == 'berita' || $jenis == 'penghargaan')
-                                                {{ \Carbon\Carbon::parse($data->tanggal)->format('Y-m-d') }}
-                                            @else
-                                                {{ \Carbon\Carbon::parse($data->created_at)->format('Y-m-d') }}
-                                            @endif
+                                            {{ \Carbon\Carbon::parse($data->tanggal)->format('Y-m-d') }}
                                             <i class="fa-regular fa-calendar ml-1"></i>
                                         </span>
                                     </div>
                                     <x-ui.card.description class="line-clamp-3">
                                         <div class="line-clamp-3">
-                                            {!! $data->konten !!}
+                                            {!! $data->deskripsi !!}
                                         </div>
                                     </x-ui.card.description>
                                 </x-ui.card.header>
 
                                 <x-ui.card.footer class="justify-end">
-                                    <x-ui.button variant="ghost"
-                                        href="{{ route('info.show', ['title' => $title, 'id' => Crypt::encryptString($data->id)]) }}">
+                                    <x-ui.button variant="ghost" href="">
                                         Baca Selengkapnya
                                     </x-ui.button>
                                 </x-ui.card.footer>
