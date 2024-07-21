@@ -64,6 +64,7 @@
             <h1 class=" bg-[#3B432C] w-[100vw] py-4 text-center text-5xl font-bold text-white">
                 Sejarah
             </h1>
+            {{-- <div id="video">video</div> --}}
             <div class="flex flex-wrap-reverse justify-between gap-5 md:flex-nowrap">
                 <section class="flex flex-col gap-3 md:w-[100%]" id="words">
                     <p class="text-justify">{!! $profil->sejarah_desa !!}</p>
