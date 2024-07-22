@@ -19,7 +19,7 @@ class TampilInfoContoller extends Controller
         } else if ($jenis == 'produk') {
             $title = "Produk";
             $subtitle = "Tidak hanya wisata alam yang banyak, Tegal Manggung memiliki kekayaan alam juga yang melimpah.";
-            $jarak = '26%';
+            $jarak = '25%';
             $data = InfoTampilan::GetPotensi('umkm');
         }
         if ($jenis == 'berita') {

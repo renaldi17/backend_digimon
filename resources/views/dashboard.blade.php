@@ -112,33 +112,35 @@
                         </span>
                     </a>
 
-                    <a href="/infografis"
+                    <a href="/infodesa/berita"
                         class="flex h-full w-full cursor-pointer flex-col items-center justify-start gap-y-2 rounded-md px-2 py-4 text-center transition hover:bg-accent">
                         <div class="flex aspect-square items-center justify-center rounded-full bg-yellow-500 p-4">
-                            <i class="fa-solid fa-chart-pie h-12 w-12 text-zinc-50"></i>
+                            {{-- <i class="fa-solid fa-chart-pie h-12 w-12 text-zinc-50"></i> --}}
+                            <i class="fa-solid fa-newspaper h-12 w-12 text-zinc-50"></i>
                         </div>
                         <span class="text-lg font-semibold">
-                            Infografis Data
+                            Berita Desa
                         </span>
                     </a>
 
-                    <a href="{{ route('potensi') }}"
+                    <a href="/infodesa/wisata"
                         class="flex h-full w-full cursor-pointer flex-col items-center justify-start gap-y-2 rounded-md px-2 py-4 text-center transition hover:bg-accent">
                         <div class="flex aspect-square items-center justify-center rounded-full bg-orange-500 p-4">
                             <i class="fa-solid fa-palette h-12 w-12 text-zinc-50"></i>
                         </div>
                         <span class="text-lg font-semibold">
-                            Potensi Desa
+                            Wisata Desa
                         </span>
                     </a>
 
-                    <a href="/apbdes"
+                    <a href="/infografis"
                         class="flex h-full w-full cursor-pointer flex-col items-center justify-start gap-y-2 rounded-md px-2 py-4 text-center transition hover:bg-accent">
                         <div class="flex aspect-square items-center justify-center rounded-full bg-green-500 p-4">
-                            <i class="fa-solid fa-box-archive h-12 w-12 text-zinc-50"></i>
+                            <i class="fa-solid fa-chart-pie h-12 w-12 text-zinc-50"></i>
+                            {{-- <i class="fa-solid fa-box-archive h-12 w-12 text-zinc-50"></i> --}}
                         </div>
                         <span class="text-lg font-semibold">
-                            Keuangan Desa
+                            Data Infografis
                         </span>
                     </a>
 
@@ -160,12 +162,13 @@
                         </span>
                     </a>
 
-                    <a href="#"
+                    <a href="/infodesa/produk"
                         class="flex h-full w-full cursor-pointer flex-col items-center justify-start gap-y-2 rounded-md px-2 py-4 text-center transition hover:bg-accent">
                         <div class="flex aspect-square items-center justify-center rounded-full bg-zinc-500 p-4">
-                            <i class="fa-solid fa-phone h-12 w-12 text-zinc-50"></i>
+                            {{-- <i class="fa-solid fa-phone h-12 w-12 text-zinc-50"></i> --}}
+                            <i class="fa-solid fa-people-carry-box h-12 w-12 text-zinc-50"></i>
                         </div>
-                        <span class="text-lg font-semibold">Kontak</span>
+                        <span class="text-lg font-semibold">Produk UMKM Desa</span>
                     </a>
                 </div>
             </div>
