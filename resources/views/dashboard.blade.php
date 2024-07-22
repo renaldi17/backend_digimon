@@ -200,7 +200,7 @@
 
                 <p class="text-center text-xl text-muted-foreground">
                     Video yang menggambarkan jalan Menuju Desa Tegal Manggung
-                    Jl. No., Kel., Kec. Kab. Sumedang
+                    Kec.Cimanggung Kab. Sumedang
                 </p>
 
                 <div class="mx-auto mt-6 aspect-video w-full max-w-screen-lg md:px-8">

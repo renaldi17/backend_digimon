@@ -2,75 +2,46 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Struktur;
 use Illuminate\Http\Request;
+use App\Models\Struktur;
+use Illuminate\Support\Facades\Storage;
 
 class StrukturController extends Controller
 {
     public function index()
     {
-        $strukturs = Struktur::all();
-        return view('admin.struktur.index', compact('strukturs'));
+        $struktur = Struktur::first(); // Asumsi hanya ada satu struktur
+        return view('admin.struktur.index', compact('struktur'));
     }
 
-    public function create()
+    public function edit($id)
     {
-        return view('admin.struktur.create');
-    }
-
-    public function store(Request $request)
-    {
-        $request->validate([
-            'nama' => 'required|string',
-            'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'deskripsi' => 'nullable|string',
-        ]);
-
-        // Handle file upload if provided
-        $gambarPath = null;
-        if ($request->hasFile('gambar')) {
-            $gambarPath = $request->file('gambar')->store('public/struktur_images');
-        }
-
-        Struktur::create([
-            'nama' => $request->nama,
-            'gambar' => $gambarPath,
-            'deskripsi' => $request->deskripsi,
-        ]);
-
-        return redirect()->route('struktur.index')->with('success', 'Struktur berhasil ditambahkan.');
-    }
-
-    public function edit(Struktur $struktur)
-    {
+        $struktur = Struktur::findOrFail($id);
         return view('admin.struktur.edit', compact('struktur'));
     }
 
-    public function update(Request $request, Struktur $struktur)
+    public function update(Request $request, $id)
     {
         $request->validate([
-            'nama' => 'required|string',
-            'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'deskripsi' => 'nullable|string',
+            'nama' => 'required|string|max:255',
+            'deskripsi' => 'required|string',
+            'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        // Handle file upload if provided
-        if ($request->hasFile('gambar')) {
-            $gambarPath = $request->file('gambar')->store('public/struktur_images');
-            $struktur->gambar = $gambarPath;
-        }
+        $struktur = Struktur::findOrFail($id);
 
         $struktur->nama = $request->nama;
         $struktur->deskripsi = $request->deskripsi;
+
+        if ($request->hasFile('gambar')) {
+            if ($struktur->gambar) {
+                Storage::delete($struktur->gambar);
+            }
+            $struktur->gambar = $request->file('gambar')->store('struktur');
+        }
+
         $struktur->save();
 
         return redirect()->route('struktur.index')->with('success', 'Struktur berhasil diperbarui.');
-    }
-
-    public function destroy(Struktur $struktur)
-    {
-        $struktur->delete();
-
-        return redirect()->route('struktur.index')->with('success', 'Struktur berhasil dihapus.');
     }
 }

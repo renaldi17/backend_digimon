@@ -14,15 +14,17 @@
                 </p>
             </div>
 
+
+            {{-- Section Kontak --}}
             <div class="lg:basis-1/3">
                 <h4 class="scroll-m-20 text-xl font-semibold tracking-tight text-[#FCE5AD]">
                     Kontak
                 </h4>
                 <ul class="list-none space-y-2 leading-7 text-muted [&:not(:first-child)]:mt-2">
                     <li>
-                        <h5>Layanan Masyarakat Desa Sapeken:</h5>
+                        <h5 id="nama_kontak">Layanan Masyarakat Desa Sapeken:</h5>
                         <p>
-                            <i class="fa-solid fa-phone mr-2"></i>
+                            <i class="fa-solid fa-phone mr-2" id="nomor_telepon"></i>
                             0812-3456-7890
                         </p>
                     </li>
@@ -42,6 +44,8 @@
                     </li>
                 </ul>
             </div>
+
+            
             <div class="lg:basis-1/3">
                 <h4 class="scroll-m-20 text-xl font-semibold tracking-tight text-[#FCE5AD]">
                     Alamat Kelurahan
