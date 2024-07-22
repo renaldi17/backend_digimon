@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('gambar_kepala_desa');
             $table->string('nama_kepala_desa');
             $table->text('deskripsi_kepala_desa');
-            $table->string('gambar_perangkat_desa');
+            $table->string('video_desa');
             $table->string('gambar_sejarah_desa');
             $table->text('sejarah_desa');
             $table->text('visi_desa');

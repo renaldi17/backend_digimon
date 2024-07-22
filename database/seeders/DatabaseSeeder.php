@@ -20,6 +20,12 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@gmail.com',
             'password' => bcrypt('admin1234'),
         ]);
+
+        \App\Models\Struktur::factory()->create([
+            'nama' => 'Struktur Desa 2024/2025',
+            'gambar' => 'public/struktur_images/struktur/xxx.png',
+            'deskripsi' => 'Ini Deskripsi',
+        ]);
         
         \App\Models\Profil::create([
             'gambar_kepala_desa' => 'public/profil_images/kepala_desa/0E7bdLA23woE0I71Mpjft9QU5Brn6QhdGniqAzXC.png',

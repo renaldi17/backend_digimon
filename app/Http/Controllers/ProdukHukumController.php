@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ProdukHukum;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class ProdukHukumController extends Controller
 {
@@ -27,8 +28,8 @@ class ProdukHukumController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'jenis_produk' => 'required|in:Hukum Desa,Hukum Kepala Desa',
-            'judul' => 'required|string',
+            'jenis_produk' => 'required|string|max:255',
+            'judul' => 'required|string|max:255',
             'isi' => 'required|string',
             'tanggal' => 'required|date',
         ]);
@@ -43,18 +44,27 @@ class ProdukHukumController extends Controller
         return view('admin.produk_hukum.edit', compact('produkHukum'));
     }
 
-    public function update(Request $request, ProdukHukum $produkHukum)
+    public function update(Request $request, $id)
     {
         $request->validate([
-            'jenis_produk' => 'required|in:Hukum Desa,Hukum Kepala Desa',
-            'judul' => 'required|string',
+            'jenis_produk' => 'required|string|max:255',
+            'judul' => 'required|string|max:255',
             'isi' => 'required|string',
             'tanggal' => 'required|date',
         ]);
 
-        $produkHukum->update($request->all());
+        $produkHukum = ProdukHukum::findOrFail($id);
+        
+        Log::info('Update request data', $request->all());
 
-        return redirect()->route('produk_hukum.index')->with('success', 'Produk Hukum berhasil diperbaharui.');
+        $produkHukum->update([
+            'jenis_produk' => $request->jenis_produk,
+            'judul' => $request->judul,
+            'isi' => $request->isi,
+            'tanggal' => $request->tanggal,
+        ]);
+
+        return redirect()->route('produk_hukum.index')->with('success', 'Produk Hukum berhasil diperbarui.');
     }
 
     public function destroy(ProdukHukum $produkHukum)
