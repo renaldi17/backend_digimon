@@ -139,7 +139,10 @@
                                         Nama Surat
                                     </th>
                                     <th class="px-4 py-6 font-normal">
-                                        Tanggal Buat
+                                        Tanggal Dibuat
+                                    </th>
+                                    <th class="px-4 py-6 font-normal">
+                                        Surat Balasan
                                     </th>
                                     <th class="px-4 py-6 font-normal">
                                         Status Surat
@@ -159,7 +162,17 @@
                                             {{ $surat->jenisSurat->jenis_surat }}
                                         </td>
                                         <td class="border-b px-4 py-2 text-center">
+
                                             {{ $surat->created_at ? \Carbon\Carbon::parse($surat->created_at)->isoFormat('D MMMM Y') : '-' }}
+                                        </td>
+                                        <td class="border-b px-4 py-2 text-center">
+                                            @if ($surat->file_balasan)
+                                                <a href="/storage/{{ $surat->file_balasan }}" target="_blank"
+                                                    style="text-decoration: none; background-color:cyan; border-radius:5px; padding:10px; color:white;">Preview/Download</a>
+                                            @else
+                                                -
+                                            @endif
+                                        </td>
                                         </td>
                                         <td class="border-b px-4 py-2 text-center">
                                             {{-- {{ $surat->status }} --}}

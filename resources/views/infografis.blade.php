@@ -97,8 +97,11 @@
                                         </div>
                                         <p class="text-center">Laki-laki</p>
                                     </div>
+
                                     <div class="flex w-[80%] flex-row">
-                                        <div class="h-[100%] w-[50%] shrink-0 bg-green-900"></div>
+                                        <div
+                                            class="h-[100%] w-[{{ number_format(($pendudukCountsByGender->{'Laki-laki'} / $totalPenduduk) * 100, 1) }}%] shrink-0 bg-green-900">
+                                        </div>
                                         <p class="ml-[5%] self-center">
                                             {{ $pendudukCountsByGender->{'Laki-laki'} ?? 0 }}
                                         </p>
@@ -112,7 +115,9 @@
                                         <p class="text-center">Perempuan</p>
                                     </div>
                                     <div class="flex w-[80%] flex-row">
-                                        <div class="h-[100%] w-[50%] shrink-0 bg-green-900"></div>
+                                        <div
+                                            class="h-[100%] w-[{{ number_format(($pendudukCountsByGender->{'Laki-laki'} / $totalPenduduk) * 100, 1) }}%] shrink-0 bg-green-900">
+                                        </div>
                                         <p class="ml-[5%] self-center">
                                             {{ $pendudukCountsByGender->{'Perempuan'} ?? 0 }}
                                         </p>
@@ -273,12 +278,12 @@
                                         <div class="h-[79.91px] w-[79.91px] shrink-0">
                                             <img src="assets/pns.svg" alt="PNS" />
                                         </div>
-                                        <p class="text-center">PNS</p>
+                                        <p class="text-center">Aparatur Sipil Negara</p>
                                     </div>
                                     <div class="flex w-[80%] flex-row">
                                         <div class="h-[100%] w-[10%] shrink-0 bg-green-900"></div>
                                         <p class="ml-[5%] self-center">
-                                            10
+                                            {{ $pendudukCountsByJob->{'Aparatur Sipil Negara'} ?? 0 }}
                                         </p>
                                     </div>
                                 </div>
@@ -287,12 +292,12 @@
                                         <div class="h-[79.91px] w-[79.91px] shrink-0">
                                             <img src="assets/pelajar.svg" alt="Pelajar" />
                                         </div>
-                                        <p class="text-center">Pelajar</p>
+                                        <p class="text-center">Pelajar/Mahasiswa</p>
                                     </div>
                                     <div class="flex w-[80%] flex-row">
                                         <div class="h-[100%] w-[15%] shrink-0 bg-green-900"></div>
                                         <p class="ml-[5%] self-center">
-                                            15
+                                            {{ $pendudukCountsByJob->{'Pelajar/Mahasiswa'} ?? 0 }}
                                         </p>
                                     </div>
                                 </div>
@@ -308,7 +313,7 @@
                                     <div class="flex w-[80%] flex-row">
                                         <div class="h-[100%] w-[20%] shrink-0 bg-green-900"></div>
                                         <p class="ml-[5%] self-center">
-                                            20
+                                            {{ $pendudukCountsByJob->{'Wiraswasta'} ?? 0 }}
                                         </p>
                                     </div>
                                 </div>
@@ -324,7 +329,7 @@
                                     <div class="flex w-[80%] flex-row">
                                         <div class="h-[100%] w-[15%] shrink-0 bg-green-900"></div>
                                         <p class="ml-[5%] self-center">
-                                            15
+                                            {{ $pendudukCountsByJob->{'Tidak Bekerja'} ?? 0 }}
                                         </p>
                                     </div>
                                 </div>
@@ -340,7 +345,7 @@
                                     <div class="flex w-[80%] flex-row">
                                         <div class="h-[100%] w-[15%] shrink-0 bg-green-900"></div>
                                         <p class="ml-[5%] self-center">
-                                            15
+                                            {{ $pendudukCountsByJob->{'Pengurus Rumah Tangga'} ?? 0 }}
                                         </p>
                                     </div>
                                 </div>
@@ -349,12 +354,40 @@
                                         <div class="h-[79.91px] w-[79.91px] shrink-0">
                                             <img src="assets/guru.svg" alt="Guru" />
                                         </div>
-                                        <p class="text-center">Guru</p>
+                                        <p class="text-center">Tenaga Medis</p>
                                     </div>
                                     <div class="flex w-[80%] flex-row">
                                         <div class="h-[100%] w-[15%] shrink-0 bg-green-900"></div>
                                         <p class="ml-[5%] self-center">
-                                            15
+                                            {{ $pendudukCountsByJob->{'Tenaga Medis'} ?? 0 }}
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="flex h-24 w-full flex-row gap-10">
+                                    <div class="flex w-[20%] flex-col items-center gap-0">
+                                        <div class="h-[79.91px] w-[79.91px] shrink-0">
+                                            <img src="assets/guru.svg" alt="Guru" />
+                                        </div>
+                                        <p class="text-center">Tenaga Kesehatan</p>
+                                    </div>
+                                    <div class="flex w-[80%] flex-row">
+                                        <div class="h-[100%] w-[15%] shrink-0 bg-green-900"></div>
+                                        <p class="ml-[5%] self-center">
+                                            {{ $pendudukCountsByJob->{'Tenaga Kesehatan'} ?? 0 }}
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="flex h-24 w-full flex-row gap-10">
+                                    <div class="flex w-[20%] flex-col items-center gap-0">
+                                        <div class="h-[79.91px] w-[79.91px] shrink-0">
+                                            <img src="assets/guru.svg" alt="Guru" />
+                                        </div>
+                                        <p class="text-center">Lainnya</p>
+                                    </div>
+                                    <div class="flex w-[80%] flex-row">
+                                        <div class="h-[100%] w-[15%] shrink-0 bg-green-900"></div>
+                                        <p class="ml-[5%] self-center">
+                                            {{ $pendudukCountsByJob->{'Lainnya'} ?? 0 }}
                                         </p>
                                     </div>
                                 </div>

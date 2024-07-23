@@ -15,7 +15,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"></script>
     <script src="https://unpkg.com/embla-carousel-autoplay/embla-carousel-autoplay.umd.js"></script>
-    <title>Website Desa Tegal Manggung</title>
+    <title>Website Desa Tegalmanggung</title>
     <style>
         html {
             scroll-behavior: smooth;
@@ -69,7 +69,7 @@
                 class="container relative z-10 mt-6 flex max-w-screen-lg flex-col gap-y-2 text-zinc-50 sm:mt-8 xl:pl-48">
                 <div>
                     <h2 class="scroll-m-20 text-pretty pb-2 text-3xl font-semibold tracking-tight first:mt-0">
-                        SELAMAT DATANG DI DESA TEGAL MANGGUNG
+                        SELAMAT DATANG DI DESA TEGALMANGGUNG
                     </h2>
                     <p class="text-pretty text-xl text-muted">
                         Kawasan Desa Alpukat
