@@ -27,7 +27,7 @@
                         <tr>
                             <td>
                                 @if ($struktur->gambar)
-                                    <img src="{{ Storage::url($struktur->gambar) }}" width="100px">
+                                    <img src="/storage/{{ $struktur->gambar }}" width="100px">
                                 @endif
                             </td>
                             <td>{{ $struktur->nama }}</td>

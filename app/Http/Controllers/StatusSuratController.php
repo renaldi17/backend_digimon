@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kontak;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\PengajuanSurat;
@@ -20,17 +21,20 @@ class StatusSuratController extends Controller
         $nama = '';
         $nik = '';
         $status = "Semua";
-        return view('tampilan/status-surat', compact('dataSurat', 'idPenduduk', 'nama', 'nik', 'status'));
+        $kontaks = Kontak::limit(3)->get();
+
+        return view('tampilan/status-surat', compact('dataSurat', 'idPenduduk', 'nama', 'nik', 'status', 'kontaks'));
     }
 
-    public function dataSurat(Request $request) {
-        $validatedData = Validator::make($request->all(),[
+    public function dataSurat(Request $request)
+    {
+        $validatedData = Validator::make($request->all(), [
             'nik' => 'required|numeric|digits:16',
             'nama' => 'required',
             'tanggal_lahir' => 'required|date',
         ]);
 
-        if($validatedData->fails()){
+        if ($validatedData->fails()) {
             return redirect('/status-surat')
                 ->withErrors($validatedData)
                 ->withInput();
@@ -47,12 +51,15 @@ class StatusSuratController extends Controller
         $nama = $dataSurat[0]->penduduk->nama ?? "";
         $nik = $dataSurat[0]->penduduk->NIK ?? "";
         $status = "Semua";
+        $kontaks = Kontak::limit(3)->get();
+
 
         // dd($nama, $nik);
-        return view('tampilan/status-surat', compact('dataSurat', 'idPenduduk', 'nama', 'nik', 'status'));
+        return view('tampilan/status-surat', compact('dataSurat', 'idPenduduk', 'nama', 'nik', 'status', 'kontaks'));
     }
 
-    public function filterSuratByStatus(Request $request, $idPenduduk) {
+    public function filterSuratByStatus(Request $request, $idPenduduk)
+    {
         // Ambil data penduduk
         $penduduk = Penduduk::find($idPenduduk);
 
@@ -78,7 +85,10 @@ class StatusSuratController extends Controller
         $nik = $penduduk->NIK;
         $status = $request->status_surat;
 
-        return view('tampilan/status-surat', compact('dataSurat', 'idPenduduk', 'nama', 'nik', 'status'));
+        $kontaks = Kontak::limit(3)->get();
+
+
+        return view('tampilan/status-surat', compact('dataSurat', 'idPenduduk', 'nama', 'nik', 'status', 'kontaks'));
     }
 
 

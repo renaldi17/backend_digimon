@@ -7,13 +7,20 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
-
     @vite('resources/css/app.css')
+
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css" />
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="https://kit.fontawesome.com/89851fc4a2.js" crossorigin="anonymous"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.0/css/dataTables.dataTables.css" />
+
+    <script src="https://cdn.datatables.net/2.1.0/js/dataTables.js"></script>
+
     <title>Status Surat</title>
 </head>
 
@@ -122,7 +129,7 @@
 
                     {{-- TABEL --}}
                     <div class="h-72 overflow-x-auto overflow-y-auto">
-                        <table class="mt-5 h-64 w-full overflow-hidden shadow-md">
+                        <table id="dataSuratTable" class="mt-5 h-64 w-full overflow-hidden shadow-md display">
                             <thead>
                                 <tr class="bg-[#2C5D3C] text-white">
                                     <th class="rounded-tl-lg font-normal">
@@ -132,7 +139,7 @@
                                         Nama Surat
                                     </th>
                                     <th class="px-4 py-6 font-normal">
-                                        Tanggal Pengambilan
+                                        Tanggal Buat
                                     </th>
                                     <th class="px-4 py-6 font-normal">
                                         Status Surat
@@ -144,7 +151,7 @@
                             </thead>
                             <tbody class="min-h-[12rem]">
                                 @foreach ($dataSurat as $surat)
-                                    <tr>
+                                    <tr class="text-center">
                                         <td class="border-b px-4 py-2 text-center">
                                             {{ $loop->iteration }}
                                         </td>
@@ -152,10 +159,31 @@
                                             {{ $surat->jenisSurat->jenis_surat }}
                                         </td>
                                         <td class="border-b px-4 py-2 text-center">
-                                            {{ $surat->tanggal_pengambilan ? \Carbon\Carbon::parse($surat->tanggal_pengambilan)->isoFormat('D MMMM Y') : '-' }}
+                                            {{ $surat->created_at ? \Carbon\Carbon::parse($surat->created_at)->isoFormat('D MMMM Y') : '-' }}
                                         </td>
                                         <td class="border-b px-4 py-2 text-center">
-                                            {{ $surat->status }}
+                                            {{-- {{ $surat->status }} --}}
+                                            @php
+                                                $badgeClass = '';
+                                                switch ($surat->status) {
+                                                    case 'Diajukan':
+                                                        $badgeClass = 'background-color:grey;';
+                                                        break;
+                                                    case 'Disetujui':
+                                                        $badgeClass = 'background-color:green;';
+                                                        break;
+                                                    case 'Ditolak':
+                                                        $badgeClass = 'background-color:red;';
+                                                        break;
+                                                    default:
+                                                        $badgeClass = 'badge';
+                                                        break;
+                                                }
+                                            @endphp
+                                            <span
+                                                style="{{ $badgeClass }} border-radius:5px; padding:10px; color:white;">
+                                                {{ $surat->status }}
+                                            </span>
                                         </td>
                                         <td class="border-b px-4 py-2 text-center">
                                             <form action="{{ route('pengajuanBatal', $surat->id) }}" method="POST"
@@ -167,11 +195,40 @@
                                                     onclick="confirmCancel({{ $surat->id }})">
                                                     Batalkan
                                                 </button>
+
                                             </form>
+                                            {{-- <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                                data-bs-target="#modalInfo{{ $surat->id }}">
+                                                Launch static backdrop modal
+                                            </button> --}}
                                         </td>
                                     </tr>
                                 @endforeach
 
+                                {{-- @foreach ($dataSurat as $surat)
+                                    <div class="modal fade" id="modalInfo{{ $surat->id }}"
+                                        data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                                        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title
+                                                    </h1>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    ...
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-primary">Understood</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach --}}
                                 <tr class="h-full"></tr>
                             </tbody>
                         </table>
@@ -180,9 +237,32 @@
             </div>
         </section>
     </main>
-    <x-common.footer />
+    <x-common.footer :kontak="$kontaks" />
 
     <script>
+        $(document).ready(function() {
+            $('#dataSuratTable').DataTable({
+                paging: true,
+                searching: true,
+                info: true,
+                lengthChange: true,
+                pageLength: 10,
+                language: {
+                    search: "Cari:",
+                    lengthMenu: "Tampilkan _MENU_ data per halaman",
+                    info: "Menampilkan _START_ hingga _END_ dari _TOTAL_ entri",
+                    paginate: {
+                        first: "Pertama",
+                        last: "Terakhir",
+                        next: "Berikutnya",
+                        previous: "Sebelumnya"
+                    },
+                    infoEmpty: "Tidak ada data yang tersedia",
+                    zeroRecords: "Tidak ditemukan data yang sesuai",
+                }
+            });
+        });
+
         function confirmCancel(id) {
             Swal.fire({
                 title: 'Apakah anda yakin?',

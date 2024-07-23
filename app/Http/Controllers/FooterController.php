@@ -16,7 +16,7 @@ class Footer extends Component
 
     public function render()
     {
-        return view('components.common.footer', [
+        return view('x-common.footer', [
             'kontaks' => $this->kontaks,
         ]);
     }

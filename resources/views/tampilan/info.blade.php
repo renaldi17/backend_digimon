@@ -142,7 +142,7 @@
         </section>
     </main>
 
-    <x-common.footer />
+    <x-common.footer :kontak="$kontaks" />
     <script>
         function limitWords(element, wordLimit) {
             let text = element.textContent || element.innerText;

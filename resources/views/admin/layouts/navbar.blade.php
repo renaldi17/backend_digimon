@@ -146,6 +146,9 @@
                                     <a class="nav-link" href="{{ route('produk_hukum.index') }}">
                                         Produk Hukum
                                     </a>
+                                    <a class="nav-link" href="{{ route('sarana.index') }}">
+                                        Sarana
+                                    </a>
                                 </nav>
                             </div>
                         </nav>

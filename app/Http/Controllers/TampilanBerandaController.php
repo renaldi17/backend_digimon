@@ -9,6 +9,7 @@ use App\Models\Informasi;
 use App\Models\Penghargaan;
 use App\Models\PotensiDesa;
 use App\Models\Slider;
+use App\Models\Kontak;
 use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -42,11 +43,11 @@ class TampilanBerandaController extends Controller
         $penghargaan = Penghargaan::orderBy('tanggal')->take(6)->get();
         $wisata = PotensiDesa::where('jenis', 'wisata')->orderBy('created_at')->take(6)->get();
         $produk = PotensiDesa::where('jenis', 'umkm')->orderBy('created_at')->take(6)->get();
-
-
+        $kontak = Kontak::limit(3)->get();
         // Return view dengan data
         return view('dashboard', [
             'title' => 'Dashboard',
+            'kontaks' => $kontak,
             'totalPendudukLakiLaki' => $totalPendudukLakiLaki,
             'totalPendudukPerempuan' => $totalPendudukPerempuan,
             'totalPenduduk' => $totalPenduduk,

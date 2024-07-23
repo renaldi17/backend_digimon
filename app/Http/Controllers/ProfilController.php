@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kontak;
 use Illuminate\Http\Request;
 use App\Models\Profil;
+use Illuminate\Support\Facades\Storage;
 
 class ProfilController extends Controller
 {
@@ -31,7 +33,7 @@ class ProfilController extends Controller
     public function update(Request $request, Profil $profil)
     {
         $validateData = $request->validate([
-            'gambar_kepala_desa' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'gambar_kepala_desa' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:5120',
             'nama_kepala_desa' => 'required|string',
             'deskripsi_kepala_desa' => 'required|string',
             'video_desa' => 'nullable|mimes:mp4,avi,mkv|max:512000', // Maksimal 500MB = 500 * 1024 = 512000 KB
@@ -41,31 +43,31 @@ class ProfilController extends Controller
             'misi_desa' => 'required|string',
             'tujuan_desa' => 'required|string'
         ]);
-    
+
+        // \dd($profil->gambar_kepala_desa);
         // Upload dan simpan file video
         if ($request->hasFile('video_desa')) {
-            $video_desa = $request->file('video_desa')->store('public/profil_videos');
+            Storage::disk('public')->delete($profil->video_desa);
+            $video_desa = $request->file('video_desa')->store('profil_video', 'public');
             $validateData['video_desa'] = $video_desa;
         }
-    
+
         // Proses upload gambar
         if ($request->hasFile('gambar_kepala_desa')) {
-            $gambar_kepala_desa = $request->file('gambar_kepala_desa')->store('public/profil_images/kepala_desa');
+            Storage::disk('public')->delete($profil->gambar_kepala_desa);
+            $gambar_kepala_desa = $request->file('gambar_kepala_desa')->store('profil_image', 'public');
             $validateData['gambar_kepala_desa'] = $gambar_kepala_desa;
         }
-    
-        if ($request->hasFile('gambar_sejarah_desa')) {
-            $gambar_sejarah_desa = $request->file('gambar_sejarah_desa')->store('public/profil_images/sejarah_desa');
-            $validateData['gambar_sejarah_desa'] = $gambar_sejarah_desa;
-        }
-    
+
         Profil::where('id', $profil->id)->update($validateData);
         return redirect()->route('profil.index')->with('success', 'Profil berhasil diperbarui.');
     }
-    
-    public function pageProfil() {
-        $profil = Profil::first();
-        return view('profil', compact('profil'));
-    }
 
+    public function pageProfil()
+    {
+        $profil = Profil::first();
+        $kontaks = Kontak::limit(3)->get();
+
+        return view('profil', compact('profil', 'kontaks'));
+    }
 }

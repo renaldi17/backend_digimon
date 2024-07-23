@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\InfoTampilan;
+use App\Models\Kontak;
 use Illuminate\Support\Facades\Crypt;
 
 
@@ -34,7 +35,10 @@ class TampilInfoContoller extends Controller
             $data = InfoTampilan::GetInfo('penghargaans');
         }
 
-        return view('tampilan/potensi', compact('title', 'subtitle', 'data', 'jarak', 'jenis'));
+        $kontaks = Kontak::limit(3)->get();
+
+
+        return view('tampilan/potensi', compact('title', 'subtitle', 'data', 'jarak', 'jenis', 'kontaks'));
     }
     public function isiinfo($jenis, $encrpt)
     {
@@ -50,6 +54,8 @@ class TampilInfoContoller extends Controller
         } else if ($jenis == 'Penghargaan') {
             $data = InfoTampilan::GetInfoById('penghargaans', $id);
         }
-        return view('tampilan/tampilInfo', compact('data', 'jenis'));
+        $kontaks = Kontak::limit(3)->get();
+
+        return view('tampilan/tampilInfo', compact('data', 'jenis', 'kontaks'));
     }
 }

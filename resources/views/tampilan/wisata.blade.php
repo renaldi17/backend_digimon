@@ -89,7 +89,7 @@
         </section>
     </main>
 
-    <x-common.footer />
+    <x-common.footer :kontak="$kontaks" />
 </body>
 
 </html>

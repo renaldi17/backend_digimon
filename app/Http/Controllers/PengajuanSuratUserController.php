@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\PengajuanSurat;
 use App\Models\JenisSurat;
+use App\Models\Kontak;
 use App\Models\Penduduk;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -18,7 +19,9 @@ class PengajuanSuratUserController extends Controller
     public function index()
     {
         $jenisSurat = JenisSurat::all();
-        return view('/tampilan/pengajuan-layanan', compact('jenisSurat'));
+        $kontaks = Kontak::limit(3)->get();
+
+        return view('/tampilan/pengajuan-layanan', compact('jenisSurat', 'kontaks'));
     }
 
     /**
@@ -47,7 +50,8 @@ class PengajuanSuratUserController extends Controller
 
         $validator = Validator::make($request->all(), [
             'jenis_surat_id' => 'required',
-            'nik' => ['required', 'numeric', 'digits:16', 
+            'nik' => [
+                'required', 'numeric', 'digits:16',
                 // function (string $attribute, mixed $value, Closure $fail){
                 //     if(Penduduk::where('NIK', $value)->doesntExist()){
                 //         $fail('NIK tidak ditemukan');
@@ -75,7 +79,7 @@ class PengajuanSuratUserController extends Controller
 
         // dd($validator);
 
-        if($validator->fails()){
+        if ($validator->fails()) {
             return redirect(route('pengajuan'))
                 ->withErrors($validator)
                 ->withInput();
@@ -105,7 +109,7 @@ class PengajuanSuratUserController extends Controller
             'kk' => $kk,
             'pengantar_rt_rw' => $pengantar_rt_rw
         ]);
-        
+
         return redirect(route('status'))->with('success', 'Berhasil melakukan pengajuan surat, silahkan menunggu pengecekan dari admin.');
     }
 
@@ -139,16 +143,21 @@ class PengajuanSuratUserController extends Controller
     public function destroy($id)
     {
         $pengajuanSurat = PengajuanSurat::find($id);
-        Storage::disk('public')->delete($pengajuanSurat->ktp);
-        Storage::disk('public')->delete($pengajuanSurat->kk);
-        Storage::disk('public')->delete($pengajuanSurat->pengantar_rt_rw);
-        $pengajuanSurat->delete();
+
+        if ($pengajuanSurat) {
+            Storage::disk('public')->delete($pengajuanSurat->ktp);
+            Storage::disk('public')->delete($pengajuanSurat->kk);
+            Storage::disk('public')->delete($pengajuanSurat->pengantar_rt_rw);
+            $pengajuanSurat->delete();
+        }
 
         $dataSurat = [];
         $idPenduduk = '';
         $nama = '';
         $nik = '';
         $status = "Semua";
-        return view('tampilan/status-surat', compact('dataSurat', 'idPenduduk', 'nama', 'nik', 'status'));
+        $kontaks = Kontak::limit(3)->get();
+
+        return view('tampilan/status-surat', compact('dataSurat', 'idPenduduk', 'nama', 'nik', 'status', 'kontaks'));
     }
 }

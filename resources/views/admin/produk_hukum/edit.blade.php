@@ -18,13 +18,18 @@
                             <div class="form-group">
                                 <label for="jenis_produk">Jenis Produk:</label>
                                 <select name="jenis_produk" class="form-control" id="jenis_produk" required>
-                                    <option value="Hukum Desa" {{ $produkHukum->jenis_produk == 'Hukum Desa' ? 'selected' : '' }}>Hukum Desa</option>
-                                    <option value="Hukum Kepala Desa" {{ $produkHukum->jenis_produk == 'Hukum Kepala Desa' ? 'selected' : '' }}>Hukum Kepala Desa</option>
+                                    <option value="Hukum Desa"
+                                        {{ $produkHukum->jenis_produk == 'Hukum Desa' ? 'selected' : '' }}>Hukum Desa
+                                    </option>
+                                    <option value="Hukum Kepala Desa"
+                                        {{ $produkHukum->jenis_produk == 'Hukum Kepala Desa' ? 'selected' : '' }}>Hukum
+                                        Kepala Desa</option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="judul">Judul:</label>
-                                <input type="text" name="judul" class="form-control" id="judul" value="{{ $produkHukum->judul }}" required>
+                                <input type="text" name="judul" class="form-control" id="judul"
+                                    value="{{ $produkHukum->judul }}" required>
                             </div>
                             <div class="form-group">
                                 <label for="isi">Isi:</label>
@@ -32,10 +37,12 @@
                             </div>
                             <div class="form-group">
                                 <label for="tanggal">Tanggal:</label>
-                                <input type="date" name="tanggal" class="form-control" id="tanggal" value="{{ $produkHukum->tanggal }}" required>
+                                <input type="date" name="tanggal" class="form-control" id="tanggal"
+                                    value="{{ $produkHukum->tanggal }}" required>
                             </div>
                             <div class="modal-footer mt-5">
-                                <button type="button" class="btn btn-primary save-button" onclick="confirmUpdate()">Simpan Perubahan</button>
+                                <button type="submit" class="btn btn-primary save-button" onclick="confirmUpdate()">Simpan
+                                    Perubahan</button>
                                 <a href="{{ route('produk_hukum.index') }}" class="btn btn-secondary">Kembali</a>
                             </div>
                         </form>

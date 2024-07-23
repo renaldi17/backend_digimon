@@ -3,7 +3,8 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
@@ -16,7 +17,9 @@
     <script src="https://unpkg.com/embla-carousel-autoplay/embla-carousel-autoplay.umd.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet" />
     <title>Profil Desa</title>
 </head>
 
@@ -30,7 +33,8 @@
             </h1>
             <div class="flex flex-row flex-wrap justify-center gap-10">
                 <figure class="" id="picture">
-                    <img class="h-[292px] w-[222px]" src="{{ Storage::url($profil->gambar_kepala_desa) }}" alt="Kepala Desa" />
+                    <img class="h-[292px] w-[222px]" src="{{ Storage::url($profil->gambar_kepala_desa) }}"
+                        alt="Kepala Desa" />
                 </figure>
                 <section class="flex flex-col gap-3 md:w-[70%]" id="words">
                     <h2 class="text-black-900 text-3xl font-bold">
@@ -51,15 +55,15 @@
             </h1>
             <div class="flex flex-wrap md:flex-nowrap gap-5">
                 {{-- Video Section --}}
-                @if($profil->video_desa)
+                {{-- @if ($profil->video_desa)
                     <section class="flex-1 md:w-[40%]">
                         <video width="100%" controls>
                             <source src="{{ Storage::url($profil->video_desa) }}" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                     </section>
-                @endif
-                
+                @endif --}}
+
                 {{-- Text Section --}}
                 <section class="flex-1 md:w-[60%]" id="words">
                     <p class="text-justify">{!! $profil->sejarah_desa !!}</p>
@@ -92,7 +96,7 @@
             </div>
         </article>
     </main>
-    <x-common.footer />
+    <x-common.footer :kontak="$kontaks" />
 </body>
 
 </html>

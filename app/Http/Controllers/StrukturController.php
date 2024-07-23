@@ -34,11 +34,11 @@ class StrukturController extends Controller
         $struktur->deskripsi = $request->deskripsi;
 
         if ($request->hasFile('gambar')) {
-            if ($struktur->gambar) {
-                Storage::delete($struktur->gambar);
-            }
-            $struktur->gambar = $request->file('gambar')->store('struktur');
+            $gambar = $request->file('gambar')->store('stuktur', 'public');
+            Storage::disk('public')->delete($struktur->gambar);
+            $validateData['gambar'] = $gambar;
         }
+        $struktur->gambar = $gambar;
 
         $struktur->save();
 

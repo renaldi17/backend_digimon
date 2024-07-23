@@ -680,7 +680,8 @@
         </section>
     </main>
 
-    <x-common.footer />
+    {{-- <x-common.footer /> --}}
+    <x-common.footer :kontak="$kontaks" />
 
     <x-ui.carousel.script id="hero-carousel"></x-ui.carousel.script>
     <x-ui.carousel.script id="news-carousel"></x-ui.carousel.script>

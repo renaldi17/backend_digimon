@@ -22,6 +22,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\InfoGrafisController;
 
 use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\SaranaController;
 use App\Http\Controllers\TampilanBerandaController;
 use App\Http\Controllers\TampilanPerangkatController;
 use App\Http\Controllers\TampilInfoContoller;
@@ -60,6 +61,8 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('admin/users', UserController::class);
     Route::get('admin/profile', [UserController::class, 'profile'])->name('admin.profile');
     Route::resource('admin/produk_hukum', ProdukHukumController::class);
+    Route::resource('admin/sarana', SaranaController::class);
+
     Route::resource('admin/struktur', StrukturController::class);
     Route::resource('admin/penduduk', PendudukController::class);
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kontak;
 use App\Models\ProdukHukum;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -11,14 +12,17 @@ class ProdukHukumController extends Controller
     public function index()
     {
         $produkHukums = ProdukHukum::all();
+
         return view('admin.produk_hukum.index', compact('produkHukums'));
     }
 
     public function detail()
     {
         $produkHukums = ProdukHukum::all();
-        return view('tampilan.produk-hukum', compact('produkHukums'));
-    }    
+        $kontaks = Kontak::limit(3)->get();
+
+        return view('tampilan.produk-hukum', compact('produkHukums', 'kontaks'));
+    }
 
     public function create()
     {
@@ -53,8 +57,9 @@ class ProdukHukumController extends Controller
             'tanggal' => 'required|date',
         ]);
 
+        // \dd($request);
         $produkHukum = ProdukHukum::findOrFail($id);
-        
+
         Log::info('Update request data', $request->all());
 
         $produkHukum->update([

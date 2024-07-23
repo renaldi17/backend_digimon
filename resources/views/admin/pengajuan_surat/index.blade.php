@@ -1,21 +1,13 @@
-@extends("admin.layouts.app")
+@extends('admin.layouts.app')
 
-@section("content")
+@section('content')
     <div class="container-fluid px-5">
         <h1 class="mt-4">Pengajuan Surat</h1>
 
-        @if (session("success"))
-            <div
-                class="alert alert-success alert-dismissible fade show"
-                role="alert"
-            >
-                {{ session("success") }}
-                <button
-                    type="button"
-                    class="btn-close"
-                    data-bs-dismiss="alert"
-                    aria-label="Close"
-                ></button>
+        @if (session('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         @endif
 
@@ -29,7 +21,7 @@
                             <th>Surat</th>
                             <th>Status</th>
                             <th>Tanggal Pembuatan</th>
-                            <th>Tanggal Pengambilan</th>
+                            <th>Tanggal Balasan</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -42,19 +34,19 @@
                                 </td>
                                 <td>
                                     @php
-                                        $badgeClass = "";
+                                        $badgeClass = '';
                                         switch ($pengajuan->status) {
-                                            case "Diajukan":
-                                                $badgeClass = "badge text-bg-primary";
+                                            case 'Diajukan':
+                                                $badgeClass = 'badge text-bg-primary';
                                                 break;
-                                            case "Disetujui":
-                                                $badgeClass = "badge text-bg-success";
+                                            case 'Disetujui':
+                                                $badgeClass = 'badge text-bg-success';
                                                 break;
-                                            case "Ditolak":
-                                                $badgeClass = "badge text-bg-danger";
+                                            case 'Ditolak':
+                                                $badgeClass = 'badge text-bg-danger';
                                                 break;
                                             default:
-                                                $badgeClass = "badge";
+                                                $badgeClass = 'badge';
                                                 break;
                                         }
                                     @endphp
@@ -64,51 +56,29 @@
                                     </span>
                                 </td>
                                 <td>
-                                    {{ \Carbon\Carbon::parse($pengajuan->created_at)->isoFormat("D MMMM Y") }}
+                                    {{ \Carbon\Carbon::parse($pengajuan->created_at)->isoFormat('D MMMM Y') }}
                                 </td>
                                 <td>
-                                    {{ $pengajuan->tanggal_pengambilan ? \Carbon\Carbon::parse($pengajuan->tanggal_pengambilan)->isoFormat("D MMMM Y") : "-" }}
+                                    {{ $pengajuan->tanggal_pengambilan ? \Carbon\Carbon::parse($pengajuan->tanggal_pengambilan)->isoFormat('D MMMM Y') : '-' }}
                                 </td>
                                 <td>
-                                    <a
-                                        href="{{ route("pengajuanSurat.show", $pengajuan->id) }}"
-                                        class="btn btn-info btn-sm"
-                                        style="color: #ffffff"
-                                    >
-                                        <i
-                                            class="fa-solid fa-eye"
-                                            style="color: #ffffff"
-                                        ></i>
+                                    <a href="{{ route('pengajuanSurat.show', $pengajuan->id) }}" class="btn btn-info btn-sm"
+                                        style="color: #ffffff">
+                                        <i class="fa-solid fa-eye" style="color: #ffffff"></i>
                                         | Detail
                                     </a>
-                                    <a
-                                        href="{{ route("pengajuanSurat.updateStatus.index", $pengajuan->id) }}"
-                                        class="btn btn-warning btn-sm"
-                                        style="color: #ffffff"
-                                    >
-                                        <i
-                                            class="fa-solid fa-pen-to-square"
-                                            style="color: #ffffff"
-                                        ></i>
+                                    <a href="{{ route('pengajuanSurat.updateStatus.index', $pengajuan->id) }}"
+                                        class="btn btn-warning btn-sm" style="color: #ffffff">
+                                        <i class="fa-solid fa-pen-to-square" style="color: #ffffff"></i>
                                         | Ubah Status
                                     </a>
-                                    <form
-                                        action="{{ route("pengajuanSurat.destroy", $pengajuan->id) }}"
-                                        method="POST"
-                                        style="display: inline"
-                                        id="delete-form-{{ $pengajuan->id }}"
-                                    >
+                                    <form action="{{ route('pengajuanSurat.destroy', $pengajuan->id) }}" method="POST"
+                                        style="display: inline" id="delete-form-{{ $pengajuan->id }}">
                                         @csrf
-                                        @method("DELETE")
-                                        <button
-                                            type="button"
-                                            class="btn btn-danger btn-sm"
-                                            onclick="confirmDelete({{ $pengajuan->id }})"
-                                        >
-                                            <i
-                                                class="fa-solid fa-trash"
-                                                style="color: #ffffff"
-                                            ></i>
+                                        @method('DELETE')
+                                        <button type="button" class="btn btn-danger btn-sm"
+                                            onclick="confirmDelete({{ $pengajuan->id }})">
+                                            <i class="fa-solid fa-trash" style="color: #ffffff"></i>
                                             | Hapus
                                         </button>
                                     </form>

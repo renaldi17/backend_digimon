@@ -17,20 +17,27 @@ class PengajuanSuratController extends Controller
         return view('/admin/pengajuan_surat/index', compact('pengajuanSurat'));
     }
 
-    public function updateStatusPage($id) {
+    public function updateStatusPage($id)
+    {
         $status = ['Diajukan', 'Disetujui', 'Ditolak'];
         $pengajuanSurat = PengajuanSurat::with('penduduk', 'jenisSurat')->where('id', $id)->get()->first();
         return view('/admin/pengajuan_surat/update-status', compact('pengajuanSurat', 'status'));
     }
 
-    public function updateStatus($id, Request $request) {
+    public function updateStatus($id, Request $request)
+    {
         $pengajuanSurat = PengajuanSurat::find($id);
+        // \dd($request->balasan);
         $pengajuanSurat->status = $request->status;
-        $pengajuanSurat->tanggal_pengambilan = $request->tanggal_pengambilan;
+        $pengajuanSurat->tanggal_pengambilan = now();
         $pengajuanSurat->alasan = $request->alasan;
+        if ($request->hasFile('balasan')) {
+            $filePath = $request->file('balasan')->store('file_balasan', 'public');
+            Storage::disk('public')->delete($request->balasan);
+            $pengajuanSurat->file_balasan = $filePath;
+        }
         $pengajuanSurat->save();
         return redirect()->route('pengajuanSurat.index')->with('success', 'Pengajuan surat berhasil diubah.');
-
     }
 
     /**
