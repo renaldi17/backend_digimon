@@ -5,22 +5,85 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    {{--
+            <link
+            rel="stylesheet"
+            href="https://cdn.datatables.net/2.1.0/css/dataTables.dataTables.css"
+            />
+        --}}
+
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" type="text/css" />
 
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
     @vite('resources/css/app.css')
 
     <!-- DataTables CSS -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css" />
-
+    <script>
+        const myTable = new DataTable('#datatablesSimple', {
+            searching: true, // Mengaktifkan fitur pencarian
+        });
+    </script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="https://kit.fontawesome.com/89851fc4a2.js" crossorigin="anonymous"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <style>
+        .datatable-selector,
+        .datatable-input {
+            border: 1px solid gray;
+            border-radius: 5px;
+        }
 
-    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.0/css/dataTables.dataTables.css" />
+        .datatable-selector:focus,
+        .datatable-input:focus,
+        .datatable-selector::after {
+            border: 0.5px solid rgb(158, 158, 238);
+            border-radius: 5px;
+            outline: solid 3px #ced8ff;
+        }
 
-    <script src="https://cdn.datatables.net/2.1.0/js/dataTables.js"></script>
+        table {
+            border-collapse: collapse;
+            margin-top: 5px;
+            height: 64px;
+            width: full;
+            overflow: hidden;
+        }
 
+        th {
+            /* class="bg-[#2C5D3C] text-white" */
+            background-color: #2c5d3c;
+            color: white;
+            padding: 1.5rem !important;
+        }
+
+        td {
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        th:first-child {
+            border-top-left-radius: 10px;
+            /* Ujung kiri atas */
+        }
+
+        th:last-child {
+            border-top-right-radius: 10px;
+            /* Ujung kanan atas */
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            grid-gap: 16px;
+        }
+
+        a.datatable-sorter {
+            text-align: center;
+        }
+    </style>
     <title>Status Surat</title>
 </head>
 
@@ -126,12 +189,11 @@
                             </form>
                         </div>
                     </div>
-
                     {{-- TABEL --}}
                     <div class="h-72 overflow-x-auto overflow-y-auto">
-                        <table id="dataSuratTable" class="mt-5 h-64 w-full overflow-hidden shadow-md display">
+                        <table id="datatablesSimple" class="display mt-5 h-32 w-full overflow-hidden shadow-md">
                             <thead>
-                                <tr class="bg-[#2C5D3C] text-white">
+                                <tr>
                                     <th class="rounded-tl-lg font-normal">
                                         No
                                     </th>
@@ -139,10 +201,7 @@
                                         Nama Surat
                                     </th>
                                     <th class="px-4 py-6 font-normal">
-                                        Tanggal Dibuat
-                                    </th>
-                                    <th class="px-4 py-6 font-normal">
-                                        Surat Balasan
+                                        Tanggal Buat
                                     </th>
                                     <th class="px-4 py-6 font-normal">
                                         Status Surat
@@ -156,93 +215,69 @@
                                 @foreach ($dataSurat as $surat)
                                     <tr class="text-center">
                                         <td class="border-b px-4 py-2 text-center">
-                                            {{ $loop->iteration }}
+                                            <div class="button-container">
+                                                {{ $loop->iteration }}
+                                                <div class="button-container">
                                         </td>
                                         <td class="border-b px-4 py-2">
-                                            {{ $surat->jenisSurat->jenis_surat }}
+                                            <div class="button-container">
+                                                {{ $surat->jenisSurat->jenis_surat }}
+                                            </div>
                                         </td>
                                         <td class="border-b px-4 py-2 text-center">
+                                            <div class="button-container">
+                                                {{ $surat->created_at ? \Carbon\Carbon::parse($surat->created_at)->isoFormat('D MMMM Y') : '-' }}
+                                            </div>
+                                        </td>
+                                        <td class="border-b px-4 py-2 text-center">
+                                            <div class="button-container">
+                                                {{-- {{ $surat->status }} --}}
+                                                @php
+                                                    $badgeClass = '';
+                                                    switch ($surat->status) {
+                                                        case 'Diajukan':
+                                                            $badgeClass = 'background-color:grey;';
+                                                            break;
+                                                        case 'Disetujui':
+                                                            $badgeClass = 'background-color:green;';
+                                                            break;
+                                                        case 'Ditolak':
+                                                            $badgeClass = 'background-color:red;';
+                                                            break;
+                                                        default:
+                                                            $badgeClass = 'badge';
+                                                            break;
+                                                    }
+                                                @endphp
 
-                                            {{ $surat->created_at ? \Carbon\Carbon::parse($surat->created_at)->isoFormat('D MMMM Y') : '-' }}
+                                                <span
+                                                    style="{{ $badgeClass }} border-radius:5px; padding:10px; color:white;">
+                                                    {{ $surat->status }}
+                                                </span>
+                                            </div>
                                         </td>
-                                        <td class="border-b px-4 py-2 text-center">
-                                            @if ($surat->file_balasan)
-                                                <a href="/storage/{{ $surat->file_balasan }}" target="_blank"
-                                                    style="text-decoration: none; background-color:cyan; border-radius:5px; padding:10px; color:white;">Preview/Download</a>
-                                            @else
-                                                -
-                                            @endif
-                                        </td>
-                                        </td>
-                                        <td class="border-b px-4 py-2 text-center">
-                                            {{-- {{ $surat->status }} --}}
-                                            @php
-                                                $badgeClass = '';
-                                                switch ($surat->status) {
-                                                    case 'Diajukan':
-                                                        $badgeClass = 'background-color:grey;';
-                                                        break;
-                                                    case 'Disetujui':
-                                                        $badgeClass = 'background-color:green;';
-                                                        break;
-                                                    case 'Ditolak':
-                                                        $badgeClass = 'background-color:red;';
-                                                        break;
-                                                    default:
-                                                        $badgeClass = 'badge';
-                                                        break;
-                                                }
-                                            @endphp
-                                            <span
-                                                style="{{ $badgeClass }} border-radius:5px; padding:10px; color:white;">
-                                                {{ $surat->status }}
-                                            </span>
-                                        </td>
-                                        <td class="border-b px-4 py-2 text-center">
-                                            <form action="{{ route('pengajuanBatal', $surat->id) }}" method="POST"
-                                                id="form-pembatalan-{{ $surat->id }}">
-                                                @csrf
-                                                @method('DELETE')
+                                        <td>
+                                            <div class="button-container">
                                                 <button
-                                                    class="rounded border-2 border-[#FF0100] bg-white px-2 py-1 font-normal text-black hover:bg-[#FF0100] hover:text-white"
-                                                    onclick="confirmCancel({{ $surat->id }})">
-                                                    Batalkan
+                                                    class="rounded border-2 border-[#635555] bg-white px-2 py-1 font-normal text-black hover:bg-[#000000] hover:text-white"
+                                                    onclick="modalReview({{ $surat->id }})">
+                                                    Lihat
                                                 </button>
-
-                                            </form>
-                                            {{-- <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                                data-bs-target="#modalInfo{{ $surat->id }}">
-                                                Launch static backdrop modal
-                                            </button> --}}
+                                                <form action="{{ route('pengajuanBatal', $surat->id) }}"
+                                                    method="POST" id="form-pembatalan-{{ $surat->id }}">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button
+                                                        class="rounded border-2 border-[#FF0100] bg-white px-2 py-1 font-normal text-black hover:bg-[#FF0100] hover:text-white"
+                                                        onclick="confirmCancel({{ $surat->id }})">
+                                                        Batalkan
+                                                    </button>
+                                                </form>
+                                            </div>
                                         </td>
                                     </tr>
+                                    {{-- <tr class="h-full"></tr> --}}
                                 @endforeach
-
-                                {{-- @foreach ($dataSurat as $surat)
-                                    <div class="modal fade" id="modalInfo{{ $surat->id }}"
-                                        data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-                                        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title
-                                                    </h1>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                        aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    ...
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary"
-                                                        data-bs-dismiss="modal">Close</button>
-                                                    <button type="button" class="btn btn-primary">Understood</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endforeach --}}
-                                <tr class="h-full"></tr>
                             </tbody>
                         </table>
                     </div>
@@ -261,18 +296,18 @@
                 lengthChange: true,
                 pageLength: 10,
                 language: {
-                    search: "Cari:",
-                    lengthMenu: "Tampilkan _MENU_ data per halaman",
-                    info: "Menampilkan _START_ hingga _END_ dari _TOTAL_ entri",
+                    search: 'Cari:',
+                    lengthMenu: 'Tampilkan _MENU_ data per halaman',
+                    info: 'Menampilkan _START_ hingga _END_ dari _TOTAL_ entri',
                     paginate: {
-                        first: "Pertama",
-                        last: "Terakhir",
-                        next: "Berikutnya",
-                        previous: "Sebelumnya"
+                        first: 'Pertama',
+                        last: 'Terakhir',
+                        next: 'Berikutnya',
+                        previous: 'Sebelumnya',
                     },
-                    infoEmpty: "Tidak ada data yang tersedia",
-                    zeroRecords: "Tidak ditemukan data yang sesuai",
-                }
+                    infoEmpty: 'Tidak ada data yang tersedia',
+                    zeroRecords: 'Tidak ditemukan data yang sesuai',
+                },
             });
         });
 
@@ -295,6 +330,88 @@
             });
         }
 
+        function modalReview(id) {
+            Swal.fire({
+                html: `
+                    <style>
+                        .label{
+                            width: 250px;
+                        }
+
+                        th{
+                            width: 20px;
+                            padding-bottom: 10px;
+                        }
+                        </style>
+                    <div class="row">
+            <div class="col-lg-10">
+                <div class="card mb-4 shadow">
+                    <div class="card-header py-3 text-3xl">
+                        Data Pengajuan Surat
+                    </div>
+                    <div class="card-body w-full text-left border-collapse">
+                        <table width="100% " class="flex gap-6">
+                            <tr>
+                                <th class="label">NIK</th>
+                                <th>:</th>
+                                <td>text</td>
+                            </tr>
+                            <tr>
+                                <th class="label">Nama</th>
+                                <th>:</th>
+                                <td>text</td>
+                            </tr>
+                            <tr>
+                                <th class="label">Jenis Surat</th>
+                                <th>:</th>
+                                <td>text</td>
+                            </tr>
+                            <tr>
+                                <th class="label">RT</th>
+                                <th>:</th>
+                                <td>text</td>
+                            </tr>
+                            <tr>
+                                <th class="label">RW</th>
+                                <th>:</th>
+                                <td>text</td>
+                            </tr>
+                            <tr>
+                                <th class="label">Tanggal Pembuatan</th>
+                                <th>:</th>
+                                <td>text</td>
+                            </tr>
+                            <tr>
+                                <th class="label">Catatan Tambahan</th>
+                                <th>:</th>
+                                <td>text</td>
+                            </tr>
+                            <tr>
+                                <th class="label">KTP</th>
+                                <th>:</th>
+                            </tr>
+                            <tr>
+                                <th class="label">Kartu Keluarga</th>
+                                <th>:</th>
+                            </tr>
+
+                            <tr>
+                                <th class="label">Surat Pengantar RT/RW</th>
+                                <th>:</th>
+                            </tr>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>`,
+                width: '80vw',
+                height: '70vh',
+            }).then((result) => {
+                if (result.isConfirmed) {}
+            });
+        }
+
         document
             .getElementById('status_surat')
             .addEventListener('change', function() {
@@ -304,6 +421,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
+        crossorigin="anonymous"></script>
+    <script src="/assets/js/datatables-simple-demo.js"></script>
 </body>
 
 </html>
