@@ -76,14 +76,14 @@
                     </p>
                 </div>
 
-                <div class="flex gap-x-2">
+                {{-- <div class="flex gap-x-2">
                     <x-ui.button size="icon" variant="ghost" href="#">
                         <i class="fa-brands fa-square-instagram h-8 w-8"></i>
                     </x-ui.button>
                     <x-ui.button size="icon" variant="ghost" href="#">
                         <i class="fa-brands fa-square-whatsapp h-8 w-8"></i>
                     </x-ui.button>
-                </div>
+                </div> --}}
             </div>
 
             <div class="asap absolute left-0 right-0 top-0 z-10 md:top-[0] lg:top-[0] h-[800px] w-[100%]">
