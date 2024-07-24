@@ -47,7 +47,28 @@
                     </div>
                     <div class="form-group">
                         <label for="pekerjaan">Pekerjaan:</label>
-                        <input type="text" name="pekerjaan" id="pekerjaan" class="form-control" required />
+                        <select name="pekerjaan" id="pekerjaan" class="form-control" required>
+                            <option value="Aparatur Sipil Negara">Aparatur
+                                Sipil Negara</option>
+                            <option value="Pelajar/Mahasisiswa">
+                                Pelajar/Mahasiswa</option>
+                            <option value="Wiraswasta">
+                                Wiraswasta</option>
+                            <option value="Tidak Bekerja">
+                                Tidak Bekerja
+                            </option>
+                            <option value="Pengurus Rumah Tangga">Pengurus Rumah Tangga</option>
+                            <option value="Tenaga Medis">
+                                Tenaga Nedis
+                            </option>
+                            <option value="Karyawan Perusahaan Swasta">
+                                Karyawan Perusahaan Swasta</option>
+                            <option value="Tenaga Kesehatan">Tenaga Kesehatan
+                            </option>
+                            <option value="Lainnya">
+                                Lainnya</option>
+                        </select>
+                        {{-- <input type="text" name="pekerjaan" id="pekerjaan" class="form-control" required /> --}}
                     </div>
                     <div class="form-group">
                         <label for="RT">RT:</label>
