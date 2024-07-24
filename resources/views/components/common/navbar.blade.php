@@ -5,40 +5,32 @@
             <div class="flex gap-x-4">
                 <div>
                     <a class="inline-flex w-full items-center justify-start whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors hover:text-accent/75 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
-                        href="mailto:emailTegalmanggung@gmail.com">
+                        href="mailto:emailTegalmanggungDesa@gmail.com">
                         <i class="fa-solid fa-envelope mr-2"></i>
                         emailTegalmanggung@gmail.com
                     </a>
                 </div>
                 <div>
                     <a class="inline-flex w-full items-center justify-start whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors hover:text-accent/75 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
-                        href="tel:+6283522130922">
+                        href="https://api.whatsapp.com/send/?phone=6283822886761&text&type=phone_number&app_absent=0">
                         <i class="fa-solid fa-phone mr-2"></i>
-                        (+62) 835-2213-0922
+                        (+62) 8382-2886-761
                     </a>
                 </div>
             </div>
 
             <div class="flex items-center justify-between gap-x-2">
                 <a class="inline-flex h-5 w-5 items-center justify-center whitespace-nowrap rounded-md text-sm font-medium text-[#FCE5AD] ring-offset-background transition-colors hover:text-[#F8C549] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
-                    href="#">
-                    <i class="fa-brands fa-twitter h-4 w-4"></i>
+                    href="https://www.tiktok.com/@tegalmanggung">
+                    <i class="fa-brands fa-tiktok h-4 w-4"></i>
                 </a>
                 <a class="inline-flex h-5 w-5 items-center justify-center whitespace-nowrap rounded-md text-sm font-medium text-[#FCE5AD] ring-offset-background transition-colors hover:text-[#F8C549] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
-                    href="#">
-                    <i class="fa-brands fa-facebook-f h-4 w-4"></i>
-                </a>
-                <a class="inline-flex h-5 w-5 items-center justify-center whitespace-nowrap rounded-md text-sm font-medium text-[#FCE5AD] ring-offset-background transition-colors hover:text-[#F8C549] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
-                    href="#">
+                    href="https://www.youtube.com/@desategalmanggung">
                     <i class="fa-brands fa-youtube h-4 w-4"></i>
                 </a>
                 <a class="inline-flex h-5 w-5 items-center justify-center whitespace-nowrap rounded-md text-sm font-medium text-[#FCE5AD] ring-offset-background transition-colors hover:text-[#F8C549] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
-                    href="#">
+                    href="https://www.instagram.com/tegalmanggung.official/">
                     <i class="fa-brands fa-instagram h-4 w-4"></i>
-                </a>
-                <a class="inline-flex h-5 w-5 items-center justify-center whitespace-nowrap rounded-md text-sm font-medium text-[#FCE5AD] ring-offset-background transition-colors hover:text-[#F8C549] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
-                    href="#">
-                    <i class="fa-brands fa-linkedin h-4 w-4"></i>
                 </a>
             </div>
         </div>
