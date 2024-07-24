@@ -27,7 +27,7 @@
                             <h5 id="nama_kontak">{{ $kon->nama }}:</h5>
                             <p>
                                 <i class="fa-solid fa-phone mr-2" id="nomor_telepon"></i>
-                                {{ $kon->nomor_telepon }}
+                                <a href="wa.me {{ $kon->nomor_telepon }}">+{{ $kon->nomor_telepon }}</a>
                             </p>
                         </li>
                     @endforeach
@@ -43,29 +43,21 @@
                 <a href="https://maps.app.goo.gl/hw5Y8RykFhLfbcFn7"
                     class="leading-7 text-muted [&:not(:first-child)]:mt-2">
                     <i class="fa-solid fa-location-dot mr-2"></i>
-                    Tegalmanggung, Cimanggung, Sumedang Regency, West Java 45364
+                    Jl. Parakanmuncang - Sindulang KM 09, Kec. Cimanggung, Kab. Sumedang.
                 </a>
 
                 <div class="mt-4 flex items-center justify-between gap-x-2 sm:max-w-64">
                     <a class="inline-flex h-5 w-5 items-center justify-center whitespace-nowrap rounded-md text-sm font-medium text-[#FCE5AD] ring-offset-background transition-colors hover:text-[#F8C549] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
-                        href="#">
-                        <i class="fa-brands fa-twitter h-6 w-6"></i>
+                        href="https://www.tiktok.com/@tegalmanggung">
+                        <i class="fa-brands fa-tiktok h-6 w-6"></i>
                     </a>
                     <a class="inline-flex h-5 w-5 items-center justify-center whitespace-nowrap rounded-md text-sm font-medium text-[#FCE5AD] ring-offset-background transition-colors hover:text-[#F8C549] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
-                        href="#">
-                        <i class="fa-brands fa-facebook-f h-6 w-6"></i>
-                    </a>
-                    <a class="inline-flex h-5 w-5 items-center justify-center whitespace-nowrap rounded-md text-sm font-medium text-[#FCE5AD] ring-offset-background transition-colors hover:text-[#F8C549] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
-                        href="#">
-                        <i class="fa-brands fa-youtube h-6 w-6"></i>
-                    </a>
-                    <a class="inline-flex h-5 w-5 items-center justify-center whitespace-nowrap rounded-md text-sm font-medium text-[#FCE5AD] ring-offset-background transition-colors hover:text-[#F8C549] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
-                        href="#">
+                        href="https://www.instagram.com/tegalmanggung.official/">
                         <i class="fa-brands fa-instagram h-6 w-6"></i>
                     </a>
                     <a class="inline-flex h-5 w-5 items-center justify-center whitespace-nowrap rounded-md text-sm font-medium text-[#FCE5AD] ring-offset-background transition-colors hover:text-[#F8C549] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
-                        href="#">
-                        <i class="fa-brands fa-linkedin h-6 w-6"></i>
+                        href="https://www.youtube.com/@desategalmanggung">
+                        <i class="fa-brands fa-youtube h-6 w-6"></i>
                     </a>
                 </div>
             </div>

@@ -26,7 +26,7 @@ class SaranaController extends Controller
         $request->validate([
             'nama' => 'required|string',
             'jumlah' => 'required|integer',
-            'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svf|max:2048',
         ]);
 
         $imagePath = null;
@@ -54,7 +54,7 @@ class SaranaController extends Controller
         $request->validate([
             'nama' => 'required|string',
             'jumlah' => 'required|integer',
-            'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         if ($request->hasFile('gambar')) {

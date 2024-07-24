@@ -49,7 +49,7 @@
                                     </div>
                                     <div class="form-group mt-3">
                                         <label for="gambar">Gambar</label>
-                                        <input type="file" name="gambar" class="form-control" id="gambar">
+                                        <input type="file" name="gambar" class="form-control" id="img">
                                         @if ($sarana->gambar)
                                             <img src="{{ asset('storage/' . $sarana->gambar) }}" class="img-thumbnail mt-2"
                                                 width="150px">

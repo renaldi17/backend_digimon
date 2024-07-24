@@ -99,8 +99,8 @@
                                     </div>
 
                                     <div class="flex w-[80%] flex-row">
-                                        <div
-                                            class="h-[100%] w-[{{ number_format(($pendudukCountsByGender->{'Laki-laki'} / $totalPenduduk) * 100, 1) }}%] shrink-0 bg-green-900">
+                                        <div class="h-[100%]  shrink-0 bg-green-900"
+                                            style="width : {{ number_format(($pendudukCountsByGender->{'Laki-laki'} / $totalPenduduk) * 100, 1) . '%' }};">
                                         </div>
                                         <p class="ml-[5%] self-center">
                                             {{ $pendudukCountsByGender->{'Laki-laki'} ?? 0 }}
@@ -115,8 +115,9 @@
                                         <p class="text-center">Perempuan</p>
                                     </div>
                                     <div class="flex w-[80%] flex-row">
-                                        <div
-                                            class="h-[100%] w-[{{ number_format(($pendudukCountsByGender->{'Laki-laki'} / $totalPenduduk) * 100, 1) }}%] shrink-0 bg-green-900">
+                                        <div class="h-[100%] shrink-0 bg-green-900"
+                                            style="width :
+                                            {{ number_format(($pendudukCountsByGender->{'Perempuan'} / $totalPenduduk) * 100, 1) . '%' }};">
                                         </div>
                                         <p class="ml-[5%] self-center">
                                             {{ $pendudukCountsByGender->{'Perempuan'} ?? 0 }}
@@ -149,7 +150,10 @@
                                         <p class="text-center">SD</p>
                                     </div>
                                     <div class="flex w-[80%] flex-row">
-                                        <div class="h-[100%] w-[12%] shrink-0 bg-green-900"></div>
+                                        <div class="h-[100%] shrink-0 bg-green-900"
+                                            style="width :
+                                            {{ number_format(($pendudukCountsByEdu->{'SD'} / $totalPenduduk) * 100, 1) . '%' }};">
+                                        </div>
                                         <p class="ml-[5%] self-center">
                                             {{ $pendudukCountsByEdu->{'SD'} ?? 0 }}
                                         </p>
@@ -163,7 +167,10 @@
                                         <p class="text-center">SMP</p>
                                     </div>
                                     <div class="flex w-[80%] flex-row">
-                                        <div class="h-[100%] w-[15%] shrink-0 bg-green-900"></div>
+                                        <div class="h-[100%] shrink-0 bg-green-900"
+                                            style="width :
+                                            {{ number_format(($pendudukCountsByEdu->{'SMP'} / $totalPenduduk) * 100, 1) . '%' }};">
+                                        </div>
                                         <p class="ml-[5%] self-center">
                                             {{ $pendudukCountsByEdu->{'SMP'} ?? 0 }}
                                         </p>
@@ -177,7 +184,10 @@
                                         <p class="text-center">SMA</p>
                                     </div>
                                     <div class="flex w-[80%] flex-row">
-                                        <div class="h-[100%] w-[13%] shrink-0 bg-green-900"></div>
+                                        <div class="h-[100%] shrink-0 bg-green-900"
+                                            style="width :
+                                            {{ number_format(($pendudukCountsByEdu->{'SMA'} / $totalPenduduk) * 100, 1) . '%' }};">
+                                        </div>
                                         <p class="ml-[5%] self-center">
                                             {{ $pendudukCountsByEdu->{'SMA'} ?? 0 }}
                                         </p>
@@ -191,7 +201,10 @@
                                         <p class="text-center">Diploma</p>
                                     </div>
                                     <div class="flex w-[80%] flex-row">
-                                        <div class="h-[100%] w-[5%] shrink-0 bg-green-900"></div>
+                                        <div class="h-[100%] shrink-0 bg-green-900"
+                                            style="width :
+                                            {{ number_format(($pendudukCountsByEdu->{'Diploma'} / $totalPenduduk) * 100, 1) . '%' }};">
+                                        </div>
                                         <p class="ml-[5%] self-center">
                                             {{ $pendudukCountsByEdu->{'Diploma'} ?? 0 }}
                                         </p>
@@ -205,7 +218,10 @@
                                         <p class="text-center">S1</p>
                                     </div>
                                     <div class="flex w-[80%] flex-row">
-                                        <div class="h-[100%] w-[25%] shrink-0 bg-green-900"></div>
+                                        <div class="h-[100%] shrink-0 bg-green-900"
+                                            style="width :
+                                            {{ number_format(($pendudukCountsByEdu->{'S1'} / $totalPenduduk) * 100, 1) . '%' }};">
+                                        </div>
                                         <p class="ml-[5%] self-center">
                                             {{ $pendudukCountsByEdu->{'S1'} ?? 0 }}
                                         </p>
@@ -219,7 +235,10 @@
                                         <p class="text-center">S2</p>
                                     </div>
                                     <div class="flex w-[80%] flex-row">
-                                        <div class="h-[100%] w-[10%] shrink-0 bg-green-900"></div>
+                                        <div class="h-[100%] shrink-0 bg-green-900"
+                                            style="width :
+                                            {{ number_format(($pendudukCountsByEdu->{'S2'} / $totalPenduduk) * 100, 1) . '%' }};">
+                                        </div>
                                         <p class="ml-[5%] self-center">
                                             {{ $pendudukCountsByEdu->{'S2'} ?? 0 }}
                                         </p>
@@ -233,7 +252,10 @@
                                         <p class="text-center">S3</p>
                                     </div>
                                     <div class="flex w-[80%] flex-row">
-                                        <div class="h-[100%] w-[5%] shrink-0 bg-green-900"></div>
+                                        <div class="h-[100%] shrink-0 bg-green-900"
+                                            style="width :
+                                            {{ number_format(($pendudukCountsByEdu->{'S3'} / $totalPenduduk) * 100, 1) . '%' }};">
+                                        </div>
                                         <p class="ml-[5%] self-center">
                                             {{ $pendudukCountsByEdu->{'S3'} ?? 0 }}
                                         </p>
@@ -249,7 +271,10 @@
                                         </p>
                                     </div>
                                     <div class="flex w-[80%] flex-row">
-                                        <div class="h-[100%] w-[15%] shrink-0 bg-green-900"></div>
+                                        <div class="h-[100%] shrink-0 bg-green-900"
+                                            style="width :
+                                            {{ number_format(($pendudukCountsByEdu->{'Putus Sekolah'} / $totalPenduduk) * 100, 1) . '%' }};">
+                                        </div>
                                         <p class="ml-[5%] self-center">
                                             {{ $pendudukCountsByEdu->{'Putus Sekolah'} ?? 0 }}
                                         </p>
@@ -281,7 +306,10 @@
                                         <p class="text-center">Aparatur Sipil Negara</p>
                                     </div>
                                     <div class="flex w-[80%] flex-row">
-                                        <div class="h-[100%] w-[10%] shrink-0 bg-green-900"></div>
+                                        <div class="h-[100%] shrink-0 bg-green-900"
+                                            style="width :
+                                            {{ number_format(($pendudukCountsByJob->{'Aparatur Sipil Negara'} / $totalPenduduk) * 100, 1) . '%' }};">
+                                        </div>
                                         <p class="ml-[5%] self-center">
                                             {{ $pendudukCountsByJob->{'Aparatur Sipil Negara'} ?? 0 }}
                                         </p>
@@ -295,7 +323,10 @@
                                         <p class="text-center">Pelajar/Mahasiswa</p>
                                     </div>
                                     <div class="flex w-[80%] flex-row">
-                                        <div class="h-[100%] w-[15%] shrink-0 bg-green-900"></div>
+                                        <div class="h-[100%] shrink-0 bg-green-900"
+                                            style="width :
+                                        {{ number_format(($pendudukCountsByJob->{'Pelajar/Mahasiswa'} / $totalPenduduk) * 100, 1) . '%' }};">
+                                        </div>
                                         <p class="ml-[5%] self-center">
                                             {{ $pendudukCountsByJob->{'Pelajar/Mahasiswa'} ?? 0 }}
                                         </p>
@@ -311,7 +342,10 @@
                                         </p>
                                     </div>
                                     <div class="flex w-[80%] flex-row">
-                                        <div class="h-[100%] w-[20%] shrink-0 bg-green-900"></div>
+                                        <div class="h-[100%] shrink-0 bg-green-900"
+                                            style="width :
+                                            {{ number_format(($pendudukCountsByJob->{'Wiraswasta'} / $totalPenduduk) * 100, 1) . '%' }};">
+                                        </div>
                                         <p class="ml-[5%] self-center">
                                             {{ $pendudukCountsByJob->{'Wiraswasta'} ?? 0 }}
                                         </p>
@@ -327,7 +361,10 @@
                                         </p>
                                     </div>
                                     <div class="flex w-[80%] flex-row">
-                                        <div class="h-[100%] w-[15%] shrink-0 bg-green-900"></div>
+                                        <div class="h-[100%] shrink-0 bg-green-900"
+                                            style="width :
+                                            {{ number_format(($pendudukCountsByJob->{'Tidak Bekerja'} / $totalPenduduk) * 100, 1) . '%' }};">
+                                        </div>
                                         <p class="ml-[5%] self-center">
                                             {{ $pendudukCountsByJob->{'Tidak Bekerja'} ?? 0 }}
                                         </p>
@@ -343,7 +380,10 @@
                                         </p>
                                     </div>
                                     <div class="flex w-[80%] flex-row">
-                                        <div class="h-[100%] w-[15%] shrink-0 bg-green-900"></div>
+                                        <div class="h-[100%] shrink-0 bg-green-900"
+                                            style="width :
+                                            {{ number_format(($pendudukCountsByJob->{'Pengurus Rumah Tangga'} / $totalPenduduk) * 100, 1) . '%' }};">
+                                        </div>
                                         <p class="ml-[5%] self-center">
                                             {{ $pendudukCountsByJob->{'Pengurus Rumah Tangga'} ?? 0 }}
                                         </p>
@@ -357,7 +397,10 @@
                                         <p class="text-center">Tenaga Medis</p>
                                     </div>
                                     <div class="flex w-[80%] flex-row">
-                                        <div class="h-[100%] w-[15%] shrink-0 bg-green-900"></div>
+                                        <div class="h-[100%] shrink-0 bg-green-900"
+                                            style="width :
+                                            {{ intval(($pendudukCountsByJob->{'Tenaga Medis'} / $totalPenduduk) * 100, 1) . '%' }};">
+                                        </div>
                                         <p class="ml-[5%] self-center">
                                             {{ $pendudukCountsByJob->{'Tenaga Medis'} ?? 0 }}
                                         </p>
@@ -371,7 +414,10 @@
                                         <p class="text-center">Tenaga Kesehatan</p>
                                     </div>
                                     <div class="flex w-[80%] flex-row">
-                                        <div class="h-[100%] w-[15%] shrink-0 bg-green-900"></div>
+                                        <div class="h-[100%] shrink-0 bg-green-900"
+                                            style="width :
+                                            {{ intval(($pendudukCountsByJob->{'Tenaga Kesehatan'} / $totalPenduduk) * 100, 1) . '%' }};">
+                                        </div>
                                         <p class="ml-[5%] self-center">
                                             {{ $pendudukCountsByJob->{'Tenaga Kesehatan'} ?? 0 }}
                                         </p>
@@ -385,12 +431,52 @@
                                         <p class="text-center">Lainnya</p>
                                     </div>
                                     <div class="flex w-[80%] flex-row">
-                                        <div class="h-[100%] w-[15%] shrink-0 bg-green-900"></div>
+                                        <div class="h-[100%] shrink-0 bg-green-900"
+                                            style="width :
+                                            {{ number_format(($pendudukCountsByJob->{'Lainnya'} / $totalPenduduk) * 100, 1) . '%' }};">
+                                        </div>
                                         <p class="ml-[5%] self-center">
                                             {{ $pendudukCountsByJob->{'Lainnya'} ?? 0 }}
                                         </p>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <!-- Slide 4: Sarana -->
+                <div class="swiper-slide">
+                    <article class="mt-8 flex w-full flex-col items-center gap-48">
+                        <div class="flex w-[70%] flex-col justify-between gap-10 md:flex-row md:gap-0">
+                            <div class="flex w-full flex-col items-center md:w-[50%]">
+                                <div class="h-[140px] w-[140px] shrink-0">
+                                    <img src="assets/work.svg" alt="Pekerjaan" />
+                                </div>
+                                <h3 class="text-center text-2xl">
+                                    <strong>Sarana & Prasarana</strong>
+                                </h3>
+                                <p>Total: {{ $totalSarana }}</p>
+                            </div>
+                            <div class="md:nowrap flex w-full flex-col flex-wrap items-start gap-14 md:w-[50%]">
+                                @foreach ($tampilSarana as $sarana)
+                                    <div class="flex h-24 w-full flex-row gap-10">
+                                        <div class="flex w-[20%] flex-col items-center gap-0">
+                                            <div class="h-[79.91px] w-[79.91px] shrink-0">
+                                                <img src="/storage/{{ $sarana['gambar'] }}" alt="PNS" />
+                                            </div>
+                                            <p class="text-center">{{ $sarana['nama'] }}</p>
+                                        </div>
+                                        <div class="flex w-[80%] flex-row">
+                                            <div class="h-[100%] w-[%] shrink-0 bg-green-900"
+                                                style="width :
+                                                {{ number_format(($sarana['jumlah'] / $totalSarana) * 100, 1) . '%' }};">
+                                            </div>
+                                            <p class="ml-[5%] self-center">
+                                                {{ $sarana['jumlah'] }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                @endforeach
                             </div>
                         </div>
                     </article>

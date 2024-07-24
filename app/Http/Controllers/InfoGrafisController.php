@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Kontak;
 use App\Models\Penduduk;
+use App\Models\Sarana;
 
 class InfoGrafisController extends Controller
 {
@@ -33,9 +34,12 @@ class InfoGrafisController extends Controller
         $pendudukCountsByEdu = (object) $byEdu;
         $pendudukCountsByJob = (object) $byJob;
 
+        $tampilSarana = Sarana::all();
+        $totalSarana = Sarana::sum('jumlah');
+
         $kontaks = Kontak::limit(3)->get();
 
         // dd($pendudukCountsByEdu);
-        return view('infografis', compact('pendudukCountsByGender', 'pendudukCountsByEdu', 'pendudukCountsByJob', 'totalPenduduk', 'kontaks'));
+        return view('infografis', compact('pendudukCountsByGender', 'pendudukCountsByEdu', 'pendudukCountsByJob', 'totalPenduduk', 'kontaks', 'totalSarana', 'tampilSarana'));
     }
 }
