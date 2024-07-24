@@ -203,6 +203,9 @@
                                     <th class="px-4 py-6 font-normal">
                                         Tanggal Buat
                                     </th>
+                                    <th>
+                                        File Balasan
+                                    </th>
                                     <th class="px-4 py-6 font-normal">
                                         Status Surat
                                     </th>
@@ -228,6 +231,15 @@
                                             <div class="button-container">
                                                 {{ $surat->created_at ? \Carbon\Carbon::parse($surat->created_at)->isoFormat('D MMMM Y') : '-' }}
                                             </div>
+                                        </td>
+
+                                        <td class="border-b px-4 py-2 text-center">
+                                            @if ($surat->file_balasan)
+                                                <a href="/storage/{{ $surat->file_balasan }}" target="_blank"
+                                                    style="margin-top:3px; text-decoration: none; background-color:cyan; border-radius:5px; padding:10px; color:white;">Preview/Download</a>
+                                            @else
+                                                -
+                                            @endif
                                         </td>
                                         <td class="border-b px-4 py-2 text-center">
                                             <div class="button-container">
@@ -258,11 +270,11 @@
                                         </td>
                                         <td>
                                             <div class="button-container">
-                                                <button
+                                                {{-- <button
                                                     class="rounded border-2 border-[#635555] bg-white px-2 py-1 font-normal text-black hover:bg-[#000000] hover:text-white"
                                                     onclick="modalReview({{ $surat->id }})">
                                                     Lihat
-                                                </button>
+                                                </button> --}}
                                                 <form action="{{ route('pengajuanBatal', $surat->id) }}"
                                                     method="POST" id="form-pembatalan-{{ $surat->id }}">
                                                     @csrf
@@ -330,87 +342,37 @@
             });
         }
 
-        function modalReview(id) {
-            Swal.fire({
-                html: `
-                    <style>
-                        .label{
-                            width: 250px;
-                        }
+        // function modalReview(id) {
+        //     Swal.fire({
+        //         html: `
+    //             <style>
+    //                 .label{
+    //                     width: 250px;
+    //                 }
 
-                        th{
-                            width: 20px;
-                            padding-bottom: 10px;
-                        }
-                        </style>
-                    <div class="row">
-            <div class="col-lg-10">
-                <div class="card mb-4 shadow">
-                    <div class="card-header py-3 text-3xl">
-                        Data Pengajuan Surat
-                    </div>
-                    <div class="card-body w-full text-left border-collapse">
-                        <table width="100% " class="flex gap-6">
-                            <tr>
-                                <th class="label">NIK</th>
-                                <th>:</th>
-                                <td>text</td>
-                            </tr>
-                            <tr>
-                                <th class="label">Nama</th>
-                                <th>:</th>
-                                <td>text</td>
-                            </tr>
-                            <tr>
-                                <th class="label">Jenis Surat</th>
-                                <th>:</th>
-                                <td>text</td>
-                            </tr>
-                            <tr>
-                                <th class="label">RT</th>
-                                <th>:</th>
-                                <td>text</td>
-                            </tr>
-                            <tr>
-                                <th class="label">RW</th>
-                                <th>:</th>
-                                <td>text</td>
-                            </tr>
-                            <tr>
-                                <th class="label">Tanggal Pembuatan</th>
-                                <th>:</th>
-                                <td>text</td>
-                            </tr>
-                            <tr>
-                                <th class="label">Catatan Tambahan</th>
-                                <th>:</th>
-                                <td>text</td>
-                            </tr>
-                            <tr>
-                                <th class="label">KTP</th>
-                                <th>:</th>
-                            </tr>
-                            <tr>
-                                <th class="label">Kartu Keluarga</th>
-                                <th>:</th>
-                            </tr>
+    //                 th{
+    //                     width: 20px;
+    //                     padding-bottom: 10px;
+    //                 }
+    //                 </style>
+    //             <div class="row">
+    //     <div class="col-lg-10">
+    //         <div class="card mb-4 shadow">
+    //             <div class="card-header py-3 text-3xl">
+    //                 Data Pengajuan Surat
+    //             </div>
+    //             <div class="card-body w-full text-left border-collapse align-items-center">
 
-                            <tr>
-                                <th class="label">Surat Pengantar RT/RW</th>
-                                <th>:</th>
-                            </tr>
-                        </table>
-
-                    </div>
-                </div>
-            </div>
-        </div>`,
-                width: '80vw',
-                height: '70vh',
-            }).then((result) => {
-                if (result.isConfirmed) {}
-            });
-        }
+    //             </div>
+    //         </div>
+    //     </div>
+    // </div>`,
+        //         width: '80vw',
+        //         height: '70vh',
+        //     }).then((result) => {
+        //         if (result.isConfirmed) {}
+        //     });
+        // }
 
         document
             .getElementById('status_surat')
